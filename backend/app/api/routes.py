@@ -3,18 +3,27 @@ from fastapi import APIRouter, HTTPException
 from app.schemas.graph import GraphResponse
 from app.schemas.task import ResearchTaskCreate, ResearchTaskResponse, TaskStatusResponse
 from app.services.news_research import run_news_research
+from app.services.storage import load_persisted_state, save_task_result
 
 
 router = APIRouter()
 
-_TASKS: dict[str, TaskStatusResponse] = {}
-_GRAPHS: dict[str, GraphResponse] = {}
+_TASKS, _GRAPHS = load_persisted_state()
+
+
+@router.get("/research/tasks", response_model=list[TaskStatusResponse])
+def list_tasks() -> list[TaskStatusResponse]:
+    return sorted(
+        _TASKS.values(),
+        key=lambda task: task.task_id,
+        reverse=True,
+    )
 
 
 @router.post("/research/tasks", response_model=ResearchTaskResponse)
 def create_task(payload: ResearchTaskCreate) -> ResearchTaskResponse:
     task_id = f"task_{len(_TASKS) + 1:03d}"
-    _TASKS[task_id] = TaskStatusResponse(
+    task = TaskStatusResponse(
         task_id=task_id,
         status="completed",
         progress=100,
@@ -22,12 +31,14 @@ def create_task(payload: ResearchTaskCreate) -> ResearchTaskResponse:
         start_date=payload.start_date,
         end_date=payload.end_date,
     )
+    _TASKS[task_id] = task
     graph = run_news_research(
         payload.company_name,
         payload.start_date,
         payload.end_date,
     )
     _GRAPHS[task_id] = graph
+    save_task_result(task, graph)
 
     event_nodes = [node for node in graph.nodes if node.type == "Event"]
     generated_by = sorted(

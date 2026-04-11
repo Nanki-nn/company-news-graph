@@ -95,6 +95,9 @@ export const messages = {
     aiMixed: "部分使用 AI",
     aiProvider: "AI 提供方",
     aiReason: "未使用 AI 原因",
+    taskHistory: "历史任务",
+    loadTask: "载入任务",
+    noTasks: "还没有历史任务，先运行一次研究任务。",
     graphTitle: "图谱预览",
     graphDescription:
       "图谱区域已接入 Cytoscape.js，可直接查看节点、关系和结构分布。",
@@ -141,6 +144,9 @@ export const messages = {
     aiMixed: "Mixed",
     aiProvider: "AI Provider",
     aiReason: "Why AI Was Not Used",
+    taskHistory: "Task History",
+    loadTask: "Load Task",
+    noTasks: "No saved tasks yet. Run a research task first.",
     graphTitle: "Graph Preview",
     graphDescription:
       "The graph area is powered by Cytoscape.js and already renders nodes and relations interactively.",

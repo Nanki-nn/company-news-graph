@@ -433,16 +433,15 @@ def build_cluster_summary(company_name: str, cluster: EventCluster) -> str:
     source_names = sorted({item.source_name for item in cluster.items if item.source_name})
     article_count = len(cluster.items)
     if article_count == 1:
-        return representative.summary
+        return f"{company_name}近期出现一条与{event_type_to_zh_label(cluster.event_type)}相关的动态：{representative.summary}"
 
     title_samples = [item.source_title for item in cluster.items[:3]]
     summary = (
-        f"{company_name} had {article_count} related reports around "
-        f"{event_type_to_label(cluster.event_type).lower()}. "
-        f"Representative headlines: {'; '.join(title_samples)}."
+        f"{company_name}近期出现{article_count}条与{event_type_to_zh_label(cluster.event_type)}相关的报道。"
+        f"代表性标题包括：{'；'.join(title_samples)}。"
     )
     if source_names:
-        summary += f" Sources include {', '.join(source_names[:3])}."
+        summary += f" 主要来源包括：{'、'.join(source_names[:3])}。"
     return summary[:420]
 
 
@@ -466,13 +465,13 @@ def build_cluster_key_points(cluster: EventCluster) -> list[str]:
     points: list[str] = []
     unique_sources = sorted({item.source_name for item in cluster.items if item.source_name})
     if cluster.items:
-        points.append(f"{len(cluster.items)} related articles in this cluster.")
-        points.append(f"Most recent article date: {cluster.items[0].published_date}.")
+        points.append(f"该事件聚合了 {len(cluster.items)} 条相关新闻。")
+        points.append(f"最新报道日期为 {cluster.items[0].published_date}。")
     if unique_sources:
-        points.append(f"Covered by {', '.join(unique_sources[:3])}.")
+        points.append(f"报道来源包括：{'、'.join(unique_sources[:3])}。")
     headline = cluster.items[0].source_title if cluster.items else ""
     if headline:
-        points.append(f"Representative headline: {headline}.")
+        points.append(f"代表性标题：{headline}。")
     return points[:4]
 
 
@@ -629,19 +628,22 @@ def build_llm_messages(company_name: str, cluster: EventCluster) -> list[dict[st
         {
             "role": "system",
             "content": (
-                "You summarize clustered company news into one concise business event. "
-                "Return strict JSON with keys: title, summary, key_points, confidence. "
-                "title: <= 12 words. summary: <= 90 words. key_points: array of 2 to 4 short bullets. "
-                "confidence: one of high, medium, low. Do not include markdown."
+                "你是一名公司研究分析师。请把一组相关新闻总结为一个中文关键事件。"
+                "必须返回严格 JSON，字段为 title, summary, key_points, confidence。"
+                "title：中文标题，不超过18个汉字。"
+                "summary：中文摘要，80到140字。"
+                "key_points：2到4条中文要点。"
+                "confidence：只能是 high、medium、low。"
+                "不要输出 markdown，不要输出解释文字。"
             ),
         },
         {
             "role": "user",
             "content": (
-                f"Company: {company_name}\n"
-                f"Event type: {cluster.event_type}\n"
-                f"Cluster size: {len(cluster.items)}\n"
-                f"Articles:\n{'\n'.join(article_lines)}"
+                f"公司：{company_name}\n"
+                f"事件类型：{event_type_to_zh_label(cluster.event_type)}\n"
+                f"聚类新闻数量：{len(cluster.items)}\n"
+                f"新闻列表：\n{'\n'.join(article_lines)}"
             ),
         },
     ]
@@ -823,6 +825,19 @@ def extract_key_points_from_text(lines: list[str]) -> list[str]:
         if normalized.startswith(("-", "*")) or re.match(r"^\d+\.", normalized):
             candidates.append(re.sub(r"^(\d+\.|[-*])\s*", "", normalized).strip())
     return [item for item in candidates if item][:4]
+
+
+def event_type_to_zh_label(event_type: str) -> str:
+    mapping = {
+        "partnership": "合作进展",
+        "product_launch": "产品发布",
+        "earnings": "财报业绩",
+        "acquisition": "并购交易",
+        "leadership_change": "高管变动",
+        "regulation": "监管事件",
+        "news": "一般动态",
+    }
+    return mapping.get(event_type, "一般动态")
 
 
 def parse_llm_json(text: str) -> dict[str, object] | None:

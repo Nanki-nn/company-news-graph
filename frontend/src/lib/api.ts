@@ -33,6 +33,15 @@ type TaskResponse = {
   status: "queued" | "running" | "completed" | "failed";
 };
 
+export type TaskStatusResponse = {
+  task_id: string;
+  status: "queued" | "running" | "completed" | "failed";
+  progress: number;
+  company_name: string;
+  start_date: string;
+  end_date: string;
+};
+
 export async function runResearchTask(params: {
   companyName: string;
   startDate: string;
@@ -65,4 +74,20 @@ export async function runResearchTask(params: {
   }
 
   return (await graphResponse.json()) as GraphResponse;
+}
+
+export async function listResearchTasks(): Promise<TaskStatusResponse[]> {
+  const response = await fetch(`${API_BASE_URL}/research/tasks`);
+  if (!response.ok) {
+    throw new Error(`Failed to list tasks: ${response.status}`);
+  }
+  return (await response.json()) as TaskStatusResponse[];
+}
+
+export async function getResearchGraph(taskId: string): Promise<GraphResponse> {
+  const response = await fetch(`${API_BASE_URL}/research/tasks/${taskId}/graph`);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch graph: ${response.status}`);
+  }
+  return (await response.json()) as GraphResponse;
 }

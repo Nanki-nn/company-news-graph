@@ -153,6 +153,67 @@ h1 {
   color: #b42318;
 }
 
+.task-history {
+  display: grid;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.task-history-header strong {
+  color: #243b53;
+  font-size: 14px;
+}
+
+.task-history-empty {
+  margin: 0;
+  color: #627d98;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.task-history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.task-history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #f8fbff;
+  border: 1px solid #d9e2ec;
+}
+
+.task-history-item div {
+  display: grid;
+  gap: 4px;
+}
+
+.task-history-item strong {
+  color: #102a43;
+}
+
+.task-history-item span {
+  color: #627d98;
+  font-size: 12px;
+}
+
+.task-history-item button {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #0f6cbd;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 .summary-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
