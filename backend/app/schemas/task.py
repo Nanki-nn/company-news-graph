@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field, model_validator
 
 class ResearchTaskCreate(BaseModel):
     company_name: str = Field(min_length=1)
+    ticker: str = ""
     start_date: date
     end_date: date
     language: str = "en"
@@ -28,5 +29,6 @@ class TaskStatusResponse(BaseModel):
     status: Literal["queued", "running", "completed", "failed"]
     progress: int
     company_name: str
+    ticker: str = ""
     start_date: date
     end_date: date

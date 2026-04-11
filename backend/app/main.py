@@ -1,3 +1,5 @@
+import logging
+import os
 from pathlib import Path
 
 from fastapi import FastAPI
@@ -8,6 +10,20 @@ from app.api.routes import router
 
 
 load_dotenv(Path(__file__).resolve().parents[1] / ".env")
+
+_log_level = getattr(logging, os.getenv("LOG_LEVEL", "INFO").upper(), logging.INFO)
+_handler = logging.StreamHandler()
+_handler.setFormatter(logging.Formatter(
+    "%(asctime)s %(levelname)-8s %(name)s  %(message)s",
+    datefmt="%Y-%m-%dT%H:%M:%S",
+))
+_app_logger = logging.getLogger("company_news_graph")
+_app_logger.setLevel(_log_level)
+_app_logger.handlers.clear()
+_app_logger.addHandler(_handler)
+_app_logger.propagate = False
+print("[startup] company_news_graph logger ready, level=", _log_level, flush=True)
+_app_logger.info("[startup] logging initialized")
 
 
 app = FastAPI(

@@ -38,12 +38,14 @@ export type TaskStatusResponse = {
   status: "queued" | "running" | "completed" | "failed";
   progress: number;
   company_name: string;
+  ticker: string;
   start_date: string;
   end_date: string;
 };
 
 export async function runResearchTask(params: {
   companyName: string;
+  ticker: string;
   startDate: string;
   endDate: string;
   locale: Locale;
@@ -55,6 +57,7 @@ export async function runResearchTask(params: {
     },
     body: JSON.stringify({
       company_name: params.companyName,
+      ticker: params.ticker,
       start_date: params.startDate,
       end_date: params.endDate,
       language: params.locale,

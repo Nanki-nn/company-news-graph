@@ -28,12 +28,14 @@ def create_task(payload: ResearchTaskCreate) -> ResearchTaskResponse:
         status="completed",
         progress=100,
         company_name=payload.company_name,
+        ticker=payload.ticker,
         start_date=payload.start_date,
         end_date=payload.end_date,
     )
     _TASKS[task_id] = task
     graph = run_news_research(
         payload.company_name,
+        payload.ticker,
         payload.start_date,
         payload.end_date,
     )
@@ -66,6 +68,7 @@ def create_task(payload: ResearchTaskCreate) -> ResearchTaskResponse:
         "[company-news-graph]",
         f"task={task_id}",
         f"company={payload.company_name}",
+        f"ticker={payload.ticker or '-'}",
         f"events={len(event_nodes)}",
         f"generated_by={generated_by or ['rules']}",
         f"confidence={confidence or ['heuristic']}",

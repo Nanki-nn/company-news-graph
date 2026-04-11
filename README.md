@@ -36,6 +36,22 @@
 
 当前已经可以本地跑通“前端提交 -> 后端返回图数据 -> 前端展示结果”这一条最小流程。
 
+当前数据源优先级已经调整为更偏投资研究：
+
+1. `SEC EDGAR`
+   优先抓取 `8-K`、`10-K`、`10-Q`、`6-K` 等高价值官方披露
+2. `Google News RSS`
+   作为补充新闻源，但会经过“投资相关事件过滤”
+
+系统当前会优先保留更可能影响股价的事件，例如：
+
+- 财报与业绩指引
+- 并购与合作
+- 裁员与重组
+- 监管与诉讼
+- 回购、分红、融资等资本运作
+- 高管变动
+
 还没有接入更丰富的数据源、完整实体抽取和图数据库。
 
 ## 仓库结构
@@ -86,8 +102,19 @@ cp .env.example .env
 
 ```env
 COMPANY_NEWS_USE_AI=1
-LLM_PROVIDER=anthropic
+LLM_PROVIDER=claude-cli
 ```
+
+如果你本机 `Claude Code CLI` 已经配置可用，最省事的方式就是直接复用它：
+
+```env
+COMPANY_NEWS_USE_AI=1
+LLM_PROVIDER=claude-cli
+# CLAUDE_CLI_COMMAND=claude
+# CLAUDE_CLI_TIMEOUT_SECONDS=120
+```
+
+这种方式不需要你在项目里重复配置 `ANTHROPIC_AUTH_TOKEN` 和 `ANTHROPIC_BASE_URL`，后端会直接调用本机 `claude -p` 来生成事件摘要。
 
 如果你走 `Claude / Anthropic` 或中转站的 Anthropic 协议：
 
@@ -115,8 +142,10 @@ OPENAI_BASE_URL=https://your-openai-compatible-endpoint/v1
 
 支持两种 provider：
 
+- `claude-cli`
+  直接复用本机已登录可用的 `Claude Code CLI`
 - `anthropic` / `claude`
-  目前通过 `LangChain` 调用
+  目前通过 `requests` 直接请求 `/messages`
 - `openai-compatible`
   目前通过 `requests` 直接请求 `/chat/completions`
 
@@ -164,11 +193,12 @@ VITE_API_BASE_URL=http://127.0.0.1:8000 npm run dev
 2. 启动前端页面
 3. 输入公司名称、开始日期、结束日期
 4. 点击“开始研究”
-5. 后端从 `Google News RSS` 拉取新闻
-6. 后端基于标题和摘要做基础事件分类
-7. 后端将相近新闻聚成关键事件
-8. 如果启用了 AI，则生成事件摘要
-9. 前端拉取图谱结果并用 `Cytoscape.js` 展示
+5. 后端先从 `SEC EDGAR` 拉取官方披露，再补充 `Google News RSS`
+6. 后端过滤出更偏投资研究的相关事件
+7. 后端基于标题、摘要和表单类型做基础事件分类
+8. 后端将相近新闻聚成关键事件
+9. 如果启用了 AI，则生成事件摘要
+10. 前端拉取图谱结果并用 `Cytoscape.js` 展示
 
 当前已经接入真实单一数据源，并支持可选 AI 事件总结。
 

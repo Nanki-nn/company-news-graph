@@ -18,6 +18,17 @@ export function GraphView({ graph, locale }: GraphViewProps) {
   const copy = messages[locale];
   const [selected, setSelected] = useState<SelectedElement | null>(null);
   const graphContainerRef = useRef<HTMLDivElement | null>(null);
+  const legendItems = [
+    { type: "Company", color: "#0f6cbd" },
+    { type: "Event", color: "#efb814" },
+    { type: "Product", color: "#14b8a6" },
+    { type: "Source", color: "#7c3aed" }
+  ];
+  const impactLegendItems = [
+    { label: copy.impactPositive, color: "#16a34a" },
+    { label: copy.impactNegative, color: "#dc2626" },
+    { label: copy.impactNeutral, color: "#f59e0b" }
+  ];
 
   const nodeMap = useMemo(
     () => new Map(graph?.nodes.map((node) => [node.id, node]) ?? []),
@@ -43,7 +54,9 @@ export function GraphView({ graph, locale }: GraphViewProps) {
           id: node.id,
           label: translateGraphTerm(node.label, locale),
           type: translateGraphTerm(node.type, locale),
-          rawType: node.type
+          rawType: node.type,
+          rawImpact: String(node.data?.impact_direction ?? "neutral"),
+          rawImpactLevel: String(node.data?.impact_level ?? "low")
         }
       })),
       ...graph.edges.map((edge) => ({
@@ -85,12 +98,14 @@ export function GraphView({ graph, locale }: GraphViewProps) {
           style: {
             label: "data(label)",
             "text-wrap": "wrap",
-            "text-max-width": 120,
-            "font-size": 12,
+            "text-max-width": 96,
+            "font-size": 11,
             "font-weight": 700,
-            color: "#102a43",
+            color: "#ffffff",
             "text-valign": "center",
             "text-halign": "center",
+            "text-outline-color": "rgba(15, 23, 42, 0.42)",
+            "text-outline-width": 2,
             "background-color": "#9fb3c8",
             width: 56,
             height: 56,
@@ -109,13 +124,54 @@ export function GraphView({ graph, locale }: GraphViewProps) {
         {
           selector: 'node[rawType = "Event"]',
           style: {
-            "background-color": "#efb814"
+            "background-color": "#efb814",
+            color: "#102a43",
+            "text-outline-color": "rgba(255, 255, 255, 0.55)"
+          }
+        },
+        {
+          selector: 'node[rawType = "Event"][rawImpact = "positive"]',
+          style: {
+            "background-color": "#16a34a",
+            color: "#ffffff",
+            "text-outline-color": "rgba(15, 23, 42, 0.42)"
+          }
+        },
+        {
+          selector: 'node[rawType = "Event"][rawImpact = "negative"]',
+          style: {
+            "background-color": "#dc2626",
+            color: "#ffffff",
+            "text-outline-color": "rgba(15, 23, 42, 0.42)"
+          }
+        },
+        {
+          selector: 'node[rawType = "Event"][rawImpact = "neutral"]',
+          style: {
+            "background-color": "#f59e0b",
+            color: "#102a43",
+            "text-outline-color": "rgba(255, 255, 255, 0.55)"
+          }
+        },
+        {
+          selector: 'node[rawType = "Event"][rawImpactLevel = "high"]',
+          style: {
+            width: 70,
+            height: 70
+          }
+        },
+        {
+          selector: 'node[rawType = "Event"][rawImpactLevel = "medium"]',
+          style: {
+            width: 62,
+            height: 62
           }
         },
         {
           selector: 'node[rawType = "Product"]',
           style: {
-            "background-color": "#14b8a6"
+            "background-color": "#14b8a6",
+            color: "#ffffff"
           }
         },
         {
@@ -196,6 +252,33 @@ export function GraphView({ graph, locale }: GraphViewProps) {
                   {copy.edges}: {graph.edges.length}
                 </span>
               </div>
+              <div className="graph-legend" aria-label={copy.graphLegend}>
+                <span className="graph-legend-title">{copy.graphLegend}</span>
+                <ul className="graph-legend-list">
+                  {legendItems.map((item) => (
+                    <li key={item.type} className="graph-legend-item">
+                      <span
+                        className="graph-legend-dot"
+                        style={{ backgroundColor: item.color }}
+                        aria-hidden="true"
+                      />
+                      <span>{translateGraphTerm(item.type, locale)}</span>
+                    </li>
+                  ))}
+                </ul>
+                <ul className="graph-legend-list">
+                  {impactLegendItems.map((item) => (
+                    <li key={item.label} className="graph-legend-item">
+                      <span
+                        className="graph-legend-dot"
+                        style={{ backgroundColor: item.color }}
+                        aria-hidden="true"
+                      />
+                      <span>{item.label}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <div ref={graphContainerRef} className="graph-canvas" />
             </div>
             <div className="details-panel">
@@ -210,35 +293,6 @@ export function GraphView({ graph, locale }: GraphViewProps) {
               ) : (
                 <div className="empty-state compact">{copy.selectHint}</div>
               )}
-              <h3 className="secondary-heading">{copy.edges}</h3>
-              <ul className="token-list">
-                {graph.edges.map((edge) => (
-                  <li
-                    key={edge.id}
-                    className={selected?.kind === "edge" && selected.item.id === edge.id ? "is-selected" : ""}
-                    onClick={() => setSelected({ kind: "edge", item: edge })}
-                  >
-                    <strong>{translateGraphTerm(edge.label, locale)}</strong>
-                    <span>
-                      {nodeLabelMap.get(edge.source) ?? edge.source} {"->"}{" "}
-                      {nodeLabelMap.get(edge.target) ?? edge.target}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <h3 className="secondary-heading">{copy.nodes}</h3>
-              <ul className="token-list">
-                {graph.nodes.map((node) => (
-                  <li
-                    key={node.id}
-                    className={selected?.kind === "node" && selected.item.id === node.id ? "is-selected" : ""}
-                    onClick={() => setSelected({ kind: "node", item: node })}
-                  >
-                    <strong>{translateGraphTerm(node.label, locale)}</strong>
-                    <span>{translateGraphTerm(node.type, locale)}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         )}
@@ -271,89 +325,58 @@ function SelectedDetails({
             {nodeLabelMap.get(edge.source) ?? edge.source} {"->"} {nodeLabelMap.get(edge.target) ?? edge.target}
           </strong>
         </div>
-        <div className="detail-row">
-          <span>{formatFieldLabel("event_type", locale)}</span>
-          <strong>{translateGraphTerm(edge.type, locale)}</strong>
-        </div>
       </div>
     );
   }
 
   const node = selected.item;
   const sourceUrl = getSourceUrl(node);
-  const eventFields = [
-    "event_type",
-    "event_label",
-    "date",
-    "published_date",
-    "published_at",
-    "article_count",
-    "generated_by",
-    "confidence",
-    "title",
-    "article_title",
-    "summary",
-    "article_snippet",
-    "company_name"
-  ] as const;
-  const sourceFields = [
-    "source_name",
-    "source_url",
-    "url",
-    "published_date",
-    "published_at"
-  ] as const;
-  const eventEntries = getOrderedEntries(node, eventFields);
-  const sourceEntries = getOrderedEntries(node, sourceFields);
-  const consumedKeys = new Set([...eventEntries, ...sourceEntries].map(([key]) => key));
-  const rawEntries = Object.entries(node.data ?? {}).filter(
-    ([key, value]) => !consumedKeys.has(key) && value !== "" && value != null
-  );
+  const eventEntries = getOrderedEntries(node, ["date", "article_count", "confidence"] as const);
+  const sourceEntries = getOrderedEntries(node, ["source_name", "published_date"] as const);
   const articles = Array.isArray(node.data?.articles) ? node.data.articles : [];
   const keyPoints = Array.isArray(node.data?.key_points) ? node.data.key_points : [];
+  const displayTitle = typeof node.data?.title === "string" && node.data.title.length > 0
+    ? node.data.title
+    : translateGraphTerm(node.label, locale);
+  const compactMetaEntries = node.type === "Source" ? sourceEntries : eventEntries;
+  const compactSourceEntries = node.type === "Event" ? sourceEntries : [];
 
   return (
     <div className="detail-card">
-      <div className="detail-title">{translateGraphTerm(node.label, locale)}</div>
-      <div className="detail-row">
-        <span>{formatFieldLabel("event_type", locale)}</span>
-        <strong>{translateGraphTerm(node.type, locale)}</strong>
-      </div>
-      {eventEntries.length > 0 ? (
-        <DetailSection
-          title={keyPoints.length > 0 ? copy.aiSummary : copy.eventInfo}
-          entries={eventEntries}
-          locale={locale}
-          nodeMap={nodeMap}
-        />
+      <div className="detail-title">{displayTitle}</div>
+      {compactMetaEntries.length > 0 ? (
+        <CompactMeta entries={compactMetaEntries} locale={locale} nodeMap={nodeMap} />
       ) : null}
       {keyPoints.length > 0 ? (
         <KeyPointsSection items={keyPoints} locale={locale} />
       ) : null}
-      {sourceEntries.length > 0 ? (
-        <DetailSection
-          title={copy.sourceInfo}
-          entries={sourceEntries}
-          locale={locale}
-          nodeMap={nodeMap}
-        />
+      {compactSourceEntries.length > 0 ? (
+        <CompactMeta entries={compactSourceEntries} locale={locale} nodeMap={nodeMap} />
       ) : null}
       {articles.length > 0 ? (
         <RelatedArticlesSection articles={articles} locale={locale} />
       ) : null}
-      {rawEntries.length > 0 ? (
-        <DetailSection
-          title={copy.rawData}
-          entries={rawEntries}
-          locale={locale}
-          nodeMap={nodeMap}
-        />
-      ) : null}
-      {sourceUrl ? (
-        <a className="detail-link" href={sourceUrl} target="_blank" rel="noreferrer">
-          {copy.sourceLink}
-        </a>
-      ) : null}
+    </div>
+  );
+}
+
+function CompactMeta({
+  entries,
+  locale,
+  nodeMap
+}: {
+  entries: Array<[string, unknown]>;
+  locale: Locale;
+  nodeMap: Map<string, GraphNode>;
+}) {
+  return (
+    <div className="detail-meta-list">
+      {entries.map(([key, value]) => (
+        <div key={key} className="detail-meta-item">
+          <span>{formatFieldLabel(key, locale)}</span>
+          <strong>{formatValue(value, locale, nodeMap)}</strong>
+        </div>
+      ))}
     </div>
   );
 }
@@ -367,7 +390,6 @@ function KeyPointsSection({
 }) {
   return (
     <section className="detail-section">
-      <div className="detail-section-title">{messages[locale].keyPoints}</div>
       <ul className="key-points-list">
         {items.map((item, index) => (
           <li key={index}>{translateGraphTerm(String(item), locale)}</li>
@@ -394,18 +416,17 @@ function RelatedArticlesSection({
         {normalizedArticles.map((article, index) => (
           <article key={`${article.source_url}-${index}`} className="article-card">
             <div className="article-card-header">
-              <strong>{article.title || article.source_name || `Article ${index + 1}`}</strong>
+              {article.source_url ? (
+                <a href={article.source_url} target="_blank" rel="noreferrer" className="article-title-link">
+                  {article.title || article.source_name || `Article ${index + 1}`}
+                </a>
+              ) : (
+                <strong>{article.title || article.source_name || `Article ${index + 1}`}</strong>
+              )}
               <span>
                 {[article.source_name, article.published_date].filter(Boolean).join(" · ")}
               </span>
             </div>
-            {article.summary ? <p>{article.summary}</p> : null}
-            {article.snippet && article.snippet !== article.summary ? <p>{article.snippet}</p> : null}
-            {article.source_url ? (
-              <a href={article.source_url} target="_blank" rel="noreferrer" className="detail-link subtle">
-                {copy.sourceLink}
-              </a>
-            ) : null}
           </article>
         ))}
       </div>
