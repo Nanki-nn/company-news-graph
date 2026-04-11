@@ -130,33 +130,49 @@ npm run dev
 
 ## 🤖 AI 事件总结（可选）
 
-默认使用规则生成摘要。在 `backend/` 目录下创建 `.env` 即可启用 AI：
+默认使用规则生成摘要，**不需要任何 API Key 也能跑通**。如需启用 AI，先创建 `.env`：
 
 ```bash
 cd backend
 cp .env.example .env
 ```
 
-**方式一：复用本机 Claude Code CLI（最省事）**
+然后根据你手头的 API 选择下面任意一种方式：
+
+---
+
+### 方式一：复用本机 Claude Code CLI（最省事，零配置）
 
 ```env
 COMPANY_NEWS_USE_AI=1
 LLM_PROVIDER=claude-cli
 ```
 
-不需要额外配置 API Key，直接调用本机已登录的 `claude -p`。
+**前提**：本机已安装并登录 [Claude Code CLI](https://claude.ai/download)（即 `claude` 命令可用）。
+不需要额外填写任何 Key，后端直接调用 `claude -p` 生成摘要。
 
-**方式二：Anthropic API**
+---
+
+### 方式二：Anthropic 官方 API
 
 ```env
 COMPANY_NEWS_USE_AI=1
 LLM_PROVIDER=anthropic
-ANTHROPIC_API_KEY=sk-ant-...
+ANTHROPIC_API_KEY=sk-ant-xxxxxxxxxxxxxxxx
 ANTHROPIC_MODEL=claude-sonnet-4-6
-# ANTHROPIC_BASE_URL=https://your-proxy-endpoint  # 使用中转站时填写
 ```
 
-**方式三：OpenAI-compatible 协议（中转站 / 其他模型）**
+**如何获取 Key**：登录 [console.anthropic.com](https://console.anthropic.com) → API Keys → Create Key。
+
+使用中转站时额外加一行：
+
+```env
+ANTHROPIC_BASE_URL=https://your-proxy-endpoint
+```
+
+---
+
+### 方式三：OpenAI-compatible 协议（中转站 / 其他模型）
 
 ```env
 COMPANY_NEWS_USE_AI=1
@@ -165,6 +181,10 @@ OPENAI_API_KEY=your_api_key
 OPENAI_MODEL=claude-sonnet-4-6
 OPENAI_BASE_URL=https://your-endpoint/v1
 ```
+
+兼容任何提供 `/chat/completions` 接口的服务，包括 OpenAI、各类国内中转站、本地部署的 LLM 等。
+
+---
 
 启用后，后端会在聚类完成后为每个事件簇生成：事件标题、中文摘要、关键要点、置信度。
 可以从前端摘要卡片的 `AI 状态` 字段，以及后端日志的 `generated_by=` 字样来确认是否生效。
