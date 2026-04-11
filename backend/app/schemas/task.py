@@ -1,7 +1,7 @@
 from datetime import date
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 
 class ResearchTaskCreate(BaseModel):
@@ -9,7 +9,13 @@ class ResearchTaskCreate(BaseModel):
     start_date: date
     end_date: date
     language: str = "en"
-    sources: list[str] = ["news", "official"]
+    sources: list[str] = Field(default_factory=lambda: ["news", "official"])
+
+    @model_validator(mode="after")
+    def validate_date_range(self) -> "ResearchTaskCreate":
+        if self.start_date > self.end_date:
+            raise ValueError("start_date must be on or before end_date")
+        return self
 
 
 class ResearchTaskResponse(BaseModel):

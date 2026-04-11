@@ -2,12 +2,13 @@ from fastapi import APIRouter, HTTPException
 
 from app.schemas.graph import GraphResponse
 from app.schemas.task import ResearchTaskCreate, ResearchTaskResponse, TaskStatusResponse
-from app.services.mock_data import build_mock_graph
+from app.services.news_research import run_news_research
 
 
 router = APIRouter()
 
 _TASKS: dict[str, TaskStatusResponse] = {}
+_GRAPHS: dict[str, GraphResponse] = {}
 
 
 @router.post("/research/tasks", response_model=ResearchTaskResponse)
@@ -20,6 +21,44 @@ def create_task(payload: ResearchTaskCreate) -> ResearchTaskResponse:
         company_name=payload.company_name,
         start_date=payload.start_date,
         end_date=payload.end_date,
+    )
+    graph = run_news_research(
+        payload.company_name,
+        payload.start_date,
+        payload.end_date,
+    )
+    _GRAPHS[task_id] = graph
+
+    event_nodes = [node for node in graph.nodes if node.type == "Event"]
+    generated_by = sorted(
+        {
+            str(node.data.get("generated_by"))
+            for node in event_nodes
+            if isinstance(node.data.get("generated_by"), str)
+        }
+    )
+    confidence = sorted(
+        {
+            str(node.data.get("confidence"))
+            for node in event_nodes
+            if isinstance(node.data.get("confidence"), str)
+        }
+    )
+    ai_reasons = sorted(
+        {
+            str(node.data.get("ai_reason"))
+            for node in event_nodes
+            if isinstance(node.data.get("ai_reason"), str) and node.data.get("ai_reason")
+        }
+    )
+    print(
+        "[company-news-graph]",
+        f"task={task_id}",
+        f"company={payload.company_name}",
+        f"events={len(event_nodes)}",
+        f"generated_by={generated_by or ['rules']}",
+        f"confidence={confidence or ['heuristic']}",
+        f"ai_reason={ai_reasons or ['none']}",
     )
     return ResearchTaskResponse(task_id=task_id, status="completed")
 
@@ -34,7 +73,6 @@ def get_task(task_id: str) -> TaskStatusResponse:
 
 @router.get("/research/tasks/{task_id}/graph", response_model=GraphResponse)
 def get_graph(task_id: str) -> GraphResponse:
-    task = _TASKS.get(task_id)
-    if task is None:
+    if task_id not in _TASKS:
         raise HTTPException(status_code=404, detail="Task not found")
-    return build_mock_graph(task.company_name)
+    return _GRAPHS[task_id]

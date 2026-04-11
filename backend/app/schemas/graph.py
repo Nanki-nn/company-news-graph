@@ -1,13 +1,13 @@
 from typing import Any
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class GraphNode(BaseModel):
     id: str
     label: str
     type: str
-    data: dict[str, Any] = {}
+    data: dict[str, Any] = Field(default_factory=dict)
 
 
 class GraphEdge(BaseModel):
@@ -16,7 +16,7 @@ class GraphEdge(BaseModel):
     target: str
     label: str
     type: str
-    data: dict[str, Any] = {}
+    data: dict[str, Any] = Field(default_factory=dict)
 
 
 class GraphSummary(BaseModel):
