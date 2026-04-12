@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import UTC, date, datetime
 from email.utils import parsedate_to_datetime
@@ -12,7 +13,7 @@ import os
 import re
 import shutil
 import subprocess
-from typing import Iterable
+from typing import Callable, Iterable
 from urllib.parse import quote_plus
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
@@ -25,6 +26,7 @@ from app.schemas.graph import GraphEdge, GraphNode, GraphResponse, GraphSummary
 GOOGLE_NEWS_RSS_URL = "https://news.google.com/rss/search"
 SEC_TICKERS_URL = "https://www.sec.gov/files/company_tickers.json"
 SEC_SUBMISSIONS_URL = "https://data.sec.gov/submissions"
+BENZINGA_NEWS_URL = "https://api.benzinga.com/api/v2/news"
 logger = logging.getLogger("company_news_graph")
 
 _SEC_TICKERS_CACHE: dict[str, object] | None = None
@@ -59,6 +61,25 @@ COMPANY_ALIASES: dict[str, list[str]] = {
     "msft": ["Microsoft", "MSFT"],
     "netflix": ["Netflix", "NFLX"],
     "nflx": ["Netflix", "NFLX"],
+}
+
+COMPANY_PROFILES: dict[str, str] = {
+    "oracle": "甲骨文是一家美国企业软件与云服务公司，核心业务包括数据库、企业应用软件、云基础设施与行业解决方案。",
+    "hyundai motor": "现代汽车是一家韩国汽车制造商，业务覆盖乘用车、电动车、商用车及全球汽车供应链体系。",
+    "alphabet": "Alphabet 是 Google 的母公司，业务覆盖搜索、广告、云计算、YouTube、Android 与前沿技术投资。",
+    "google": "Google 是全球主要互联网平台之一，核心业务包括搜索、广告、云计算、YouTube 与 Android 生态。",
+    "tesla": "特斯拉是一家美国电动车与清洁能源公司，业务包括电动车、储能、电池与自动驾驶相关产品。",
+    "meta": "Meta Platforms 是全球主要社交平台公司，旗下业务包括 Facebook、Instagram、WhatsApp 与 AI 基础设施投入。",
+    "amazon": "亚马逊是一家全球电商与云计算公司，核心业务包括线上零售、AWS、物流网络与数字内容服务。",
+    "apple": "苹果是一家全球消费电子与软件服务公司，核心业务包括 iPhone、Mac、可穿戴设备与服务收入。",
+    "microsoft": "微软是一家全球软件与云计算公司，核心业务包括 Windows、Office、Azure、企业软件与 AI 平台。",
+    "netflix": "奈飞是一家全球流媒体平台公司，主营订阅视频服务、内容制作与国际化发行。",
+}
+
+PRODUCT_PROFILES: dict[str, str] = {
+    "oracle database 23ai": "Oracle Database 23ai 是甲骨文面向企业场景推出的数据库产品版本，强调 AI 能力与企业级数据处理场景。",
+    "model y": "Model Y 是特斯拉的主力纯电 SUV 车型之一，面向大众市场，兼顾销量规模与利润贡献。",
+    "new ai solution": "这是一项与 AI 相关的新产品或解决方案，通常用于提升企业运营效率、自动化能力或行业数字化水平。",
 }
 
 
@@ -110,26 +131,70 @@ class ClusterSummary:
     generated_by: str
     ai_reason: str
     raw_llm_output: str
+    core_entities: list["CoreEntity"]
+    relations: list["ExtractedRelation"]
 
 
-def run_news_research(company_name: str, ticker: str, start_date: date, end_date: date) -> GraphResponse:
+@dataclass
+class CoreEntity:
+    entity_type: str
+    name: str
+    role: str = ""
+    ticker: str = ""
+
+
+@dataclass
+class ExtractedRelation:
+    relation_type: str
+    source: str
+    target: str
+    confidence: str = "medium"
+
+
+def run_news_research(
+    company_name: str,
+    ticker: str,
+    start_date: date,
+    end_date: date,
+    stage_callback: Callable[[str, int], None] | None = None,
+) -> GraphResponse:
     try:
+        update_stage(stage_callback, "fetching_sources", 10)
         official_articles = fetch_sec_edgar_articles(company_name, ticker, start_date, end_date)
         sec_company = lookup_sec_company(company_name, ticker)
         sec_title = str(sec_company.get("title") or "").strip() if sec_company else ""
-        news_articles = fetch_google_news_articles(company_name, ticker, start_date, end_date, sec_resolved_name=sec_title or None)
+
+        def _google() -> list[NewsArticle]:
+            return fetch_google_news_articles(company_name, ticker, start_date, end_date, sec_resolved_name=sec_title or None)
+
+        def _yfinance() -> list[NewsArticle]:
+            return fetch_yfinance_articles(company_name, ticker, start_date, end_date)
+
+        def _benzinga() -> list[NewsArticle]:
+            return fetch_benzinga_articles(company_name, ticker, start_date, end_date)
+
+        news_articles: list[NewsArticle] = []
+        with ThreadPoolExecutor(max_workers=3) as executor:
+            futures = {
+                executor.submit(_google): "google",
+                executor.submit(_yfinance): "yfinance",
+                executor.submit(_benzinga): "benzinga",
+            }
+            for future in as_completed(futures):
+                try:
+                    news_articles.extend(future.result())
+                except Exception as exc:
+                    logger.warning("[orchestrator] %s fetch raised: %s", futures[future], exc)
+
         articles = sort_articles_by_priority(official_articles + news_articles)
-        filtered_articles = [
-            article for article in articles if is_investment_relevant_article(article)
-        ]
+        update_stage(stage_callback, "filtering_articles", 30)
+        filtered_articles = [a for a in articles if is_investment_relevant_article(a)]
         filtered_articles = rebalance_sparse_official_articles(filtered_articles)
         if not filtered_articles:
             filtered_articles = articles[:10]
-        events = [
-            extract_event(company_name, ticker, article)
-            for article in filtered_articles
-        ]
-        return build_news_graph(company_name, events)
+        events = [extract_event(company_name, ticker, article) for article in filtered_articles]
+        update_stage(stage_callback, "clustering_events", 45)
+        return build_news_graph(company_name, events, stage_callback=stage_callback)
     except Exception as exc:
         return build_error_graph(company_name, str(exc))
 
@@ -177,6 +242,111 @@ def fetch_google_news_articles(
         logger.debug("[datasource] article[%d] title=%r source=%r published=%s url=%s",
                      i, article.title, article.source_name, article.published_at.date().isoformat(), article.url)
     return articles
+
+
+def fetch_yfinance_articles(
+    company_name: str,
+    ticker: str,
+    start_date: date,
+    end_date: date,
+    limit: int = 15,
+) -> list[NewsArticle]:
+    if not ticker.strip():
+        return []
+    try:
+        import yfinance as yf
+        raw_news = yf.Ticker(ticker.strip().upper()).news or []
+        logger.info("[datasource] yfinance ticker=%r returned %d items", ticker, len(raw_news))
+        articles: list[NewsArticle] = []
+        for item in raw_news:
+            if not isinstance(item, dict):
+                continue
+            title = str(item.get("title") or "").strip()
+            url = str(item.get("link") or "").strip()
+            publisher = str(item.get("publisher") or "Yahoo Finance").strip()
+            publish_ts = item.get("providerPublishTime")
+            if not title or not url or publish_ts is None:
+                continue
+            try:
+                published_at = datetime.fromtimestamp(int(publish_ts), tz=UTC)
+            except (TypeError, ValueError, OSError):
+                continue
+            if not (start_date <= published_at.date() <= end_date):
+                continue
+            articles.append(NewsArticle(
+                title=title,
+                url=url,
+                source_name=publisher,
+                published_at=published_at,
+                snippet="",
+                source_category="news",
+                detail_score=score_article_detail(title, ""),
+            ))
+            if len(articles) >= limit:
+                break
+        logger.info("[datasource] yfinance kept %d articles for %r", len(articles), ticker)
+        return articles
+    except Exception as exc:
+        logger.warning("[datasource] yfinance failed for ticker=%r: %s", ticker, exc)
+        return []
+
+
+def fetch_benzinga_articles(
+    company_name: str,
+    ticker: str,
+    start_date: date,
+    end_date: date,
+    limit: int = 15,
+) -> list[NewsArticle]:
+    api_key = os.getenv("BENZINGA_API_KEY", "").strip()
+    if not api_key:
+        return []
+    try:
+        params = {
+            "token": api_key,
+            "tickers": ticker.strip().upper() if ticker.strip() else company_name,
+            "dateFrom": start_date.isoformat(),
+            "dateTo": end_date.isoformat(),
+            "displayOutput": "full",
+            "pageSize": str(limit),
+        }
+        response = requests.get(BENZINGA_NEWS_URL, params=params, timeout=30)
+        response.raise_for_status()
+        raw_news = response.json()
+        if not isinstance(raw_news, list):
+            return []
+        logger.info("[datasource] Benzinga returned %d items for %r", len(raw_news), company_name)
+        articles: list[NewsArticle] = []
+        for item in raw_news:
+            if not isinstance(item, dict):
+                continue
+            title = str(item.get("title") or "").strip()
+            url = str(item.get("url") or "").strip()
+            if not title or not url:
+                continue
+            published_at = parse_rss_datetime(str(item.get("created") or ""))
+            if published_at is None:
+                continue
+            if not (start_date <= published_at.date() <= end_date):
+                continue
+            raw_snippet = str(item.get("body") or item.get("teaser") or "")
+            snippet = strip_html(raw_snippet)[:400]
+            author = str(item.get("author") or "").strip()
+            source_name = f"Benzinga/{author}" if author else "Benzinga"
+            articles.append(NewsArticle(
+                title=title,
+                url=url,
+                source_name=source_name,
+                published_at=published_at,
+                snippet=snippet,
+                source_category="news",
+                detail_score=score_article_detail(title, snippet),
+            ))
+        logger.info("[datasource] Benzinga kept %d articles for %r", len(articles), company_name)
+        return articles
+    except Exception as exc:
+        logger.warning("[datasource] Benzinga failed for %r: %s", company_name, exc)
+        return []
 
 
 def strip_corporate_suffix(title: str) -> str:
@@ -613,7 +783,11 @@ def derive_impact_level(event_type: str, group: list[ExtractedEvent]) -> str:
     return "low"
 
 
-def build_news_graph(company_name: str, events: list[ExtractedEvent]) -> GraphResponse:
+def build_news_graph(
+    company_name: str,
+    events: list[ExtractedEvent],
+    stage_callback: Callable[[str, int], None] | None = None,
+) -> GraphResponse:
     company_ticker = next((event.ticker for event in events if event.ticker), "")
     company_id = "company:target"
     nodes: list[GraphNode] = [
@@ -621,13 +795,23 @@ def build_news_graph(company_name: str, events: list[ExtractedEvent]) -> GraphRe
             id=company_id,
             label=company_name,
             type="Company",
-            data={"canonical_name": company_name, "ticker": company_ticker},
+            data={
+                "canonical_name": company_name,
+                "ticker": company_ticker,
+                "description": get_entity_description("Company", company_name, company_ticker),
+            },
         )
     ]
     edges: list[GraphEdge] = []
+    entity_node_ids: dict[tuple[str, str], str] = {
+        ("Company", normalize_entity_name(company_name)): company_id
+    }
     clusters = cluster_events(events)
+    update_stage(stage_callback, "summarizing_events", 60)
     top_event_types: list[str] = []
     source_index = 0
+    entity_index = 0
+    relation_index = 0
 
     for event_index, cluster in enumerate(clusters, start=1):
         event_type = cluster.event_type
@@ -636,6 +820,8 @@ def build_news_graph(company_name: str, events: list[ExtractedEvent]) -> GraphRe
         event_id = f"event:{event_index}"
         article_titles = [item.source_title for item in group]
         cluster_summary = summarize_cluster(company_name, cluster)
+        if event_index == 1:
+            update_stage(stage_callback, "extracting_entities", 75)
         articles = [
             {
                 "title": item.source_title,
@@ -679,6 +865,24 @@ def build_news_graph(company_name: str, events: list[ExtractedEvent]) -> GraphRe
                     "generated_by": cluster_summary.generated_by,
                     "ai_reason": cluster_summary.ai_reason,
                     "raw_llm_output": cluster_summary.raw_llm_output,
+                    "core_entities": [
+                        {
+                            "entity_type": entity.entity_type,
+                            "name": entity.name,
+                            "role": entity.role,
+                            "ticker": entity.ticker,
+                        }
+                        for entity in cluster_summary.core_entities
+                    ],
+                    "relations": [
+                        {
+                            "type": relation.relation_type,
+                            "source": relation.source,
+                            "target": relation.target,
+                            "confidence": relation.confidence,
+                        }
+                        for relation in cluster_summary.relations
+                    ],
                 },
             )
         )
@@ -692,6 +896,68 @@ def build_news_graph(company_name: str, events: list[ExtractedEvent]) -> GraphRe
             )
         )
         top_event_types.append(event_type)
+
+        event_entity_ids: dict[str, str] = {}
+        for entity in cluster_summary.core_entities:
+            normalized_name = normalize_entity_name(entity.name)
+            if not normalized_name:
+                continue
+            key = (entity.entity_type, normalized_name)
+            entity_id = entity_node_ids.get(key)
+            if entity_id is None:
+                entity_index += 1
+                entity_id = f"entity:{entity_index}"
+                entity_node_ids[key] = entity_id
+                nodes.append(
+                    GraphNode(
+                        id=entity_id,
+                        label=entity.name,
+                        type=entity.entity_type,
+                        data={
+                            "canonical_name": entity.name,
+                            "role": entity.role,
+                            "ticker": entity.ticker,
+                            "entity_type": entity.entity_type,
+                            "description": get_entity_description(entity.entity_type, entity.name, entity.ticker),
+                        },
+                    )
+                )
+            event_entity_ids[normalized_name] = entity_id
+            if not any(edge.source == entity_id and edge.target == event_id and edge.type == "INVOLVED_IN" for edge in edges):
+                edges.append(
+                    GraphEdge(
+                        id=f"edge:{event_index}:entity:{entity_id}",
+                        source=entity_id,
+                        target=event_id,
+                        label="INVOLVED_IN",
+                        type="INVOLVED_IN",
+                        data={"role": entity.role},
+                    )
+                )
+
+        for relation in cluster_summary.relations:
+            source_id = event_entity_ids.get(normalize_entity_name(relation.source))
+            target_id = event_entity_ids.get(normalize_entity_name(relation.target))
+            if not source_id or not target_id or source_id == target_id:
+                continue
+            if any(
+                edge.source == source_id and edge.target == target_id and edge.type == relation.relation_type and edge.data.get("event_id") == event_id
+                for edge in edges
+            ):
+                continue
+            relation_index += 1
+            edges.append(
+                GraphEdge(
+                    id=f"edge:relation:{relation_index}",
+                    source=source_id,
+                    target=target_id,
+                    label=relation.relation_type,
+                    type=relation.relation_type,
+                    data={"confidence": relation.confidence, "event_id": event_id},
+                )
+            )
+        if event_index == len(clusters):
+            update_stage(stage_callback, "building_graph", 90)
 
         for item in group:
             source_index += 1
@@ -762,6 +1028,11 @@ def build_news_graph(company_name: str, events: list[ExtractedEvent]) -> GraphRe
             top_event_types=sorted(set(top_event_types)),
         ),
     )
+
+
+def update_stage(stage_callback: Callable[[str, int], None] | None, stage: str, progress: int) -> None:
+    if stage_callback is not None:
+        stage_callback(stage, progress)
 
 
 def cluster_events(events: list[ExtractedEvent]) -> list[EventCluster]:
@@ -892,6 +1163,7 @@ def summarize_cluster(company_name: str, cluster: EventCluster) -> ClusterSummar
     officialness = derive_officialness(cluster.items)
     impact_direction = derive_impact_direction(cluster.event_type, cluster.items)
     impact_level = derive_impact_level(cluster.event_type, cluster.items)
+    core_entities, relations = derive_core_entities_and_relations(company_name, cluster)
     return ClusterSummary(
         title=build_cluster_title(company_name, cluster),
         summary=build_cluster_summary(company_name, cluster),
@@ -905,6 +1177,8 @@ def summarize_cluster(company_name: str, cluster: EventCluster) -> ClusterSummar
         generated_by="rules",
         ai_reason=ai_reason,
         raw_llm_output="",
+        core_entities=core_entities,
+        relations=relations,
     )
 
 
@@ -920,6 +1194,229 @@ def build_cluster_key_points(cluster: EventCluster) -> list[str]:
     if headline:
         points.append(f"代表性标题：{headline}。")
     return points[:4]
+
+
+def derive_core_entities_and_relations(
+    company_name: str,
+    cluster: EventCluster,
+) -> tuple[list[CoreEntity], list[ExtractedRelation]]:
+    text = "\n".join(f"{item.source_title}. {item.summary}. {item.article_snippet}" for item in cluster.items)
+    detected_company_names = detect_company_entities(company_name, cluster, text)
+    people = detect_people_entities(text)
+    products = detect_product_entities(cluster, text)
+    locations = detect_location_entities(text)
+    regulators = detect_regulator_entities(text)
+
+    core_entities: list[CoreEntity] = [
+        CoreEntity(
+            entity_type="Company",
+            name=company_name,
+            role="subject",
+            ticker=cluster.items[0].ticker if cluster.items else "",
+        )
+    ]
+
+    for name, ticker in detected_company_names:
+        if normalize_entity_name(name) == normalize_entity_name(company_name):
+            continue
+        role = "counterparty" if cluster.event_type in {"partnership", "acquisition"} else "related_company"
+        core_entities.append(CoreEntity(entity_type="Company", name=name, role=role, ticker=ticker))
+    core_entities.extend(CoreEntity(entity_type="Person", name=name, role="executive") for name in people)
+    core_entities.extend(CoreEntity(entity_type="Product", name=name, role="launched_product") for name in products)
+    core_entities.extend(CoreEntity(entity_type="Location", name=name, role="affected_region") for name in locations)
+    core_entities.extend(CoreEntity(entity_type="Regulator", name=name, role="regulator") for name in regulators)
+
+    core_entities = deduplicate_core_entities(core_entities)
+    relations = derive_relations_from_entities(company_name, cluster, core_entities)
+    return core_entities, relations
+
+
+def normalize_entity_name(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", value.lower())
+
+
+def get_entity_description(entity_type: str, name: str, ticker: str = "") -> str:
+    normalized = name.strip().lower()
+    if entity_type == "Company":
+        profile = COMPANY_PROFILES.get(normalized)
+        if profile:
+            return profile
+        if ticker:
+            return f"{name} 是一家与当前事件相关的上市公司，股票代码为 {ticker}。"
+        return f"{name} 是当前事件涉及的公司实体，建议结合相关新闻与官方披露进一步查看其业务背景。"
+    if entity_type == "Product":
+        profile = PRODUCT_PROFILES.get(normalized)
+        if profile:
+            return profile
+        return f"{name} 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+    return ""
+
+
+def deduplicate_core_entities(entities: list[CoreEntity]) -> list[CoreEntity]:
+    deduped: list[CoreEntity] = []
+    seen: set[tuple[str, str]] = set()
+    for entity in entities:
+        key = (entity.entity_type, normalize_entity_name(entity.name))
+        if not entity.name or key in seen:
+            continue
+        seen.add(key)
+        deduped.append(entity)
+    return deduped
+
+
+def detect_company_entities(
+    company_name: str,
+    cluster: EventCluster,
+    text: str,
+) -> list[tuple[str, str]]:
+    matches: list[tuple[str, str]] = []
+    subject_aliases = {normalize_entity_name(alias) for alias in get_company_aliases(company_name, cluster.items[0].ticker if cluster.items else "")}
+    haystack = text.lower()
+    for alias_key, aliases in COMPANY_ALIASES.items():
+        if normalize_entity_name(alias_key) in subject_aliases:
+            continue
+        canonical = next((alias for alias in aliases if not alias.isupper()), aliases[0])
+        ticker = next((alias for alias in aliases if alias.isupper() and len(alias) <= 5), "")
+        if any(re.search(rf"\b{re.escape(alias.lower())}\b", haystack) for alias in aliases):
+            matches.append((canonical, ticker))
+    subject_pattern = re.escape(company_name)
+    pair_patterns = [
+        rf"{subject_pattern}\s+(?:and|with)\s+([A-Z][A-Za-z0-9&.\-]+(?:\s+[A-Z][A-Za-z0-9&.\-]+){{0,3}})",
+        rf"([A-Z][A-Za-z0-9&.\-]+(?:\s+[A-Z][A-Za-z0-9&.\-]+){{0,3}})\s+(?:and|with)\s+{subject_pattern}",
+    ]
+    for pattern in pair_patterns:
+        for match in re.findall(pattern, text):
+            candidate = " ".join(str(match).split()).strip(" ,.")
+            candidate = re.split(
+                r"\b(?:Deliver|Delivers|Launch|Launches|Launched|Release|Releases|Released|Announce|Announces|Announced|Expand|Expands|Expanded|Introduce|Introduces|Introduced)\b",
+                candidate,
+                maxsplit=1,
+            )[0].strip(" ,.")
+            if candidate and normalize_entity_name(candidate) != normalize_entity_name(company_name):
+                matches.append((candidate, ""))
+    return matches
+
+
+def detect_people_entities(text: str) -> list[str]:
+    patterns = [
+        r"(?:CEO|CFO|COO|CTO|Chairman|Chairwoman|President|Chief Executive Officer|Chief Financial Officer)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,2})",
+        r"(?:appointed|named|hired|joined|replaced|succeeded by)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,2})",
+    ]
+    people: list[str] = []
+    for pattern in patterns:
+        people.extend(re.findall(pattern, text))
+    return deduplicate_strings(people)[:4]
+
+
+def detect_product_entities(cluster: EventCluster, text: str) -> list[str]:
+    products: list[str] = []
+    patterns = [
+        r"(?:launch(?:ed)?|introduc(?:ed|es)|release(?:d|s)|unveil(?:ed|s))\s+([A-Z][A-Za-z0-9\-+ ]{3,60})",
+        r"(?:launch(?:ed)?|introduc(?:ed|es)|release(?:d|s)|unveil(?:ed|s))\s+(?:a|an|the)\s+([A-Za-z0-9\-+ ]{3,60}?)(?:\.|,| for | to )",
+        r"\b([A-Z][A-Za-z0-9]+(?:\s+[A-Z0-9][A-Za-z0-9\-+]+){1,4})\s+(?:platform|model|service|solution|database|chip)\b",
+    ]
+    for pattern in patterns:
+        for match in re.findall(pattern, text):
+            candidate = " ".join(str(match).split())
+            if candidate and len(candidate) <= 80:
+                products.append(candidate)
+    if cluster.event_type != "product_launch":
+        return deduplicate_strings(products)[:2]
+    return deduplicate_strings(products)[:4]
+
+
+def detect_location_entities(text: str) -> list[str]:
+    known_locations = [
+        "United States", "US", "China", "Europe", "India", "New York",
+        "California", "Texas", "Asia", "Japan", "Singapore",
+    ]
+    found = [location for location in known_locations if re.search(rf"\b{re.escape(location)}\b", text, re.IGNORECASE)]
+    return deduplicate_strings(found)[:3]
+
+
+def detect_regulator_entities(text: str) -> list[str]:
+    regulators = {
+        "SEC": r"\bSEC\b|Securities and Exchange Commission",
+        "FTC": r"\bFTC\b|Federal Trade Commission",
+        "DOJ": r"\bDOJ\b|Department of Justice",
+        "FDA": r"\bFDA\b|Food and Drug Administration",
+        "European Commission": r"European Commission",
+    }
+    found = [name for name, pattern in regulators.items() if re.search(pattern, text, re.IGNORECASE)]
+    return found[:3]
+
+
+def deduplicate_strings(values: list[str]) -> list[str]:
+    result: list[str] = []
+    seen: set[str] = set()
+    for value in values:
+        normalized = normalize_entity_name(value)
+        if not normalized or normalized in seen:
+            continue
+        seen.add(normalized)
+        result.append(value.strip())
+    return result
+
+
+def derive_relations_from_entities(
+    company_name: str,
+    cluster: EventCluster,
+    entities: list[CoreEntity],
+) -> list[ExtractedRelation]:
+    relations: list[ExtractedRelation] = []
+    counterparties = [entity for entity in entities if entity.entity_type == "Company" and normalize_entity_name(entity.name) != normalize_entity_name(company_name)]
+    products = [entity for entity in entities if entity.entity_type == "Product"]
+    regulators = [entity for entity in entities if entity.entity_type == "Regulator"]
+    people = [entity for entity in entities if entity.entity_type == "Person"]
+    locations = [entity for entity in entities if entity.entity_type == "Location"]
+
+    if cluster.event_type == "partnership":
+        relations.extend(
+            ExtractedRelation("PARTNERED_WITH", company_name, entity.name, "medium")
+            for entity in counterparties
+        )
+    if cluster.event_type == "acquisition":
+        relations.extend(
+            ExtractedRelation("ACQUIRED", company_name, entity.name, "medium")
+            for entity in counterparties
+        )
+    if cluster.event_type == "regulation":
+        relations.extend(
+            ExtractedRelation("INVESTIGATED_BY", company_name, entity.name, "medium")
+            for entity in regulators
+        )
+    if cluster.event_type == "product_launch":
+        relations.extend(
+            ExtractedRelation("LAUNCHED", company_name, entity.name, "medium")
+            for entity in products
+        )
+    if cluster.event_type == "leadership_change":
+        relations.extend(
+            ExtractedRelation("APPOINTED", company_name, entity.name, "medium")
+            for entity in people
+        )
+    if cluster.event_type == "layoffs":
+        relations.extend(
+            ExtractedRelation("CUT_JOBS_IN", company_name, entity.name, "medium")
+            for entity in locations
+        )
+    return deduplicate_relations(relations)
+
+
+def deduplicate_relations(relations: list[ExtractedRelation]) -> list[ExtractedRelation]:
+    result: list[ExtractedRelation] = []
+    seen: set[tuple[str, str, str]] = set()
+    for relation in relations:
+        key = (
+            relation.relation_type,
+            normalize_entity_name(relation.source),
+            normalize_entity_name(relation.target),
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        result.append(relation)
+    return result
 
 
 def summarize_cluster_with_ai(
@@ -1057,7 +1554,7 @@ def summarize_cluster_with_anthropic(
         "system": (
             "You are an investment research analyst. "
             "Return strict JSON with keys: "
-            "title, summary, key_points, event_type, officialness, impact_direction, impact_level, price_sensitive, confidence. "
+            "title, summary, key_points, event_type, officialness, impact_direction, impact_level, price_sensitive, confidence, entities, relations. "
             "title: <= 12 words. summary: <= 90 words. key_points: array of 2 to 4 short bullets. "
             "event_type: one of earnings_schedule, earnings_result, guidance_update, acquisition, partnership, layoffs, regulation, capital_markets, leadership_change, product_launch, news. "
             "officialness: one of official, media, mixed. "
@@ -1065,6 +1562,9 @@ def summarize_cluster_with_anthropic(
             "impact_level: one of high, medium, low. "
             "price_sensitive: boolean. "
             "confidence: one of high, medium, low. "
+            "entities must be an object with core.companies, core.people, core.products, core.locations, core.regulators arrays. "
+            "Each entity object should include name and role, and company may also include ticker. "
+            "relations must be an array of objects with type, source, target, confidence. "
             "Do not include markdown."
         ),
         "messages": [
@@ -1141,7 +1641,7 @@ def build_llm_messages(company_name: str, cluster: EventCluster) -> list[dict[st
             "content": (
                 "你是一名公司研究分析师。请把一组相关新闻总结为一个中文关键事件。"
                 "必须返回严格 JSON，字段为 title, summary, key_points, confidence。"
-                "同时返回 event_type, officialness, impact_direction, impact_level, price_sensitive。"
+                "同时返回 event_type, officialness, impact_direction, impact_level, price_sensitive, entities, relations。"
                 "title：中文标题，不超过18个汉字。"
                 "summary：中文摘要，80到140字。"
                 "key_points：2到4条中文要点。"
@@ -1151,6 +1651,8 @@ def build_llm_messages(company_name: str, cluster: EventCluster) -> list[dict[st
                 "impact_level：只能是 high、medium、low。"
                 "price_sensitive：只能是 true 或 false。"
                 "confidence：只能是 high、medium、low。"
+                "entities：返回对象，格式为 {core:{companies,people,products,locations,regulators}}。"
+                "relations：返回数组，每项包含 type、source、target、confidence。"
                 "不要输出 markdown，不要输出解释文字。"
             ),
         },
@@ -1170,7 +1672,7 @@ def build_claude_cli_prompt(company_name: str, cluster: EventCluster) -> str:
     article_lines = "\n".join(build_article_lines(cluster))
     return (
         "你是一名公司研究分析师。请把一组相关新闻总结为一个中文关键事件。\n"
-        "必须返回严格 JSON，字段为 title, summary, key_points, event_type, officialness, impact_direction, impact_level, price_sensitive, confidence。\n"
+        "必须返回严格 JSON，字段为 title, summary, key_points, event_type, officialness, impact_direction, impact_level, price_sensitive, confidence, entities, relations。\n"
         "title：中文标题，不超过18个汉字。\n"
         "summary：中文摘要，80到140字。\n"
         "key_points：2到4条中文要点。\n"
@@ -1180,6 +1682,8 @@ def build_claude_cli_prompt(company_name: str, cluster: EventCluster) -> str:
         "impact_level：只能是 high、medium、low。\n"
         "price_sensitive：只能是 true 或 false。\n"
         "confidence：只能是 high、medium、low。\n"
+        "entities：返回对象，格式为 {core:{companies,people,products,locations,regulators}}。\n"
+        "relations：返回数组，每项包含 type、source、target、confidence。\n"
         "不要输出 markdown，不要输出解释文字。\n\n"
         f"公司：{company_name}\n"
         f"事件类型：{event_type_to_zh_label(cluster.event_type)}\n"
@@ -1269,6 +1773,8 @@ def normalize_parsed_cluster_summary(
     impact_direction = str(parsed.get("impact_direction") or derive_impact_direction(cluster.event_type, cluster.items)).strip().lower()
     impact_level = str(parsed.get("impact_level") or derive_impact_level(cluster.event_type, cluster.items)).strip().lower()
     price_sensitive_raw = parsed.get("price_sensitive")
+    core_entities = parse_core_entities(parsed, cluster)
+    relations = parse_relations(parsed, cluster)
     if not title or not summary:
         return None
 
@@ -1294,6 +1800,8 @@ def normalize_parsed_cluster_summary(
         generated_by="ai",
         ai_reason="AI summary generated successfully",
         raw_llm_output="",
+        core_entities=core_entities,
+        relations=relations,
     )
 
 
@@ -1324,6 +1832,7 @@ def parse_llm_fallback_text(
     officialness = (extracted_officialness or derive_officialness(cluster.items)).strip().lower()
     impact_direction = (extracted_impact_direction or derive_impact_direction(cluster.event_type, cluster.items)).strip().lower()
     impact_level = (extracted_impact_level or derive_impact_level(cluster.event_type, cluster.items)).strip().lower()
+    core_entities, relations = derive_core_entities_and_relations(cluster.items[0].company_name, cluster)
 
     for line in lines:
         lower = line.lower()
@@ -1383,6 +1892,8 @@ def parse_llm_fallback_text(
         generated_by="ai",
         ai_reason="AI summary generated via fallback parser",
         raw_llm_output=content[:8000],
+        core_entities=core_entities,
+        relations=relations,
     )
 
 
@@ -1392,6 +1903,87 @@ def clean_llm_text(text: str) -> str:
         candidate = re.sub(r"^```(?:json|text)?\s*", "", candidate)
         candidate = re.sub(r"\s*```$", "", candidate)
     return candidate.strip()
+
+
+def parse_core_entities(parsed: dict[str, object], cluster: EventCluster) -> list[CoreEntity]:
+    entities_value = parsed.get("entities")
+    if not isinstance(entities_value, dict):
+        return derive_core_entities_and_relations(cluster.items[0].company_name, cluster)[0]
+
+    core = entities_value.get("core")
+    if not isinstance(core, dict):
+        return derive_core_entities_and_relations(cluster.items[0].company_name, cluster)[0]
+
+    entity_groups = {
+        "companies": "Company",
+        "people": "Person",
+        "products": "Product",
+        "locations": "Location",
+        "regulators": "Regulator",
+    }
+    entities: list[CoreEntity] = []
+    for field_name, entity_type in entity_groups.items():
+        raw_items = core.get(field_name)
+        if not isinstance(raw_items, list):
+            continue
+        for raw_item in raw_items:
+            if isinstance(raw_item, dict):
+                name = str(raw_item.get("name") or "").strip()
+                role = str(raw_item.get("role") or "").strip()
+                ticker = str(raw_item.get("ticker") or "").strip()
+            else:
+                name = str(raw_item).strip()
+                role = ""
+                ticker = ""
+            if not name:
+                continue
+            entities.append(CoreEntity(entity_type=entity_type, name=name, role=role, ticker=ticker))
+
+    if not entities:
+        return derive_core_entities_and_relations(cluster.items[0].company_name, cluster)[0]
+
+    subject_company = cluster.items[0].company_name
+    if not any(entity.entity_type == "Company" and normalize_entity_name(entity.name) == normalize_entity_name(subject_company) for entity in entities):
+        entities.insert(
+            0,
+            CoreEntity(
+                entity_type="Company",
+                name=subject_company,
+                role="subject",
+                ticker=cluster.items[0].ticker,
+            ),
+        )
+    return deduplicate_core_entities(entities)
+
+
+def parse_relations(parsed: dict[str, object], cluster: EventCluster) -> list[ExtractedRelation]:
+    relations_value = parsed.get("relations")
+    if not isinstance(relations_value, list):
+        return derive_core_entities_and_relations(cluster.items[0].company_name, cluster)[1]
+
+    allowed_types = {"PARTNERED_WITH", "ACQUIRED", "INVESTIGATED_BY", "APPOINTED", "LAUNCHED", "CUT_JOBS_IN"}
+    relations: list[ExtractedRelation] = []
+    for raw_relation in relations_value:
+        if not isinstance(raw_relation, dict):
+            continue
+        relation_type = str(raw_relation.get("type") or "").strip().upper()
+        source = str(raw_relation.get("source") or "").strip()
+        target = str(raw_relation.get("target") or "").strip()
+        confidence = str(raw_relation.get("confidence") or "medium").strip().lower()
+        if relation_type not in allowed_types or not source or not target:
+            continue
+        relations.append(
+            ExtractedRelation(
+                relation_type=relation_type,
+                source=source,
+                target=target,
+                confidence=confidence if confidence in {"high", "medium", "low"} else "medium",
+            )
+        )
+
+    if not relations:
+        return derive_core_entities_and_relations(cluster.items[0].company_name, cluster)[1]
+    return deduplicate_relations(relations)
 
 
 def extract_json_string_field(text: str, field_name: str) -> str | None:

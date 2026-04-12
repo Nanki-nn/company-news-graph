@@ -47,6 +47,16 @@ const SUGGESTIONS: { ticker: string; name: string }[] = [
 ];
 
 export function App() {
+  const loadingStepKeys = [
+    "fetching_sources",
+    "filtering_articles",
+    "clustering_events",
+    "summarizing_events",
+    "extracting_entities",
+    "building_graph",
+    "completed",
+    "failed"
+  ] as const;
   const defaultVisibleTasks = 5;
   const [query, setQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -62,7 +72,8 @@ export function App() {
   const [showAllTasks, setShowAllTasks] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
-  const [loadingStep, setLoadingStep] = useState(0);
+  const [taskStage, setTaskStage] = useState<typeof loadingStepKeys[number]>("fetching_sources");
+  const [selectedEventId, setSelectedEventId] = useState<string | null>(null);
   const copy = messages[locale];
 
   useEffect(() => {
@@ -87,24 +98,11 @@ export function App() {
     };
   }, []);
 
-  useEffect(() => {
-    if (status !== "loading") {
-      setLoadingStep(0);
-      return;
-    }
-
-    const timer = window.setInterval(() => {
-      setLoadingStep((current) => (current + 1) % 4);
-    }, 500);
-
-    return () => {
-      window.clearInterval(timer);
-    };
-  }, [status]);
-
-  const loadingDots = ".".repeat(loadingStep);
-  const loadingButtonText = `${copy.running}${loadingDots}`;
-  const loadingStatusText = `${copy.statusLoading}${loadingDots}`;
+  const loadingButtonText = copy.running;
+  const loadingStatusText =
+    taskStage === "completed" || taskStage === "failed"
+      ? copy[taskStage]
+      : copy[taskStage];
   const visibleTasks = showAllTasks ? tasks : tasks.slice(0, defaultVisibleTasks);
   const hiddenTaskCount = Math.max(tasks.length - defaultVisibleTasks, 0);
 
@@ -146,6 +144,7 @@ export function App() {
     }
 
     setStatus("loading");
+    setTaskStage("fetching_sources");
     setErrorMessage("");
 
     try {
@@ -156,14 +155,22 @@ export function App() {
         ticker: inferredTicker,
         startDate,
         endDate,
-        locale
+        locale,
+        onTaskUpdate: (task) => {
+          if (task.stage) {
+            setTaskStage(task.stage);
+          }
+        }
       });
       setGraph(nextGraph);
+      setSelectedEventId(nextGraph.nodes.find((node) => node.type === "Event")?.id ?? null);
       setTasks(await listResearchTasks());
       setStatus("success");
+      setTaskStage("completed");
     } catch (error) {
       setGraph(null);
       setStatus("error");
+      setTaskStage("failed");
       setErrorMessage(error instanceof Error ? error.message : "Unknown error");
     }
   }
@@ -173,14 +180,18 @@ export function App() {
     setStartDate(task.start_date);
     setEndDate(task.end_date);
     setStatus("loading");
+    setTaskStage(task.stage ?? "fetching_sources");
     setErrorMessage("");
 
     try {
       const nextGraph = await getResearchGraph(task.task_id);
       setGraph(nextGraph);
+      setSelectedEventId(nextGraph.nodes.find((node) => node.type === "Event")?.id ?? null);
       setStatus("success");
+      setTaskStage("completed");
     } catch (error) {
       setStatus("error");
+      setTaskStage("failed");
       setErrorMessage(error instanceof Error ? error.message : "Unknown error");
     }
   }
@@ -270,7 +281,16 @@ export function App() {
           </button>
           <p className={`status-message ${status}`}>
             {status === "idle" && copy.statusIdle}
-            {status === "loading" && loadingStatusText}
+            {status === "loading" && (
+              <>
+                <span className="loading-indicator" aria-hidden="true">
+                  <span />
+                  <span />
+                  <span />
+                </span>
+                <span>{loadingStatusText}</span>
+              </>
+            )}
             {status === "success" && copy.statusSuccess}
             {status === "error" && `${copy.statusError} ${errorMessage}`}
           </p>
@@ -285,10 +305,20 @@ export function App() {
         locale={locale}
         graph={graph}
       />
-      <InvestmentPanels graph={graph} locale={locale} />
+      <InvestmentPanels
+        graph={graph}
+        locale={locale}
+        selectedEventId={selectedEventId}
+        onSelectEvent={setSelectedEventId}
+      />
       <section className="workspace-layout">
         <div className="workspace-main">
-          <GraphView graph={graph} locale={locale} />
+          <GraphView
+            graph={graph}
+            locale={locale}
+            selectedNodeId={selectedEventId}
+            onSelectNode={setSelectedEventId}
+          />
         </div>
         <aside className="workspace-side">
           <section className="task-history-card">
@@ -305,9 +335,9 @@ export function App() {
                     {visibleTasks.map((task) => (
                       <li key={task.task_id} className="task-history-item">
                         <div>
-                          <strong>{task.company_name}</strong>
+                          <strong>{task.ticker || task.company_name}</strong>
                           <span>
-                            {[task.ticker, `${task.start_date} -> ${task.end_date}`].filter(Boolean).join(" · ")}
+                            {[task.company_name, `${task.start_date} -> ${task.end_date}`, formatTaskCreatedAt(task.created_at, locale)].join(" · ")}
                           </span>
                         </div>
                         <button type="button" onClick={() => handleLoadTask(task)}>
@@ -343,4 +373,17 @@ function inferTicker(value: string): string {
     return normalized;
   }
   return "";
+}
+
+function formatTaskCreatedAt(value: string, locale: Locale): string {
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) {
+    return value;
+  }
+  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(parsed);
 }

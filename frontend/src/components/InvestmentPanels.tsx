@@ -5,13 +5,20 @@ import { formatFieldLabel, messages, translateGraphTerm } from "../lib/i18n";
 type InvestmentPanelsProps = {
   graph: GraphResponse | null;
   locale: Locale;
+  selectedEventId?: string | null;
+  onSelectEvent?: (eventId: string) => void;
 };
 
 type EventNode = GraphNode & {
   data?: Record<string, unknown>;
 };
 
-export function InvestmentPanels({ graph, locale }: InvestmentPanelsProps) {
+export function InvestmentPanels({
+  graph,
+  locale,
+  selectedEventId = null,
+  onSelectEvent
+}: InvestmentPanelsProps) {
   const copy = messages[locale];
   const eventNodes = (graph?.nodes.filter((node) => node.type === "Event") as EventNode[] | undefined) ?? [];
   const timelineEvents = [...eventNodes].sort((left, right) => {
@@ -34,7 +41,8 @@ export function InvestmentPanels({ graph, locale }: InvestmentPanelsProps) {
             {keyEvents.map((event) => (
               <article
                 key={event.id}
-                className={`key-event-card impact-${String(event.data?.impact_direction ?? "neutral")}`}
+                className={`key-event-card impact-${String(event.data?.impact_direction ?? "neutral")}${selectedEventId === event.id ? " is-selected" : ""}`}
+                onClick={() => onSelectEvent?.(event.id)}
               >
                 <strong>{String(event.data?.title ?? event.label)}</strong>
                 <div className="detail-meta-list">
@@ -74,7 +82,10 @@ export function InvestmentPanels({ graph, locale }: InvestmentPanelsProps) {
             {timelineEvents.map((event) => (
               <li key={event.id} className="timeline-item">
                 <div className="timeline-date">{String(event.data?.date ?? "-")}</div>
-                <div className={`timeline-body impact-${String(event.data?.impact_direction ?? "neutral")}`}>
+                <div
+                  className={`timeline-body impact-${String(event.data?.impact_direction ?? "neutral")}${selectedEventId === event.id ? " is-selected" : ""}`}
+                  onClick={() => onSelectEvent?.(event.id)}
+                >
                   <strong>{String(event.data?.title ?? event.label)}</strong>
                   <span>
                     {[

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from datetime import UTC, datetime
 from pathlib import Path
 
 from app.schemas.graph import GraphResponse
@@ -22,6 +23,10 @@ def load_persisted_state() -> tuple[dict[str, TaskStatusResponse], dict[str, Gra
             graph_payload = payload.get("graph")
             if not isinstance(task_payload, dict) or not isinstance(graph_payload, dict):
                 continue
+            task_payload.setdefault(
+                "created_at",
+                datetime.fromtimestamp(path.stat().st_mtime, UTC).isoformat(),
+            )
             task = TaskStatusResponse.model_validate(task_payload)
             graph = GraphResponse.model_validate(graph_payload)
         except Exception:

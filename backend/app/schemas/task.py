@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 from typing import Literal
 
 from pydantic import BaseModel, Field, model_validator
@@ -27,8 +27,20 @@ class ResearchTaskResponse(BaseModel):
 class TaskStatusResponse(BaseModel):
     task_id: str
     status: Literal["queued", "running", "completed", "failed"]
+    stage: Literal[
+        "queued",
+        "fetching_sources",
+        "filtering_articles",
+        "clustering_events",
+        "summarizing_events",
+        "extracting_entities",
+        "building_graph",
+        "completed",
+        "failed",
+    ] = "queued"
     progress: int
     company_name: str
     ticker: str = ""
     start_date: date
     end_date: date
+    created_at: datetime

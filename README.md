@@ -224,10 +224,24 @@ agents/
 - [x] Key Events 面板 + 事件时间线
 - [x] Ticker 自动补全
 - [x] 历史任务持久化与回放
+- [x] 投资事件实体与关系 schema 设计文档
 - [ ] 更多数据源（Bloomberg、Reuters、earnings call transcript）
 - [ ] 完整实体抽取（人名、地名、产品、竞争关系）
 - [ ] Neo4j 图数据库接入
 - [ ] 多公司对比与竞品追踪
+
+## 📚 设计文档
+
+- [总体设计文档](./docs/design.md)
+- [投资情报图谱路线图](./docs/investment-intelligence-roadmap.md)
+- [投资事件实体与关系 Schema](./docs/investment-entity-relation-schema.md)
+
+`投资事件实体与关系 Schema` 这份文档重点定义了：
+
+- 事件优先而不是通用 NER 优先
+- `core_entities` 与 `mentioned_entities` 的区分
+- 投资场景里的核心实体类型、关系类型、证据结构和影响评估字段
+- 后续 AI 结构化抽取应该直接输出的 JSON 目标格式
 
 ---
 

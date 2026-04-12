@@ -12,6 +12,7 @@ dependencies = [
   "langchain-anthropic>=0.3.0",
   "python-dotenv>=1.0.1",
   "requests>=2.32.0",
+  "yfinance>=0.2.0",
 ]
 
 [build-system]

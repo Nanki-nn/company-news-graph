@@ -8,20 +8,31 @@ import { formatFieldLabel, messages, translateGraphTerm } from "../lib/i18n";
 type GraphViewProps = {
   graph: GraphResponse | null;
   locale: Locale;
+  selectedNodeId?: string | null;
+  onSelectNode?: (nodeId: string | null) => void;
 };
 
 type SelectedElement =
   | { kind: "node"; item: GraphNode }
   | { kind: "edge"; item: GraphEdge };
 
-export function GraphView({ graph, locale }: GraphViewProps) {
+export function GraphView({
+  graph,
+  locale,
+  selectedNodeId = null,
+  onSelectNode
+}: GraphViewProps) {
   const copy = messages[locale];
   const [selected, setSelected] = useState<SelectedElement | null>(null);
   const graphContainerRef = useRef<HTMLDivElement | null>(null);
+  const cyRef = useRef<cytoscape.Core | null>(null);
   const legendItems = [
     { type: "Company", color: "#0f6cbd" },
     { type: "Event", color: "#efb814" },
     { type: "Product", color: "#14b8a6" },
+    { type: "Person", color: "#6366f1" },
+    { type: "Location", color: "#0f766e" },
+    { type: "Regulator", color: "#475569" },
     { type: "Source", color: "#7c3aed" }
   ];
   const impactLegendItems = [
@@ -76,8 +87,10 @@ export function GraphView({ graph, locale }: GraphViewProps) {
       setSelected(null);
       return;
     }
-    setSelected({ kind: "node", item: graph.nodes[0] });
-  }, [graph]);
+    const targetNode =
+      (selectedNodeId ? graph.nodes.find((node) => node.id === selectedNodeId) : null) ?? graph.nodes[0];
+    setSelected({ kind: "node", item: targetNode });
+  }, [graph, selectedNodeId]);
 
   useEffect(() => {
     if (!graphContainerRef.current || !graph) {
@@ -175,6 +188,27 @@ export function GraphView({ graph, locale }: GraphViewProps) {
           }
         },
         {
+          selector: 'node[rawType = "Person"]',
+          style: {
+            "background-color": "#6366f1",
+            color: "#ffffff"
+          }
+        },
+        {
+          selector: 'node[rawType = "Location"]',
+          style: {
+            "background-color": "#0f766e",
+            color: "#ffffff"
+          }
+        },
+        {
+          selector: 'node[rawType = "Regulator"]',
+          style: {
+            "background-color": "#475569",
+            color: "#ffffff"
+          }
+        },
+        {
           selector: 'node[rawType = "Source"]',
           style: {
             "background-color": "#7c3aed",
@@ -214,11 +248,13 @@ export function GraphView({ graph, locale }: GraphViewProps) {
         }
       ]
     });
+    cyRef.current = cy;
 
     cy.on("tap", "node", (event) => {
       const item = nodeMap.get(event.target.id());
       if (item) {
         setSelected({ kind: "node", item });
+        onSelectNode?.(item.id);
       }
     });
 
@@ -230,9 +266,36 @@ export function GraphView({ graph, locale }: GraphViewProps) {
     });
 
     return () => {
+      cyRef.current = null;
       cy.destroy();
     };
-  }, [elements, graph, nodeMap]);
+  }, [elements, graph, nodeMap, onSelectNode]);
+
+  useEffect(() => {
+    const cy = cyRef.current;
+    if (!cy) {
+      return;
+    }
+    cy.elements().unselect();
+    if (!selectedNodeId) {
+      return;
+    }
+    const target = cy.getElementById(selectedNodeId);
+    if (target.nonempty()) {
+      target.select();
+      cy.animate({
+        fit: {
+          eles: target.closedNeighborhood(),
+          padding: 80
+        },
+        duration: 250
+      });
+      const item = nodeMap.get(selectedNodeId);
+      if (item) {
+        setSelected({ kind: "node", item });
+      }
+    }
+  }, [selectedNodeId, nodeMap]);
 
   return (
     <section className="graph-layout">
@@ -330,20 +393,27 @@ function SelectedDetails({
   }
 
   const node = selected.item;
-  const sourceUrl = getSourceUrl(node);
   const eventEntries = getOrderedEntries(node, ["date", "article_count", "confidence"] as const);
   const sourceEntries = getOrderedEntries(node, ["source_name", "published_date"] as const);
+  const entityEntries = getOrderedEntries(node, ["entity_type", "role", "ticker"] as const);
+  const entityDescription =
+    typeof node.data?.description === "string" && node.data.description.trim().length > 0
+      ? node.data.description.trim()
+      : "";
   const articles = Array.isArray(node.data?.articles) ? node.data.articles : [];
   const keyPoints = Array.isArray(node.data?.key_points) ? node.data.key_points : [];
   const displayTitle = typeof node.data?.title === "string" && node.data.title.length > 0
     ? node.data.title
     : translateGraphTerm(node.label, locale);
-  const compactMetaEntries = node.type === "Source" ? sourceEntries : eventEntries;
+  const compactMetaEntries = node.type === "Source" ? sourceEntries : node.type === "Event" ? eventEntries : entityEntries;
   const compactSourceEntries = node.type === "Event" ? sourceEntries : [];
 
   return (
     <div className="detail-card">
       <div className="detail-title">{displayTitle}</div>
+      {entityDescription ? (
+        <div className="detail-paragraph">{entityDescription}</div>
+      ) : null}
       {compactMetaEntries.length > 0 ? (
         <CompactMeta entries={compactMetaEntries} locale={locale} nodeMap={nodeMap} />
       ) : null}
