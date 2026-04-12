@@ -1,11 +1,12 @@
 from threading import Lock, Thread
 from datetime import UTC, datetime
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 
 from app.schemas.graph import GraphResponse
 from app.schemas.task import ResearchTaskCreate, ResearchTaskResponse, TaskStatusResponse
 from app.services.news_research import build_error_graph, run_news_research
+from app.services.rate_limiter import check_rate_limit
 from app.services.storage import load_persisted_state, save_task_result
 
 
@@ -25,7 +26,8 @@ def list_tasks() -> list[TaskStatusResponse]:
 
 
 @router.post("/research/tasks", response_model=ResearchTaskResponse)
-def create_task(payload: ResearchTaskCreate) -> ResearchTaskResponse:
+def create_task(payload: ResearchTaskCreate, request: Request) -> ResearchTaskResponse:
+    check_rate_limit(request)
     with _LOCK:
         task_id = f"task_{len(_TASKS) + 1:03d}"
         task = TaskStatusResponse(
@@ -35,6 +37,7 @@ def create_task(payload: ResearchTaskCreate) -> ResearchTaskResponse:
             progress=0,
             company_name=payload.company_name,
             ticker=payload.ticker,
+            report_mode=payload.report_mode,
             start_date=payload.start_date,
             end_date=payload.end_date,
             created_at=datetime.now(UTC),
@@ -87,6 +90,7 @@ def _run_task_worker(task_id: str, payload: ResearchTaskCreate) -> None:
             payload.ticker,
             payload.start_date,
             payload.end_date,
+            use_ai=payload.report_mode == "ai",
             stage_callback=stage_callback,
         )
         _GRAPHS[task_id] = graph

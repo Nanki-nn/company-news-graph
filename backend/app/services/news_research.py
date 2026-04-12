@@ -14,7 +14,7 @@ import re
 import shutil
 import subprocess
 from typing import Callable, Iterable
-from urllib.parse import quote_plus
+from urllib.parse import quote, quote_plus
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 
@@ -30,6 +30,7 @@ BENZINGA_NEWS_URL = "https://api.benzinga.com/api/v2/news"
 logger = logging.getLogger("company_news_graph")
 
 _SEC_TICKERS_CACHE: dict[str, object] | None = None
+_ENTITY_DESCRIPTION_CACHE: dict[tuple[str, str, str], str] = {}
 
 
 def fetch_sec_tickers() -> dict[str, object]:
@@ -156,6 +157,7 @@ def run_news_research(
     ticker: str,
     start_date: date,
     end_date: date,
+    use_ai: bool | None = None,
     stage_callback: Callable[[str, int], None] | None = None,
 ) -> GraphResponse:
     try:
@@ -194,7 +196,7 @@ def run_news_research(
             filtered_articles = articles[:10]
         events = [extract_event(company_name, ticker, article) for article in filtered_articles]
         update_stage(stage_callback, "clustering_events", 45)
-        return build_news_graph(company_name, events, stage_callback=stage_callback)
+        return build_news_graph(company_name, events, use_ai=use_ai, stage_callback=stage_callback)
     except Exception as exc:
         return build_error_graph(company_name, str(exc))
 
@@ -561,6 +563,31 @@ def normalize_company_name(value: str) -> str:
     return " ".join(token for token in normalized.split() if token not in suffixes)
 
 
+COMPANY_CANONICALS: dict[str, tuple[str, str]] = {}
+for alias_key, aliases in COMPANY_ALIASES.items():
+    canonical_name = next((alias for alias in aliases if not alias.isupper()), aliases[0])
+    canonical_ticker = next((alias for alias in aliases if alias.isupper() and len(alias) <= 5), "")
+    COMPANY_CANONICALS[normalize_company_name(alias_key)] = (canonical_name, canonical_ticker)
+    for alias in aliases:
+        COMPANY_CANONICALS[normalize_company_name(alias)] = (canonical_name, canonical_ticker)
+
+
+def canonicalize_company_identity(name: str, ticker: str = "") -> tuple[str, str]:
+    normalized_name = normalize_company_name(name)
+    normalized_ticker = ticker.strip().upper()
+    if normalized_ticker:
+        canonical = COMPANY_CANONICALS.get(normalize_company_name(normalized_ticker))
+        if canonical:
+            canonical_name, canonical_ticker = canonical
+            return canonical_name, canonical_ticker or normalized_ticker
+    if normalized_name:
+        canonical = COMPANY_CANONICALS.get(normalized_name)
+        if canonical:
+            canonical_name, canonical_ticker = canonical
+            return canonical_name, canonical_ticker or normalized_ticker
+    return name.strip(), normalized_ticker
+
+
 def fetch_json(url: str, headers: dict[str, str]) -> dict[str, object]:
     response = requests.get(url, headers=headers, timeout=30)
     response.raise_for_status()
@@ -786,25 +813,27 @@ def derive_impact_level(event_type: str, group: list[ExtractedEvent]) -> str:
 def build_news_graph(
     company_name: str,
     events: list[ExtractedEvent],
+    use_ai: bool | None = None,
     stage_callback: Callable[[str, int], None] | None = None,
 ) -> GraphResponse:
-    company_ticker = next((event.ticker for event in events if event.ticker), "")
+    raw_company_ticker = next((event.ticker for event in events if event.ticker), "")
+    canonical_company_name, company_ticker = canonicalize_company_identity(company_name, raw_company_ticker)
     company_id = "company:target"
     nodes: list[GraphNode] = [
         GraphNode(
             id=company_id,
-            label=company_name,
+            label=canonical_company_name,
             type="Company",
             data={
-                "canonical_name": company_name,
+                "canonical_name": canonical_company_name,
                 "ticker": company_ticker,
-                "description": get_entity_description("Company", company_name, company_ticker),
+                "description": get_entity_description("Company", canonical_company_name, company_ticker),
             },
         )
     ]
     edges: list[GraphEdge] = []
     entity_node_ids: dict[tuple[str, str], str] = {
-        ("Company", normalize_entity_name(company_name)): company_id
+        ("Company", normalize_entity_name(canonical_company_name)): company_id
     }
     clusters = cluster_events(events)
     update_stage(stage_callback, "summarizing_events", 60)
@@ -819,7 +848,7 @@ def build_news_graph(
         representative = group[0]
         event_id = f"event:{event_index}"
         article_titles = [item.source_title for item in group]
-        cluster_summary = summarize_cluster(company_name, cluster)
+        cluster_summary = summarize_cluster(company_name, cluster, use_ai=use_ai)
         if event_index == 1:
             update_stage(stage_callback, "extracting_entities", 75)
         articles = [
@@ -1155,8 +1184,8 @@ def build_cluster_summary(company_name: str, cluster: EventCluster) -> str:
     return summary[:420]
 
 
-def summarize_cluster(company_name: str, cluster: EventCluster) -> ClusterSummary:
-    ai_summary, ai_reason = summarize_cluster_with_ai(company_name, cluster)
+def summarize_cluster(company_name: str, cluster: EventCluster, use_ai: bool | None = None) -> ClusterSummary:
+    ai_summary, ai_reason = summarize_cluster_with_ai(company_name, cluster, use_ai=use_ai)
     if ai_summary is not None:
         return ai_summary
 
@@ -1207,20 +1236,25 @@ def derive_core_entities_and_relations(
     locations = detect_location_entities(text)
     regulators = detect_regulator_entities(text)
 
+    subject_name, subject_ticker = canonicalize_company_identity(
+        company_name,
+        cluster.items[0].ticker if cluster.items else "",
+    )
     core_entities: list[CoreEntity] = [
         CoreEntity(
             entity_type="Company",
-            name=company_name,
+            name=subject_name,
             role="subject",
-            ticker=cluster.items[0].ticker if cluster.items else "",
+            ticker=subject_ticker,
         )
     ]
 
     for name, ticker in detected_company_names:
-        if normalize_entity_name(name) == normalize_entity_name(company_name):
+        canonical_name, canonical_ticker = canonicalize_company_identity(name, ticker)
+        if normalize_entity_name(canonical_name) == normalize_entity_name(subject_name):
             continue
         role = "counterparty" if cluster.event_type in {"partnership", "acquisition"} else "related_company"
-        core_entities.append(CoreEntity(entity_type="Company", name=name, role=role, ticker=ticker))
+        core_entities.append(CoreEntity(entity_type="Company", name=canonical_name, role=role, ticker=canonical_ticker))
     core_entities.extend(CoreEntity(entity_type="Person", name=name, role="executive") for name in people)
     core_entities.extend(CoreEntity(entity_type="Product", name=name, role="launched_product") for name in products)
     core_entities.extend(CoreEntity(entity_type="Location", name=name, role="affected_region") for name in locations)
@@ -1236,26 +1270,151 @@ def normalize_entity_name(value: str) -> str:
 
 
 def get_entity_description(entity_type: str, name: str, ticker: str = "") -> str:
+    cache_key = (entity_type, name.strip().lower(), ticker.strip().upper())
+    if cache_key in _ENTITY_DESCRIPTION_CACHE:
+        return _ENTITY_DESCRIPTION_CACHE[cache_key]
+
     normalized = name.strip().lower()
     if entity_type == "Company":
         profile = COMPANY_PROFILES.get(normalized)
         if profile:
+            _ENTITY_DESCRIPTION_CACHE[cache_key] = profile
             return profile
+        fetched_profile = fetch_dynamic_entity_description(entity_type, name, ticker)
+        if fetched_profile:
+            _ENTITY_DESCRIPTION_CACHE[cache_key] = fetched_profile
+            return fetched_profile
         if ticker:
-            return f"{name} 是一家与当前事件相关的上市公司，股票代码为 {ticker}。"
-        return f"{name} 是当前事件涉及的公司实体，建议结合相关新闻与官方披露进一步查看其业务背景。"
+            fallback = f"{name} 是一家与当前事件相关的上市公司，股票代码为 {ticker}。"
+            _ENTITY_DESCRIPTION_CACHE[cache_key] = fallback
+            return fallback
+        fallback = f"{name} 是当前事件涉及的公司实体，建议结合相关新闻与官方披露进一步查看其业务背景。"
+        _ENTITY_DESCRIPTION_CACHE[cache_key] = fallback
+        return fallback
     if entity_type == "Product":
         profile = PRODUCT_PROFILES.get(normalized)
         if profile:
+            _ENTITY_DESCRIPTION_CACHE[cache_key] = profile
             return profile
-        return f"{name} 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        fetched_profile = fetch_dynamic_entity_description(entity_type, name, ticker)
+        if fetched_profile:
+            _ENTITY_DESCRIPTION_CACHE[cache_key] = fetched_profile
+            return fetched_profile
+        fallback = f"{name} 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        _ENTITY_DESCRIPTION_CACHE[cache_key] = fallback
+        return fallback
     return ""
+
+
+def fetch_dynamic_entity_description(entity_type: str, name: str, ticker: str = "") -> str:
+    if entity_type == "Company":
+        summary = fetch_yfinance_company_summary(ticker) if ticker else ""
+        if summary:
+            return summary
+        summary = fetch_wikipedia_summary(name, ticker=ticker)
+        if summary:
+            return summary
+        company_record = lookup_sec_company(name, ticker)
+        if company_record:
+            title = str(company_record.get("title") or "").strip()
+            if title and normalize_company_name(title) != normalize_company_name(name):
+                return f"{name} 对应的规范公司名称为 {title}，该实体与当前事件直接相关。"
+        return ""
+
+    if entity_type == "Product":
+        return fetch_wikipedia_summary(name)
+
+    return ""
+
+
+def fetch_yfinance_company_summary(ticker: str) -> str:
+    normalized_ticker = ticker.strip().upper()
+    if not normalized_ticker:
+        return ""
+    try:
+        import yfinance as yf
+
+        info = yf.Ticker(normalized_ticker).info or {}
+        summary = str(info.get("longBusinessSummary") or "").strip()
+        if summary:
+            return normalize_description_text(summary)
+    except Exception as exc:
+        logger.debug("[entity-description] yfinance summary failed for %r: %s", normalized_ticker, exc)
+    return ""
+
+
+def fetch_wikipedia_summary(name: str, ticker: str = "") -> str:
+    search_terms = [name]
+    if ticker:
+        search_terms.append(f"{name} {ticker}")
+
+    headers = {
+        "User-Agent": "CompanyNewsGraph/0.1 (entity-description lookup)",
+        "Accept": "application/json",
+    }
+
+    for term in search_terms:
+        try:
+            search_response = requests.get(
+                "https://en.wikipedia.org/w/api.php",
+                params={
+                    "action": "query",
+                    "list": "search",
+                    "srsearch": term,
+                    "format": "json",
+                    "srlimit": 1,
+                },
+                headers=headers,
+                timeout=12,
+            )
+            search_response.raise_for_status()
+            payload = search_response.json()
+            items = ((payload.get("query") or {}).get("search") or [])
+            if not items:
+                continue
+            title = str(items[0].get("title") or "").strip()
+            if not title:
+                continue
+
+            summary_response = requests.get(
+                f"https://en.wikipedia.org/api/rest_v1/page/summary/{quote(title, safe='')}",
+                headers=headers,
+                timeout=12,
+            )
+            summary_response.raise_for_status()
+            summary_payload = summary_response.json()
+            extract = str(summary_payload.get("extract") or "").strip()
+            if extract:
+                return normalize_description_text(extract)
+        except Exception as exc:
+            logger.debug("[entity-description] wikipedia summary failed for %r: %s", term, exc)
+            continue
+
+    return ""
+
+
+def normalize_description_text(text: str, max_length: int = 180) -> str:
+    cleaned = " ".join(text.split())
+    if len(cleaned) <= max_length:
+        return cleaned
+    truncated = cleaned[:max_length].rsplit(" ", 1)[0].rstrip(" ,.;:")
+    return f"{truncated}。"
 
 
 def deduplicate_core_entities(entities: list[CoreEntity]) -> list[CoreEntity]:
     deduped: list[CoreEntity] = []
     seen: set[tuple[str, str]] = set()
     for entity in entities:
+        canonical_name = entity.name
+        canonical_ticker = entity.ticker
+        if entity.entity_type == "Company":
+            canonical_name, canonical_ticker = canonicalize_company_identity(entity.name, entity.ticker)
+            entity = CoreEntity(
+                entity_type=entity.entity_type,
+                name=canonical_name,
+                role=entity.role,
+                ticker=canonical_ticker,
+            )
         key = (entity.entity_type, normalize_entity_name(entity.name))
         if not entity.name or key in seen:
             continue
@@ -1363,8 +1522,9 @@ def derive_relations_from_entities(
     cluster: EventCluster,
     entities: list[CoreEntity],
 ) -> list[ExtractedRelation]:
+    subject_name, _ = canonicalize_company_identity(company_name, cluster.items[0].ticker if cluster.items else "")
     relations: list[ExtractedRelation] = []
-    counterparties = [entity for entity in entities if entity.entity_type == "Company" and normalize_entity_name(entity.name) != normalize_entity_name(company_name)]
+    counterparties = [entity for entity in entities if entity.entity_type == "Company" and normalize_entity_name(entity.name) != normalize_entity_name(subject_name)]
     products = [entity for entity in entities if entity.entity_type == "Product"]
     regulators = [entity for entity in entities if entity.entity_type == "Regulator"]
     people = [entity for entity in entities if entity.entity_type == "Person"]
@@ -1372,32 +1532,32 @@ def derive_relations_from_entities(
 
     if cluster.event_type == "partnership":
         relations.extend(
-            ExtractedRelation("PARTNERED_WITH", company_name, entity.name, "medium")
+            ExtractedRelation("PARTNERED_WITH", subject_name, entity.name, "medium")
             for entity in counterparties
         )
     if cluster.event_type == "acquisition":
         relations.extend(
-            ExtractedRelation("ACQUIRED", company_name, entity.name, "medium")
+            ExtractedRelation("ACQUIRED", subject_name, entity.name, "medium")
             for entity in counterparties
         )
     if cluster.event_type == "regulation":
         relations.extend(
-            ExtractedRelation("INVESTIGATED_BY", company_name, entity.name, "medium")
+            ExtractedRelation("INVESTIGATED_BY", subject_name, entity.name, "medium")
             for entity in regulators
         )
     if cluster.event_type == "product_launch":
         relations.extend(
-            ExtractedRelation("LAUNCHED", company_name, entity.name, "medium")
+            ExtractedRelation("LAUNCHED", subject_name, entity.name, "medium")
             for entity in products
         )
     if cluster.event_type == "leadership_change":
         relations.extend(
-            ExtractedRelation("APPOINTED", company_name, entity.name, "medium")
+            ExtractedRelation("APPOINTED", subject_name, entity.name, "medium")
             for entity in people
         )
     if cluster.event_type == "layoffs":
         relations.extend(
-            ExtractedRelation("CUT_JOBS_IN", company_name, entity.name, "medium")
+            ExtractedRelation("CUT_JOBS_IN", subject_name, entity.name, "medium")
             for entity in locations
         )
     return deduplicate_relations(relations)
@@ -1422,8 +1582,11 @@ def deduplicate_relations(relations: list[ExtractedRelation]) -> list[ExtractedR
 def summarize_cluster_with_ai(
     company_name: str,
     cluster: EventCluster,
+    use_ai: bool | None = None,
 ) -> tuple[ClusterSummary | None, str]:
-    if os.getenv("COMPANY_NEWS_USE_AI", "0") not in {"1", "true", "TRUE", "yes", "YES"}:
+    if use_ai is None:
+        use_ai = os.getenv("COMPANY_NEWS_USE_AI", "0") in {"1", "true", "TRUE", "yes", "YES"}
+    if not use_ai:
         return None, "COMPANY_NEWS_USE_AI is disabled"
 
     provider = os.getenv("LLM_PROVIDER", "openai-compatible").strip().lower()
@@ -1937,12 +2100,14 @@ def parse_core_entities(parsed: dict[str, object], cluster: EventCluster) -> lis
                 ticker = ""
             if not name:
                 continue
+            if entity_type == "Company":
+                name, ticker = canonicalize_company_identity(name, ticker)
             entities.append(CoreEntity(entity_type=entity_type, name=name, role=role, ticker=ticker))
 
     if not entities:
         return derive_core_entities_and_relations(cluster.items[0].company_name, cluster)[0]
 
-    subject_company = cluster.items[0].company_name
+    subject_company, subject_ticker = canonicalize_company_identity(cluster.items[0].company_name, cluster.items[0].ticker)
     if not any(entity.entity_type == "Company" and normalize_entity_name(entity.name) == normalize_entity_name(subject_company) for entity in entities):
         entities.insert(
             0,
@@ -1950,7 +2115,7 @@ def parse_core_entities(parsed: dict[str, object], cluster: EventCluster) -> lis
                 entity_type="Company",
                 name=subject_company,
                 role="subject",
-                ticker=cluster.items[0].ticker,
+                ticker=subject_ticker,
             ),
         )
     return deduplicate_core_entities(entities)
@@ -1972,6 +2137,8 @@ def parse_relations(parsed: dict[str, object], cluster: EventCluster) -> list[Ex
         confidence = str(raw_relation.get("confidence") or "medium").strip().lower()
         if relation_type not in allowed_types or not source or not target:
             continue
+        source, _ = canonicalize_company_identity(source)
+        target, _ = canonicalize_company_identity(target)
         relations.append(
             ExtractedRelation(
                 relation_type=relation_type,
@@ -2102,6 +2269,7 @@ def parse_llm_json(text: str) -> dict[str, object] | None:
 
 
 def build_error_graph(company_name: str, error_message: str) -> GraphResponse:
+    canonical_company_name, company_ticker = canonicalize_company_identity(company_name)
     company_id = "company:target"
     event_id = "event:error"
     source_id = "source:error"
@@ -2109,9 +2277,9 @@ def build_error_graph(company_name: str, error_message: str) -> GraphResponse:
         nodes=[
             GraphNode(
                 id=company_id,
-                label=company_name,
+                label=canonical_company_name,
                 type="Company",
-                data={"canonical_name": company_name},
+                data={"canonical_name": canonical_company_name, "ticker": company_ticker},
             ),
             GraphNode(
                 id=event_id,
@@ -2124,7 +2292,7 @@ def build_error_graph(company_name: str, error_message: str) -> GraphResponse:
                     "summary": f"News fetch failed. {error_message}",
                     "source_name": "Google News RSS",
                     "source_url": GOOGLE_NEWS_RSS_URL,
-                    "company_name": company_name,
+                    "company_name": canonical_company_name,
                 },
             ),
             GraphNode(
@@ -2134,7 +2302,7 @@ def build_error_graph(company_name: str, error_message: str) -> GraphResponse:
                 data={
                     "url": GOOGLE_NEWS_RSS_URL,
                     "source_name": "Google News RSS",
-                    "company_name": company_name,
+                    "company_name": canonical_company_name,
                 },
             ),
         ],

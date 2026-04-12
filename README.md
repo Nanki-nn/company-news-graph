@@ -1,5 +1,7 @@
 <div align="center">
 
+[English](./README.en.md) | 中文
+
 # 📊 Company News Graph
 
 **用图谱方式追踪公司最近动态**

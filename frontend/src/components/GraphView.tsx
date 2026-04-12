@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import cytoscape from "cytoscape";
 
-import type { GraphEdge, GraphNode, GraphResponse } from "../lib/api";
+import type { GraphEdge, GraphNode, GraphResponse, TaskStatusResponse } from "../lib/api";
 import type { Locale } from "../lib/i18n";
 import { formatFieldLabel, messages, translateGraphTerm } from "../lib/i18n";
 
@@ -10,6 +10,8 @@ type GraphViewProps = {
   locale: Locale;
   selectedNodeId?: string | null;
   onSelectNode?: (nodeId: string | null) => void;
+  tasks?: TaskStatusResponse[];
+  onLoadTask?: (task: TaskStatusResponse) => void;
 };
 
 type SelectedElement =
@@ -20,12 +22,20 @@ export function GraphView({
   graph,
   locale,
   selectedNodeId = null,
-  onSelectNode
+  onSelectNode,
+  tasks = [],
+  onLoadTask,
 }: GraphViewProps) {
   const copy = messages[locale];
   const [selected, setSelected] = useState<SelectedElement | null>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [rightPanel, setRightPanel] = useState<"details" | "timeline" | "keyevents" | "history">("details");
+  const [showAllTasks, setShowAllTasks] = useState(false);
   const graphContainerRef = useRef<HTMLDivElement | null>(null);
+  const graphCardRef = useRef<HTMLElement | null>(null);
   const cyRef = useRef<cytoscape.Core | null>(null);
+  const timelineItemRefs = useRef<Map<string, HTMLLIElement>>(new Map());
+  const internalSelectRef = useRef(false);
   const legendItems = [
     { type: "Company", color: "#0f6cbd" },
     { type: "Event", color: "#efb814" },
@@ -53,6 +63,25 @@ export function GraphView({
       ),
     [graph, locale]
   );
+
+  const timelineEvents = useMemo(() => {
+    if (!graph) return [];
+    return graph.nodes
+      .filter((node) => node.type === "Event")
+      .sort((a, b) => {
+        const aDate = String(a.data?.date ?? "");
+        const bDate = String(b.data?.date ?? "");
+        return bDate.localeCompare(aDate);
+      });
+  }, [graph]);
+
+  const keyEvents = useMemo(() => {
+    if (!graph) return [];
+    return graph.nodes
+      .filter((node) => node.type === "Event")
+      .sort((a, b) => scoreGraphNode(b) - scoreGraphNode(a))
+      .slice(0, 3);
+  }, [graph]);
 
   const elements = useMemo(() => {
     if (!graph) {
@@ -93,6 +122,22 @@ export function GraphView({
   }, [graph, selectedNodeId]);
 
   useEffect(() => {
+    const handleFullscreenChange = () => {
+      const fullscreenElement = document.fullscreenElement;
+      setIsFullscreen(Boolean(fullscreenElement && graphCardRef.current && fullscreenElement === graphCardRef.current));
+      window.setTimeout(() => {
+        cyRef.current?.resize();
+        cyRef.current?.fit(undefined, 48);
+      }, 50);
+    };
+
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () => {
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+    };
+  }, []);
+
+  useEffect(() => {
     if (!graphContainerRef.current || !graph) {
       return;
     }
@@ -105,6 +150,9 @@ export function GraphView({
         animate: false,
         padding: 24
       },
+      minZoom: 0.25,
+      maxZoom: 4,
+      wheelSensitivity: 0.25,
       style: [
         {
           selector: "node",
@@ -218,8 +266,27 @@ export function GraphView({
         {
           selector: "node:selected",
           style: {
-            "border-color": "#102a43",
-            "border-width": 4
+            "border-color": "#ffffff",
+            "border-width": 5,
+            "overlay-color": "#0f6cbd",
+            "overlay-opacity": 0.22,
+            "overlay-padding": 7,
+          }
+        },
+        {
+          selector: "node.hovered:not(:selected)",
+          style: {
+            "border-color": "rgba(255,255,255,0.9)",
+            "border-width": 4,
+            "overlay-color": "#ffffff",
+            "overlay-opacity": 0.14,
+            "overlay-padding": 4,
+          }
+        },
+        {
+          selector: ".dimmed",
+          style: {
+            opacity: 0.12,
           }
         },
         {
@@ -253,8 +320,12 @@ export function GraphView({
     cy.on("tap", "node", (event) => {
       const item = nodeMap.get(event.target.id());
       if (item) {
+        internalSelectRef.current = true;
         setSelected({ kind: "node", item });
         onSelectNode?.(item.id);
+        setRightPanel("details");
+        cy.elements().addClass("dimmed");
+        event.target.closedNeighborhood().removeClass("dimmed");
       }
     });
 
@@ -262,7 +333,37 @@ export function GraphView({
       const item = graph.edges.find((edge) => edge.id === event.target.id());
       if (item) {
         setSelected({ kind: "edge", item });
+        cy.elements().addClass("dimmed");
+        event.target.connectedNodes().closedNeighborhood().removeClass("dimmed");
+        event.target.removeClass("dimmed");
       }
+    });
+
+    cy.on("tap", (event) => {
+      if (event.target === cy) {
+        cy.elements().removeClass("dimmed");
+      }
+    });
+
+    cy.on("dblclick", (event) => {
+      if (event.target === cy) {
+        cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 250 });
+      }
+    });
+
+    cy.on("mouseover", "node", (event) => {
+      event.target.addClass("hovered");
+      if (graphContainerRef.current) graphContainerRef.current.style.cursor = "pointer";
+    });
+    cy.on("mouseout", "node", (event) => {
+      event.target.removeClass("hovered");
+      if (graphContainerRef.current) graphContainerRef.current.style.cursor = "default";
+    });
+    cy.on("mouseover", "edge", () => {
+      if (graphContainerRef.current) graphContainerRef.current.style.cursor = "pointer";
+    });
+    cy.on("mouseout", "edge", () => {
+      if (graphContainerRef.current) graphContainerRef.current.style.cursor = "default";
     });
 
     return () => {
@@ -276,89 +377,295 @@ export function GraphView({
     if (!cy) {
       return;
     }
-    cy.elements().unselect();
+    cy.elements().unselect().removeClass("dimmed");
     if (!selectedNodeId) {
       return;
     }
     const target = cy.getElementById(selectedNodeId);
     if (target.nonempty()) {
       target.select();
-      cy.animate({
-        fit: {
-          eles: target.closedNeighborhood(),
-          padding: 80
-        },
-        duration: 250
-      });
+      const fromOutside = !internalSelectRef.current;
+      internalSelectRef.current = false;
+      if (fromOutside) {
+        cy.animate({
+          fit: { eles: target.closedNeighborhood(), padding: 80 },
+          duration: 250
+        });
+      }
       const item = nodeMap.get(selectedNodeId);
       if (item) {
         setSelected({ kind: "node", item });
       }
+      cy.elements().addClass("dimmed");
+      target.closedNeighborhood().removeClass("dimmed");
     }
   }, [selectedNodeId, nodeMap]);
 
+  useEffect(() => {
+    if (tasks.length > 0 && !graph) {
+      setRightPanel("history");
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tasks.length]);
+
+  useEffect(() => {
+    if (graph) {
+      setRightPanel("timeline");
+    }
+  }, [graph]);
+
+  useEffect(() => {
+    if (rightPanel !== "timeline" || !selectedNodeId) return;
+    const el = timelineItemRefs.current.get(selectedNodeId);
+    el?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }, [selectedNodeId, rightPanel]);
+
+  function fitGraph() {
+    const cy = cyRef.current;
+    if (!cy) return;
+    cy.elements().removeClass("dimmed").unselect();
+    setSelected(null);
+    onSelectNode?.(null);
+    cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 250 });
+  }
+
+  async function toggleFullscreen() {
+    const element = graphCardRef.current;
+    if (!element) {
+      return;
+    }
+    if (document.fullscreenElement === element) {
+      await document.exitFullscreen();
+      return;
+    }
+    await element.requestFullscreen();
+  }
+
   return (
     <section className="graph-layout">
-      <div className="graph-card">
-        <h2>{copy.graphTitle}</h2>
-        <p>{copy.graphDescription}</p>
-        {!graph ? (
-          <div className="empty-state">{copy.noGraph}</div>
-        ) : (
-          <div className="graph-columns graph-columns-wide">
+      <div
+        ref={graphCardRef}
+        className={`graph-card${isFullscreen ? " is-fullscreen" : ""}`}
+      >
+        <div className={`graph-columns graph-columns-wide${isFullscreen ? " is-fullscreen" : ""}`}>
             <div className="cytoscape-panel">
-              <div className="graph-toolbar">
-                <span className="graph-badge">
-                  {copy.nodes}: {graph.nodes.length}
-                </span>
-                <span className="graph-badge">
-                  {copy.edges}: {graph.edges.length}
-                </span>
-              </div>
-              <div className="graph-legend" aria-label={copy.graphLegend}>
-                <span className="graph-legend-title">{copy.graphLegend}</span>
-                <ul className="graph-legend-list">
-                  {legendItems.map((item) => (
-                    <li key={item.type} className="graph-legend-item">
-                      <span
-                        className="graph-legend-dot"
-                        style={{ backgroundColor: item.color }}
-                        aria-hidden="true"
-                      />
-                      <span>{translateGraphTerm(item.type, locale)}</span>
-                    </li>
-                  ))}
-                </ul>
-                <ul className="graph-legend-list">
-                  {impactLegendItems.map((item) => (
-                    <li key={item.label} className="graph-legend-item">
-                      <span
-                        className="graph-legend-dot"
-                        style={{ backgroundColor: item.color }}
-                        aria-hidden="true"
-                      />
-                      <span>{item.label}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div ref={graphContainerRef} className="graph-canvas" />
+              {!graph ? (
+                <div className="empty-state">{copy.noGraph}</div>
+              ) : (
+                <>
+                  <div className="graph-toolbar">
+                    <span className="graph-badge">
+                      {copy.nodes}: {graph.nodes.length}
+                    </span>
+                    <span className="graph-badge">
+                      {copy.edges}: {graph.edges.length}
+                    </span>
+                    <button
+                      type="button"
+                      className="graph-action-button"
+                      onClick={fitGraph}
+                    >
+                      {locale === "zh" ? "适应视图" : "Fit View"}
+                    </button>
+                    <button
+                      type="button"
+                      className="graph-action-button"
+                      onClick={toggleFullscreen}
+                    >
+                      {isFullscreen ? copy.exitFullscreen : copy.enterFullscreen}
+                    </button>
+                  </div>
+                  <div className="graph-legend" aria-label={copy.graphLegend}>
+                    <span className="graph-legend-title">{copy.graphLegend}</span>
+                    <ul className="graph-legend-list">
+                      {legendItems.map((item) => (
+                        <li key={item.type} className="graph-legend-item">
+                          <span
+                            className="graph-legend-dot"
+                            style={{ backgroundColor: item.color }}
+                            aria-hidden="true"
+                          />
+                          <span>{translateGraphTerm(item.type, locale)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <ul className="graph-legend-list">
+                      {impactLegendItems.map((item) => (
+                        <li key={item.label} className="graph-legend-item">
+                          <span
+                            className="graph-legend-dot"
+                            style={{ backgroundColor: item.color }}
+                            aria-hidden="true"
+                          />
+                          <span>{item.label}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div ref={graphContainerRef} className="graph-canvas" />
+                </>
+              )}
             </div>
             <div className="details-panel">
-              <h3>{copy.details}</h3>
-              {selected ? (
-                <SelectedDetails
-                  selected={selected}
-                  nodeMap={nodeMap}
-                  nodeLabelMap={nodeLabelMap}
-                  locale={locale}
-                />
+              <div className="panel-tabs">
+                <button
+                  type="button"
+                  className={`panel-tab${rightPanel === "details" ? " is-active" : ""}`}
+                  onClick={() => setRightPanel("details")}
+                >
+                  {copy.details}
+                </button>
+                <button
+                  type="button"
+                  className={`panel-tab${rightPanel === "timeline" ? " is-active" : ""}`}
+                  onClick={() => setRightPanel("timeline")}
+                >
+                  {copy.timelineTitle}
+                </button>
+                <button
+                  type="button"
+                  className={`panel-tab${rightPanel === "keyevents" ? " is-active" : ""}`}
+                  onClick={() => setRightPanel("keyevents")}
+                >
+                  {copy.keyEventsTitle}
+                </button>
+                <button
+                  type="button"
+                  className={`panel-tab${rightPanel === "history" ? " is-active" : ""}`}
+                  onClick={() => setRightPanel("history")}
+                >
+                  {copy.taskHistory}
+                </button>
+              </div>
+              {rightPanel === "details" ? (
+                selected ? (
+                  <SelectedDetails
+                    selected={selected}
+                    nodeMap={nodeMap}
+                    nodeLabelMap={nodeLabelMap}
+                    locale={locale}
+                  />
+                ) : (
+                  <div className="empty-state compact">{copy.selectHint}</div>
+                )
+              ) : rightPanel === "keyevents" ? (
+                keyEvents.length === 0 ? (
+                  <div className="empty-state compact">{copy.noKeyEvents}</div>
+                ) : (
+                  <div className="key-event-grid">
+                    {keyEvents.map((event) => (
+                      <article
+                        key={event.id}
+                        className={`key-event-card impact-${String(event.data?.impact_direction ?? "neutral")}${selectedNodeId === event.id ? " is-selected" : ""}`}
+                        onClick={() => onSelectNode?.(event.id)}
+                      >
+                        <strong>{String(event.data?.title ?? event.label)}</strong>
+                        <div className="detail-meta-list">
+                          <div className="detail-meta-item">
+                            <span>{formatFieldLabel("event_type", locale)}</span>
+                            <strong>{translateGraphTerm(String(event.data?.event_type ?? "news"), locale)}</strong>
+                          </div>
+                          <div className="detail-meta-item">
+                            <span>{formatFieldLabel("impact_direction", locale)}</span>
+                            <strong>{translateGraphTerm(String(event.data?.impact_direction ?? "neutral"), locale)}</strong>
+                          </div>
+                          <div className="detail-meta-item">
+                            <span>{formatFieldLabel("impact_level", locale)}</span>
+                            <strong>{translateGraphTerm(String(event.data?.impact_level ?? "low"), locale)}</strong>
+                          </div>
+                          <div className="detail-meta-item">
+                            <span>{formatFieldLabel("officialness", locale)}</span>
+                            <strong>{translateGraphTerm(String(event.data?.officialness ?? "media"), locale)}</strong>
+                          </div>
+                          <div className="detail-meta-item">
+                            <span>{formatFieldLabel("price_sensitive", locale)}</span>
+                            <strong>{translateGraphTerm(String(event.data?.price_sensitive ?? false), locale)}</strong>
+                          </div>
+                        </div>
+                        <p>{String(event.data?.summary ?? "")}</p>
+                      </article>
+                    ))}
+                  </div>
+                )
+              ) : rightPanel === "timeline" ? (
+                timelineEvents.length === 0 ? (
+                  <div className="empty-state compact">{copy.selectHint}</div>
+                ) : (
+                  <ol className="timeline-list">
+                    {timelineEvents.map((event) => (
+                      <li
+                        key={event.id}
+                        ref={(el) => {
+                          if (el) timelineItemRefs.current.set(event.id, el);
+                          else timelineItemRefs.current.delete(event.id);
+                        }}
+                        className="timeline-item"
+                      >
+                        <div className="timeline-date">{String(event.data?.date ?? "-")}</div>
+                        <div
+                          className={`timeline-body impact-${String(event.data?.impact_direction ?? "neutral")}${selectedNodeId === event.id ? " is-selected" : ""}`}
+                          onClick={() => onSelectNode?.(event.id)}
+                        >
+                          <strong>{String(event.data?.title ?? event.label)}</strong>
+                          <span>
+                            {[
+                              translateGraphTerm(String(event.data?.event_type ?? "news"), locale),
+                              translateGraphTerm(String(event.data?.impact_direction ?? "neutral"), locale),
+                              translateGraphTerm(String(event.data?.impact_level ?? "low"), locale),
+                            ].join(" · ")}
+                          </span>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                )
               ) : (
-                <div className="empty-state compact">{copy.selectHint}</div>
+                <div className="task-history">
+                  <div className="task-history-header">
+                    <strong>{copy.taskHistory}</strong>
+                    {tasks.length > 0 ? <span>{copy.taskCount.replace("{count}", String(tasks.length))}</span> : null}
+                  </div>
+                  {tasks.length === 0 ? (
+                    <p className="task-history-empty">{copy.noTasks}</p>
+                  ) : (
+                    <>
+                      <ul className={`task-history-list${showAllTasks ? " expanded" : ""}`}>
+                        {(showAllTasks ? tasks : tasks.slice(0, 5)).map((task) => (
+                          <li key={task.task_id} className="task-history-item">
+                            <div>
+                              <strong>{task.ticker || task.company_name}</strong>
+                              <span>
+                                {[
+                                  task.company_name,
+                                  task.report_mode === "ai" ? "AI" : "Rules",
+                                  `${task.start_date} → ${task.end_date}`,
+                                  formatTaskCreatedAt(task.created_at, locale),
+                                ].join(" · ")}
+                              </span>
+                            </div>
+                            <button type="button" onClick={() => onLoadTask?.(task)}>
+                              {copy.loadTask}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                      {tasks.length > 5 ? (
+                        <button
+                          type="button"
+                          className="task-history-toggle"
+                          onClick={() => setShowAllTasks((v) => !v)}
+                        >
+                          {showAllTasks
+                            ? copy.showLessTasks
+                            : copy.showMoreTasks.replace("{count}", String(tasks.length - 5))}
+                        </button>
+                      ) : null}
+                    </>
+                  )}
+                </div>
               )}
             </div>
           </div>
-        )}
       </div>
     </section>
   );
@@ -585,4 +892,26 @@ function isArticleRecord(
   published_date?: string;
 } {
   return typeof value === "object" && value !== null;
+}
+
+function scoreGraphNode(node: GraphNode): number {
+  const eventType = String(node.data?.event_type ?? "news");
+  const impactLevel = String(node.data?.impact_level ?? "low");
+  const officialness = String(node.data?.officialness ?? "media");
+  const articleCount = Number(node.data?.article_count ?? 0);
+  if (eventType === "earnings_schedule") return -100;
+  const impactScore = impactLevel === "high" ? 30 : impactLevel === "medium" ? 20 : 10;
+  const sourceScore = officialness === "mixed" ? 15 : officialness === "official" ? 12 : 6;
+  return impactScore + sourceScore + articleCount;
+}
+
+function formatTaskCreatedAt(value: string, locale: Locale): string {
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return value;
+  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(parsed);
 }

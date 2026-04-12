@@ -7,6 +7,7 @@ from pydantic import BaseModel, Field, model_validator
 class ResearchTaskCreate(BaseModel):
     company_name: str = Field(min_length=1)
     ticker: str = ""
+    report_mode: Literal["ai", "rules"] = "ai"
     start_date: date
     end_date: date
     language: str = "en"
@@ -41,6 +42,7 @@ class TaskStatusResponse(BaseModel):
     progress: int
     company_name: str
     ticker: str = ""
+    report_mode: Literal["ai", "rules"] = "ai"
     start_date: date
     end_date: date
     created_at: datetime

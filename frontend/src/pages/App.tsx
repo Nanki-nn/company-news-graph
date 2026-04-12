@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import type { GraphResponse, TaskStatusResponse } from "../lib/api";
 import { getResearchGraph, listResearchTasks, runResearchTask } from "../lib/api";
 import { GraphView } from "../components/GraphView";
-import { InvestmentPanels } from "../components/InvestmentPanels";
 import { SummaryPanel } from "../components/SummaryPanel";
 import { messages, type Locale } from "../lib/i18n";
 
@@ -57,7 +56,6 @@ export function App() {
     "completed",
     "failed"
   ] as const;
-  const defaultVisibleTasks = 5;
   const [query, setQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -67,9 +65,9 @@ export function App() {
   });
   const [startDate, setStartDate] = useState("2026-03-01");
   const [endDate, setEndDate] = useState("2026-04-11");
+  const [reportMode, setReportMode] = useState<"ai" | "rules">("ai");
   const [graph, setGraph] = useState<GraphResponse | null>(null);
   const [tasks, setTasks] = useState<TaskStatusResponse[]>([]);
-  const [showAllTasks, setShowAllTasks] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [taskStage, setTaskStage] = useState<typeof loadingStepKeys[number]>("fetching_sources");
@@ -103,9 +101,6 @@ export function App() {
     taskStage === "completed" || taskStage === "failed"
       ? copy[taskStage]
       : copy[taskStage];
-  const visibleTasks = showAllTasks ? tasks : tasks.slice(0, defaultVisibleTasks);
-  const hiddenTaskCount = Math.max(tasks.length - defaultVisibleTasks, 0);
-
   const q = query.trim().toLowerCase();
   const filteredSuggestions = !q
     ? SUGGESTIONS.slice(0, 8)
@@ -138,6 +133,14 @@ export function App() {
     }
   }
 
+  function setDateRange(days: number) {
+    const end = new Date();
+    const start = new Date();
+    start.setDate(start.getDate() - days);
+    setEndDate(end.toISOString().slice(0, 10));
+    setStartDate(start.toISOString().slice(0, 10));
+  }
+
   async function handleRunResearch() {
     if (!query.trim()) {
       return;
@@ -153,6 +156,7 @@ export function App() {
       const nextGraph = await runResearchTask({
         companyName: normalizedQuery,
         ticker: inferredTicker,
+        reportMode,
         startDate,
         endDate,
         locale,
@@ -168,7 +172,6 @@ export function App() {
       setStatus("success");
       setTaskStage("completed");
     } catch (error) {
-      setGraph(null);
       setStatus("error");
       setTaskStage("failed");
       setErrorMessage(error instanceof Error ? error.message : "Unknown error");
@@ -177,6 +180,7 @@ export function App() {
 
   async function handleLoadTask(task: TaskStatusResponse) {
     setQuery(task.ticker || task.company_name);
+    setReportMode(task.report_mode ?? "ai");
     setStartDate(task.start_date);
     setEndDate(task.end_date);
     setStatus("loading");
@@ -202,22 +206,18 @@ export function App() {
         <div>
           <div className="hero-topbar">
             <p className="eyebrow">{copy.appName}</p>
-            <div className="locale-switch" aria-label={copy.language}>
-              <button
-                type="button"
-                className={locale === "zh" ? "locale-button active" : "locale-button"}
-                onClick={() => setLocale("zh")}
-              >
-                {copy.chinese}
-              </button>
-              <button
-                type="button"
-                className={locale === "en" ? "locale-button active" : "locale-button"}
-                onClick={() => setLocale("en")}
-              >
-                {copy.english}
-              </button>
-            </div>
+            <a
+              href="https://github.com/Nanki-nn/company-news-graph"
+              target="_blank"
+              rel="noreferrer"
+              className="github-link"
+              aria-label="GitHub"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+              </svg>
+              GitHub
+            </a>
           </div>
           <h1>{copy.heroTitle}</h1>
           <p className="subcopy">{copy.heroDescription}</p>
@@ -276,6 +276,39 @@ export function App() {
               />
             </label>
           </div>
+          <div className="date-shortcuts">
+            {([1, 7, 30, 90] as const).map((days, i) => (
+              <button
+                key={days}
+                type="button"
+                className="date-shortcut"
+                onClick={() => setDateRange(days)}
+              >
+                {copy.dateShortcuts[i]}
+              </button>
+            ))}
+          </div>
+          <div className="mode-row">
+            <div className="mode-switch" aria-label={copy.reportModeLabel}>
+              <button
+                type="button"
+                className={reportMode === "ai" ? "mode-button active" : "mode-button"}
+                onClick={() => setReportMode("ai")}
+              >
+                {copy.reportModeAi}
+              </button>
+              <button
+                type="button"
+                className={reportMode === "rules" ? "mode-button active" : "mode-button"}
+                onClick={() => setReportMode("rules")}
+              >
+                {copy.reportModeRules}
+              </button>
+            </div>
+            <p className="mode-hint">
+              {reportMode === "ai" ? copy.reportModeAiHint : copy.reportModeRulesHint}
+            </p>
+          </div>
           <button type="button" onClick={handleRunResearch} disabled={status === "loading"}>
             {status === "loading" ? loadingButtonText : copy.runResearch}
           </button>
@@ -294,6 +327,23 @@ export function App() {
             {status === "success" && copy.statusSuccess}
             {status === "error" && `${copy.statusError} ${errorMessage}`}
           </p>
+          <div className="locale-switch-row">
+            <button
+              type="button"
+              className={locale === "zh" ? "locale-text-button active" : "locale-text-button"}
+              onClick={() => setLocale("zh")}
+            >
+              中文
+            </button>
+            <span className="locale-divider" aria-hidden="true">/</span>
+            <button
+              type="button"
+              className={locale === "en" ? "locale-text-button active" : "locale-text-button"}
+              onClick={() => setLocale("en")}
+            >
+              EN
+            </button>
+          </div>
         </div>
       </section>
 
@@ -305,63 +355,15 @@ export function App() {
         locale={locale}
         graph={graph}
       />
-      <InvestmentPanels
-        graph={graph}
-        locale={locale}
-        selectedEventId={selectedEventId}
-        onSelectEvent={setSelectedEventId}
-      />
       <section className="workspace-layout">
-        <div className="workspace-main">
-          <GraphView
-            graph={graph}
-            locale={locale}
-            selectedNodeId={selectedEventId}
-            onSelectNode={setSelectedEventId}
-          />
-        </div>
-        <aside className="workspace-side">
-          <section className="task-history-card">
-            <div className="task-history">
-              <div className="task-history-header">
-                <strong>{copy.taskHistory}</strong>
-                {tasks.length > 0 ? <span>{copy.taskCount.replace("{count}", String(tasks.length))}</span> : null}
-              </div>
-              {tasks.length === 0 ? (
-                <p className="task-history-empty">{copy.noTasks}</p>
-              ) : (
-                <>
-                  <ul className={`task-history-list ${showAllTasks ? "expanded" : ""}`}>
-                    {visibleTasks.map((task) => (
-                      <li key={task.task_id} className="task-history-item">
-                        <div>
-                          <strong>{task.ticker || task.company_name}</strong>
-                          <span>
-                            {[task.company_name, `${task.start_date} -> ${task.end_date}`, formatTaskCreatedAt(task.created_at, locale)].join(" · ")}
-                          </span>
-                        </div>
-                        <button type="button" onClick={() => handleLoadTask(task)}>
-                          {copy.loadTask}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                  {hiddenTaskCount > 0 ? (
-                    <button
-                      type="button"
-                      className="task-history-toggle"
-                      onClick={() => setShowAllTasks((current) => !current)}
-                    >
-                      {showAllTasks
-                        ? copy.showLessTasks
-                        : copy.showMoreTasks.replace("{count}", String(hiddenTaskCount))}
-                    </button>
-                  ) : null}
-                </>
-              )}
-            </div>
-          </section>
-        </aside>
+        <GraphView
+          graph={graph}
+          locale={locale}
+          selectedNodeId={selectedEventId}
+          onSelectNode={setSelectedEventId}
+          tasks={tasks}
+          onLoadTask={handleLoadTask}
+        />
       </section>
     </main>
   );
@@ -375,15 +377,3 @@ function inferTicker(value: string): string {
   return "";
 }
 
-function formatTaskCreatedAt(value: string, locale: Locale): string {
-  const parsed = new Date(value);
-  if (Number.isNaN(parsed.getTime())) {
-    return value;
-  }
-  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(parsed);
-}

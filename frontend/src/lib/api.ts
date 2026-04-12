@@ -49,6 +49,7 @@ export type TaskStatusResponse = {
   progress: number;
   company_name: string;
   ticker: string;
+  report_mode: "ai" | "rules";
   start_date: string;
   end_date: string;
   created_at: string;
@@ -57,6 +58,7 @@ export type TaskStatusResponse = {
 export async function createResearchTask(params: {
   companyName: string;
   ticker: string;
+  reportMode: "ai" | "rules";
   startDate: string;
   endDate: string;
   locale: Locale;
@@ -69,6 +71,7 @@ export async function createResearchTask(params: {
     body: JSON.stringify({
       company_name: params.companyName,
       ticker: params.ticker,
+      report_mode: params.reportMode,
       start_date: params.startDate,
       end_date: params.endDate,
       language: params.locale,
@@ -77,6 +80,9 @@ export async function createResearchTask(params: {
   });
 
   if (!taskResponse.ok) {
+    if (taskResponse.status === 429) {
+      throw new Error("今日体验次数已用完，请明天再试。");
+    }
     throw new Error(`Failed to create research task: ${taskResponse.status}`);
   }
 
@@ -94,6 +100,7 @@ export async function getResearchTask(taskId: string): Promise<TaskStatusRespons
 export async function runResearchTask(params: {
   companyName: string;
   ticker: string;
+  reportMode: "ai" | "rules";
   startDate: string;
   endDate: string;
   locale: Locale;
