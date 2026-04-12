@@ -23,6 +23,11 @@ def load_persisted_state() -> tuple[dict[str, TaskStatusResponse], dict[str, Gra
             graph_payload = payload.get("graph")
             if not isinstance(task_payload, dict) or not isinstance(graph_payload, dict):
                 continue
+            task_payload.setdefault("status", "completed")
+            task_payload.setdefault("stage", "completed")
+            task_payload.setdefault("progress", 100)
+            task_payload.setdefault("ticker", "")
+            task_payload.setdefault("report_mode", "ai")
             task_payload.setdefault(
                 "created_at",
                 datetime.fromtimestamp(path.stat().st_mtime, UTC).isoformat(),

@@ -141,6 +141,12 @@ cd backend
 cp .env.example .env
 ```
 
+如果是线上部署，记得同时配置前端域名到 CORS 白名单，例如：
+
+```env
+CORS_ALLOWED_ORIGINS=https://your-frontend.com,https://www.your-frontend.com
+```
+
 然后根据你手头的 API 选择下面任意一种方式：
 
 ---

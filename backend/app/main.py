@@ -30,15 +30,37 @@ app = FastAPI(
     title="Company News Graph API",
     version="0.1.0",
     description="Research recent company news and return graph-shaped results.",
+    redirect_slashes=False,
 )
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
+
+def _parse_cors_allowed_origins() -> list[str]:
+    configured = os.getenv("CORS_ALLOWED_ORIGINS", "").strip()
+    default_origins = [
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "http://47.111.184.231",
-    ],
+        "https://47.111.184.231",
+    ]
+    if not configured:
+        return default_origins
+    return [origin.strip() for origin in configured.split(",") if origin.strip()]
+
+
+def _cors_origin_regex() -> str | None:
+    configured = os.getenv("CORS_ALLOWED_ORIGIN_REGEX", "").strip()
+    if configured:
+        return configured
+    return r"https?://(localhost|127\.0\.0\.1)(:\d+)?$"
+
+
+_allowed_origins = _parse_cors_allowed_origins()
+_allowed_origin_regex = _cors_origin_regex()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=_allowed_origins,
+    allow_origin_regex=_allowed_origin_regex,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -150,9 +150,14 @@ export function GraphView({
         animate: false,
         padding: 24
       },
+      userZoomingEnabled: true,
+      userPanningEnabled: true,
+      boxSelectionEnabled: false,
+      autoungrabify: false,
+      autounselectify: false,
       minZoom: 0.25,
-      maxZoom: 4,
-      wheelSensitivity: 0.25,
+      maxZoom: 5,
+      wheelSensitivity: 0.7,
       style: [
         {
           selector: "node",
@@ -429,6 +434,24 @@ export function GraphView({
     cy.animate({ fit: { eles: cy.elements(), padding: 32 }, duration: 250 });
   }
 
+  function zoomGraph(direction: "in" | "out") {
+    const cy = cyRef.current;
+    if (!cy) return;
+    const currentZoom = cy.zoom();
+    const factor = direction === "in" ? 1.18 : 1 / 1.18;
+    const nextZoom = Math.max(cy.minZoom(), Math.min(cy.maxZoom(), currentZoom * factor));
+    cy.animate({
+      zoom: {
+        level: nextZoom,
+        renderedPosition: {
+          x: cy.width() / 2,
+          y: cy.height() / 2,
+        },
+      },
+      duration: 180,
+    });
+  }
+
   async function toggleFullscreen() {
     const element = graphCardRef.current;
     if (!element) {
@@ -460,6 +483,24 @@ export function GraphView({
                     <span className="graph-badge">
                       {copy.edges}: {graph.edges.length}
                     </span>
+                    <button
+                      type="button"
+                      className="graph-action-button"
+                      onClick={() => zoomGraph("out")}
+                      aria-label={locale === "zh" ? "缩小图谱" : "Zoom out"}
+                      title={locale === "zh" ? "缩小图谱" : "Zoom out"}
+                    >
+                      -
+                    </button>
+                    <button
+                      type="button"
+                      className="graph-action-button"
+                      onClick={() => zoomGraph("in")}
+                      aria-label={locale === "zh" ? "放大图谱" : "Zoom in"}
+                      title={locale === "zh" ? "放大图谱" : "Zoom in"}
+                    >
+                      +
+                    </button>
                     <button
                       type="button"
                       className="graph-action-button"
