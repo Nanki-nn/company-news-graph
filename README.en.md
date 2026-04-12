@@ -1,6 +1,8 @@
-<div align="center">
+<div align="right">
+  <b>English</b> · <a href="./README.md">中文</a>
+</div>
 
-English | [中文](./README.md)
+<div align="center">
 
 # 📊 Company News Graph
 
