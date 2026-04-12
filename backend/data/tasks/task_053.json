@@ -1,0 +1,1722 @@
+{
+  "task": {
+    "task_id": "task_053",
+    "status": "completed",
+    "stage": "completed",
+    "progress": 100,
+    "company_name": "AAPL",
+    "ticker": "AAPL",
+    "report_mode": "ai",
+    "start_date": "2026-03-31",
+    "end_date": "2026-04-11",
+    "created_at": "2026-04-12T06:21:09.478676Z"
+  },
+  "graph": {
+    "nodes": [
+      {
+        "id": "company:target",
+        "label": "Apple",
+        "type": "Company",
+        "data": {
+          "canonical_name": "Apple",
+          "ticker": "AAPL",
+          "description": "苹果是一家全球消费电子与软件服务公司，核心业务包括 iPhone、Mac、可穿戴设备与服务收入。"
+        }
+      },
+      {
+        "id": "event:1",
+        "label": "苹果多线业务动态聚焦",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "General Update",
+          "date": "2026-04-09",
+          "published_at": "2026-04-09T20:41:19+00:00",
+          "summary": "近期苹果公司呈现多项业务动态：苹果TV+相继发布两部原创剧集《Maximum Pleasure Guaranteed》和《Widow's Bay》的首支预告片，持续布局流媒体内容；与此同时，苹果宣布关闭其在康涅狄格州特兰布尔购物中心的门店，引发当地政府官员公开回应；CNBC就苹果进入第二个五十年所面临的五大关键问题展开深度分析，涵盖其战略转型与市场挑战。",
+          "title": "苹果多线业务动态聚焦",
+          "article_title": "First Selectman Tesoro's Statement on Apple's Decision to Leave the Trumbull Mall",
+          "article_snippet": "First Selectman Tesoro's Statement on Apple's Decision to Leave the Trumbull Mall trumbull-ct.gov",
+          "source_name": "trumbull-ct.gov",
+          "source_url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1xQVlOeWJWd3pKckZGWDVodnJBeG1HSzZpVDFJVDFJQ1FKNlRNc2I5b1dLZjctOElCaXUzaXZpRGtFYWxBRkdmQmhuNXo5LURFemZxMXpacDVhVXdzbzYyd2VpRQ?oc=5",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "article_count": 4,
+          "article_titles": [
+            "First Selectman Tesoro's Statement on Apple's Decision to Leave the Trumbull Mall",
+            "Apple TV debuts first-look teaser for its new thriller “Maximum Pleasure Guaranteed”",
+            "Take a trip to “Widow’s Bay” in first teaser for the new Apple Original series",
+            "Five key questions Apple faces entering its second half-century"
+          ],
+          "articles": [
+            {
+              "title": "First Selectman Tesoro's Statement on Apple's Decision to Leave the Trumbull Mall",
+              "summary": "AAPL: First Selectman Tesoro's Statement on Apple's Decision to Leave the Trumbull Mall trumbull-ct.gov",
+              "snippet": "First Selectman Tesoro's Statement on Apple's Decision to Leave the Trumbull Mall trumbull-ct.gov",
+              "source_name": "trumbull-ct.gov",
+              "source_url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1xQVlOeWJWd3pKckZGWDVodnJBeG1HSzZpVDFJVDFJQ1FKNlRNc2I5b1dLZjctOElCaXUzaXZpRGtFYWxBRkdmQmhuNXo5LURFemZxMXpacDVhVXdzbzYyd2VpRQ?oc=5",
+              "published_at": "2026-04-09T20:41:19+00:00",
+              "published_date": "2026-04-09",
+              "ticker": "AAPL"
+            },
+            {
+              "title": "Apple TV debuts first-look teaser for its new thriller “Maximum Pleasure Guaranteed”",
+              "summary": "AAPL: Apple TV debuts first-look teaser for its new thriller “Maximum Pleasure Guaranteed” Apple",
+              "snippet": "Apple TV debuts first-look teaser for its new thriller “Maximum Pleasure Guaranteed” Apple",
+              "source_name": "Apple",
+              "source_url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNa2tLS3NVOVlLaV9tWDFaeUlTUnJrZ3RiVFFaTHpoYTVCZjgwY2hZbG9uUDNlQVJGTVRUM0ZURGMtdmZzbmNPVzdjejJDRnBNOW4zOGlIU3d0allaSmx4OXdyNGVManBTOGxINUdua0k2eGNmRkR4ZUhfQkpJdjNqd2dOYXVXRVJ5M0N6Nlh4ZngxbnlDMFAtMFFiU0F3a2NKTzdEMFBTbWtSc0NhTXNGVzgxUUc3azRFU25HNGI0NFU3WjV1LW1aa2hxeERDZzJLS0VfUE1GUmFYVWNBRWFoWUd4aVdOVzJxYXVHeWsxazRVWk83MmM4Nm9SSW5XdC1iQi1vbmJES1hOZjBxSHA5bA?oc=5",
+              "published_at": "2026-04-06T16:14:57+00:00",
+              "published_date": "2026-04-06",
+              "ticker": "AAPL"
+            },
+            {
+              "title": "Take a trip to “Widow’s Bay” in first teaser for the new Apple Original series",
+              "summary": "AAPL: Take a trip to “Widow’s Bay” in first teaser for the new Apple Original series Apple",
+              "snippet": "Take a trip to “Widow’s Bay” in first teaser for the new Apple Original series Apple",
+              "source_name": "Apple",
+              "source_url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxQbFZUY1huUHdDQktNeWhLWU8xc2cxNnE1bmtQZnZHcFFNRVV4ZFZrbTVtVlRhdk0zVDI1T2lKVjJ0R1NoSVZpcndTd0k4dGdISy16WUFuSVVXM3JRQ25yc2FVVHhYQzNYcEZtTDZoSnpEYnU0cm5FMXo0MXR1WWc2QlUyWTVhM09sN2Q0a21Tdk10VzN4cTUxQVpvb1RzZDRfVVdiV3hOY2JnUHVEVUZieHJ4QWVqT1RxdzBDT3JPN1lzWmlkdElQU29Yb3pXam5vcEU2ZUp4OEE5SEQ0LW1vQ2I5TGMxU0UwV0h0Y2dMd1ExOFRlMnVWcVVteldDRGU2U3dvMi0tOW1GNURaRmZMWg?oc=5",
+              "published_at": "2026-04-02T07:00:00+00:00",
+              "published_date": "2026-04-02",
+              "ticker": "AAPL"
+            },
+            {
+              "title": "Five key questions Apple faces entering its second half-century",
+              "summary": "AAPL: Five key questions Apple faces entering its second half-century CNBC",
+              "snippet": "Five key questions Apple faces entering its second half-century CNBC",
+              "source_name": "CNBC",
+              "source_url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPblBYQzI4a3M4VF8zLWxkRTBSbEVyN1kwMHNWR1F4anZRcUZuaVc5YzlXMDFEcEhoSjhJU0VIUGtpcUphV0FHSDMxLWpOM055SDZqY0diUUE5ZXBlbnZ2b1NmbktOM3RibmVZd0k1cGVNamRsVlp1djZYZ0pGTnk5QnBJcXJzMmxHNFo1M2RJX2dad2ExdENMbTlDb3RkWkh0UGfSAacBQVVfeXFMUGhSd2FFY1dEM2puSlYyeW04bDVxUGIzOUYzY25XdmRWVnpGcm9DbDl6QlRkVmp5dE9JSXBvUVUzQmNmdjE2cElBdV8ySzFrcUtGNmlNcnVsSlI0RWJlUHpkSkdPQVRSbmRSVGs2eW1qWHhSd2NEUGlXS3VZaDROa1pzUkFUa193YzItNGh2eDFfRmFLSVdxYlZiajItQXQ4VjFJSGtjUFk?oc=5",
+              "published_at": "2026-04-01T07:00:00+00:00",
+              "published_date": "2026-04-01",
+              "ticker": "AAPL"
+            }
+          ],
+          "key_points": [
+            "苹果TV+接连发布两部新剧首支预告片，原创内容战略持续推进",
+            "苹果关闭特兰布尔购物中心门店，当地政府发表声明回应",
+            "CNBC分析苹果进入下一个五十年所面临的核心战略挑战",
+            "多项动态反映苹果在内容、零售与长期战略上的多线布局"
+          ],
+          "confidence": "high",
+          "officialness": "mixed",
+          "impact_direction": "neutral",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"苹果多线业务动态聚焦\",\"summary\":\"近期苹果公司呈现多项业务动态：苹果TV+相继发布两部原创剧集《Maximum Pleasure Guaranteed》和《Widow's Bay》的首支预告片，持续布局流媒体内容；与此同时，苹果宣布关闭其在康涅狄格州特兰布尔购物中心的门店，引发当地政府官员公开回应；CNBC就苹果进入第二个五十年所面临的五大关键问题展开深度分析，涵盖其战略转型与市场挑战。\",\"key_points\":[\"苹果TV+接连发布两部新剧首支预告片，原创内容战略持续推进\",\"苹果关闭特兰布尔购物中心门店，当地政府发表声明回应\",\"CNBC分析苹果进入下一个五十年所面临的核心战略挑战\",\"多项动态反映苹果在内容、零售与长期战略上的多线布局\"],\"event_type\":\"news\",\"officialness\":\"mixed\",\"impact_direction\":\"neutral\",\"impact_level\":\"low\",\"price_sensitive\":false,\"confidence\":\"high\",\"entities\":{\"core\":{\"companies\":[\"Apple Inc.\",\"Apple TV+\",\"CNBC\"],\"people\":[\"Tesoro（First Selectman）\"],\"products\":[\"Maximum Pleasure Guaranteed\",\"Widow's Bay\",\"Apple TV+\"],\"locations\":[\"Trumbull Mall\",\"Connecticut\",\"美国\"],\"regulators\":[]}},\"relations\":[{\"type\":\"operates\",\"source\":\"Apple Inc.\",\"target\":\"Apple TV+\",\"confidence\":\"high\"},{\"type\":\"closes_store_in\",\"source\":\"Apple Inc.\",\"target\":\"Trumbull Mall\",\"confidence\":\"high\"},{\"type\":\"produces\",\"source\":\"Apple TV+\",\"target\":\"Maximum Pleasure Guaranteed\",\"confidence\":\"high\"},{\"type\":\"produces\",\"source\":\"Apple TV+\",\"target\":\"Widow's Bay\",\"confidence\":\"high\"},{\"type\":\"covers\",\"source\":\"CNBC\",\"target\":\"Apple Inc.\",\"confidence\":\"high\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Apple",
+              "role": "",
+              "ticker": "AAPL"
+            },
+            {
+              "entity_type": "Company",
+              "name": "Apple TV+",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Company",
+              "name": "CNBC",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Person",
+              "name": "Tesoro（First Selectman）",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Maximum Pleasure Guaranteed",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Widow's Bay",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Apple TV+",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Location",
+              "name": "Trumbull Mall",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Location",
+              "name": "Connecticut",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Location",
+              "name": "美国",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:1",
+        "label": "Apple TV+",
+        "type": "Company",
+        "data": {
+          "canonical_name": "Apple TV+",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Company",
+          "description": "Apple TV+ 是当前事件涉及的公司实体，建议结合相关新闻与官方披露进一步查看其业务背景。"
+        }
+      },
+      {
+        "id": "entity:2",
+        "label": "CNBC",
+        "type": "Company",
+        "data": {
+          "canonical_name": "CNBC",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Company",
+          "description": "CNBC 是当前事件涉及的公司实体，建议结合相关新闻与官方披露进一步查看其业务背景。"
+        }
+      },
+      {
+        "id": "entity:3",
+        "label": "Tesoro（First Selectman）",
+        "type": "Person",
+        "data": {
+          "canonical_name": "Tesoro（First Selectman）",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Person",
+          "description": ""
+        }
+      },
+      {
+        "id": "entity:4",
+        "label": "Maximum Pleasure Guaranteed",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Maximum Pleasure Guaranteed",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Maximum Pleasure Guaranteed 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "entity:5",
+        "label": "Widow's Bay",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Widow's Bay",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Widow's Bay 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "entity:6",
+        "label": "Apple TV+",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Apple TV+",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Apple TV+ 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "entity:7",
+        "label": "Trumbull Mall",
+        "type": "Location",
+        "data": {
+          "canonical_name": "Trumbull Mall",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Location",
+          "description": ""
+        }
+      },
+      {
+        "id": "entity:8",
+        "label": "Connecticut",
+        "type": "Location",
+        "data": {
+          "canonical_name": "Connecticut",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Location",
+          "description": ""
+        }
+      },
+      {
+        "id": "source:1",
+        "label": "trumbull-ct.gov",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1xQVlOeWJWd3pKckZGWDVodnJBeG1HSzZpVDFJVDFJQ1FKNlRNc2I5b1dLZjctOElCaXUzaXZpRGtFYWxBRkdmQmhuNXo5LURFemZxMXpacDVhVXdzbzYyd2VpRQ?oc=5",
+          "published_at": "2026-04-09T20:41:19+00:00",
+          "published_date": "2026-04-09",
+          "title": "First Selectman Tesoro's Statement on Apple's Decision to Leave the Trumbull Mall",
+          "article_title": "First Selectman Tesoro's Statement on Apple's Decision to Leave the Trumbull Mall",
+          "article_snippet": "First Selectman Tesoro's Statement on Apple's Decision to Leave the Trumbull Mall trumbull-ct.gov",
+          "summary": "AAPL: First Selectman Tesoro's Statement on Apple's Decision to Leave the Trumbull Mall trumbull-ct.gov",
+          "source_name": "trumbull-ct.gov",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "source:2",
+        "label": "Apple",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNa2tLS3NVOVlLaV9tWDFaeUlTUnJrZ3RiVFFaTHpoYTVCZjgwY2hZbG9uUDNlQVJGTVRUM0ZURGMtdmZzbmNPVzdjejJDRnBNOW4zOGlIU3d0allaSmx4OXdyNGVManBTOGxINUdua0k2eGNmRkR4ZUhfQkpJdjNqd2dOYXVXRVJ5M0N6Nlh4ZngxbnlDMFAtMFFiU0F3a2NKTzdEMFBTbWtSc0NhTXNGVzgxUUc3azRFU25HNGI0NFU3WjV1LW1aa2hxeERDZzJLS0VfUE1GUmFYVWNBRWFoWUd4aVdOVzJxYXVHeWsxazRVWk83MmM4Nm9SSW5XdC1iQi1vbmJES1hOZjBxSHA5bA?oc=5",
+          "published_at": "2026-04-06T16:14:57+00:00",
+          "published_date": "2026-04-06",
+          "title": "Apple TV debuts first-look teaser for its new thriller “Maximum Pleasure Guaranteed”",
+          "article_title": "Apple TV debuts first-look teaser for its new thriller “Maximum Pleasure Guaranteed”",
+          "article_snippet": "Apple TV debuts first-look teaser for its new thriller “Maximum Pleasure Guaranteed” Apple",
+          "summary": "AAPL: Apple TV debuts first-look teaser for its new thriller “Maximum Pleasure Guaranteed” Apple",
+          "source_name": "Apple",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "source:3",
+        "label": "Apple",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxQbFZUY1huUHdDQktNeWhLWU8xc2cxNnE1bmtQZnZHcFFNRVV4ZFZrbTVtVlRhdk0zVDI1T2lKVjJ0R1NoSVZpcndTd0k4dGdISy16WUFuSVVXM3JRQ25yc2FVVHhYQzNYcEZtTDZoSnpEYnU0cm5FMXo0MXR1WWc2QlUyWTVhM09sN2Q0a21Tdk10VzN4cTUxQVpvb1RzZDRfVVdiV3hOY2JnUHVEVUZieHJ4QWVqT1RxdzBDT3JPN1lzWmlkdElQU29Yb3pXam5vcEU2ZUp4OEE5SEQ0LW1vQ2I5TGMxU0UwV0h0Y2dMd1ExOFRlMnVWcVVteldDRGU2U3dvMi0tOW1GNURaRmZMWg?oc=5",
+          "published_at": "2026-04-02T07:00:00+00:00",
+          "published_date": "2026-04-02",
+          "title": "Take a trip to “Widow’s Bay” in first teaser for the new Apple Original series",
+          "article_title": "Take a trip to “Widow’s Bay” in first teaser for the new Apple Original series",
+          "article_snippet": "Take a trip to “Widow’s Bay” in first teaser for the new Apple Original series Apple",
+          "summary": "AAPL: Take a trip to “Widow’s Bay” in first teaser for the new Apple Original series Apple",
+          "source_name": "Apple",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "source:4",
+        "label": "CNBC",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPblBYQzI4a3M4VF8zLWxkRTBSbEVyN1kwMHNWR1F4anZRcUZuaVc5YzlXMDFEcEhoSjhJU0VIUGtpcUphV0FHSDMxLWpOM055SDZqY0diUUE5ZXBlbnZ2b1NmbktOM3RibmVZd0k1cGVNamRsVlp1djZYZ0pGTnk5QnBJcXJzMmxHNFo1M2RJX2dad2ExdENMbTlDb3RkWkh0UGfSAacBQVVfeXFMUGhSd2FFY1dEM2puSlYyeW04bDVxUGIzOUYzY25XdmRWVnpGcm9DbDl6QlRkVmp5dE9JSXBvUVUzQmNmdjE2cElBdV8ySzFrcUtGNmlNcnVsSlI0RWJlUHpkSkdPQVRSbmRSVGs2eW1qWHhSd2NEUGlXS3VZaDROa1pzUkFUa193YzItNGh2eDFfRmFLSVdxYlZiajItQXQ4VjFJSGtjUFk?oc=5",
+          "published_at": "2026-04-01T07:00:00+00:00",
+          "published_date": "2026-04-01",
+          "title": "Five key questions Apple faces entering its second half-century",
+          "article_title": "Five key questions Apple faces entering its second half-century",
+          "article_snippet": "Five key questions Apple faces entering its second half-century CNBC",
+          "summary": "AAPL: Five key questions Apple faces entering its second half-century CNBC",
+          "source_name": "CNBC",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:2",
+        "label": "苹果6月永久关闭美国三家门店",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "General Update",
+          "date": "2026-04-09",
+          "published_at": "2026-04-09T16:30:20+00:00",
+          "summary": "苹果公司宣布将于2026年6月永久关闭美国境内三家零售门店。此次关店是苹果零售网络调整的一部分，涉及具体门店地址及员工安置情况尚待官方进一步披露。此举可能反映苹果对线下零售布局的战略性优化，或与特定区域客流及租约到期等因素相关。",
+          "title": "苹果6月永久关闭美国三家门店",
+          "article_title": "Apple is Permanently Closing Three U.S. Stores in June",
+          "article_snippet": "Apple is Permanently Closing Three U.S. Stores in June MacRumors",
+          "source_name": "MacRumors",
+          "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQRURUX1NGM3RHZ2F6QUxlODVRRkZHa3ZKbjhrRmZpZ1Fsaml2OVgyLTFoMGloNlN6bjV2RkNyRTBpZW5hM1hKbjduQl90UzBBRXlYcUJBQUJweEw0akhNaGJYZ0IteTBxU284R0Q0N2RmYlh5TkRjaXp2cUJETmpZa1dB?oc=5",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "article_count": 1,
+          "article_titles": [
+            "Apple is Permanently Closing Three U.S. Stores in June"
+          ],
+          "articles": [
+            {
+              "title": "Apple is Permanently Closing Three U.S. Stores in June",
+              "summary": "AAPL: Apple is Permanently Closing Three U.S. Stores in June MacRumors",
+              "snippet": "Apple is Permanently Closing Three U.S. Stores in June MacRumors",
+              "source_name": "MacRumors",
+              "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQRURUX1NGM3RHZ2F6QUxlODVRRkZHa3ZKbjhrRmZpZ1Fsaml2OVgyLTFoMGloNlN6bjV2RkNyRTBpZW5hM1hKbjduQl90UzBBRXlYcUJBQUJweEw0akhNaGJYZ0IteTBxU284R0Q0N2RmYlh5TkRjaXp2cUJETmpZa1dB?oc=5",
+              "published_at": "2026-04-09T16:30:20+00:00",
+              "published_date": "2026-04-09",
+              "ticker": "AAPL"
+            }
+          ],
+          "key_points": [
+            "苹果计划于2026年6月永久关闭美国三家零售门店",
+            "关店原因可能涉及区域客流变化、租约到期或零售战略调整",
+            "此举为苹果零售网络的结构性优化举措",
+            "具体受影响门店及员工安置方案尚待官方公布"
+          ],
+          "confidence": "medium",
+          "officialness": "media",
+          "impact_direction": "neutral",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"苹果6月永久关闭美国三家门店\",\"summary\":\"苹果公司宣布将于2026年6月永久关闭美国境内三家零售门店。此次关店是苹果零售网络调整的一部分，涉及具体门店地址及员工安置情况尚待官方进一步披露。此举可能反映苹果对线下零售布局的战略性优化，或与特定区域客流及租约到期等因素相关。\",\"key_points\":[\"苹果计划于2026年6月永久关闭美国三家零售门店\",\"关店原因可能涉及区域客流变化、租约到期或零售战略调整\",\"此举为苹果零售网络的结构性优化举措\",\"具体受影响门店及员工安置方案尚待官方公布\"],\"event_type\":\"news\",\"officialness\":\"media\",\"impact_direction\":\"neutral\",\"impact_level\":\"low\",\"price_sensitive\":false,\"confidence\":\"medium\",\"entities\":{\"core\":{\"companies\":[\"Apple Inc.\",\"AAPL\"],\"people\":[],\"products\":[\"Apple Retail Store\"],\"locations\":[\"美国\"],\"regulators\":[]}},\"relations\":[{\"type\":\"operates\",\"source\":\"Apple Inc.\",\"target\":\"Apple Retail Store\",\"confidence\":\"high\"},{\"type\":\"located_in\",\"source\":\"Apple Retail Store\",\"target\":\"美国\",\"confidence\":\"high\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Apple",
+              "role": "",
+              "ticker": "AAPL"
+            },
+            {
+              "entity_type": "Product",
+              "name": "Apple Retail Store",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Location",
+              "name": "美国",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:9",
+        "label": "Apple Retail Store",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Apple Retail Store",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Apple Retail Store 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "source:5",
+        "label": "MacRumors",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQRURUX1NGM3RHZ2F6QUxlODVRRkZHa3ZKbjhrRmZpZ1Fsaml2OVgyLTFoMGloNlN6bjV2RkNyRTBpZW5hM1hKbjduQl90UzBBRXlYcUJBQUJweEw0akhNaGJYZ0IteTBxU284R0Q0N2RmYlh5TkRjaXp2cUJETmpZa1dB?oc=5",
+          "published_at": "2026-04-09T16:30:20+00:00",
+          "published_date": "2026-04-09",
+          "title": "Apple is Permanently Closing Three U.S. Stores in June",
+          "article_title": "Apple is Permanently Closing Three U.S. Stores in June",
+          "article_snippet": "Apple is Permanently Closing Three U.S. Stores in June MacRumors",
+          "summary": "AAPL: Apple is Permanently Closing Three U.S. Stores in June MacRumors",
+          "source_name": "MacRumors",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:3",
+        "label": "《暗物质》第二季定档8月28日",
+        "type": "Event",
+        "data": {
+          "event_type": "product_launch",
+          "event_label": "General Update",
+          "date": "2026-04-07",
+          "published_at": "2026-04-07T14:37:13+00:00",
+          "summary": "苹果旗下流媒体平台Apple TV+宣布，备受好评的科幻剧集《暗物质》第二季将于2026年8月28日正式回归。该剧是Apple TV+的重要原创内容之一，第一季播出后获得广泛认可。第二季的定档有助于巩固Apple TV+在流媒体市场的竞争地位，吸引和留存订阅用户。",
+          "title": "《暗物质》第二季定档8月28日",
+          "article_title": "Apple’s acclaimed sci-fi hit “Dark Matter” returns for season two on August 28",
+          "article_snippet": "Apple’s acclaimed sci-fi hit “Dark Matter” returns for season two on August 28 Apple",
+          "source_name": "Apple",
+          "source_url": "https://news.google.com/rss/articles/CBMiswJBVV95cUxNVTVzUnJDX1ZLTnhGSi1YVnF4VVdELXBxSHkwcERtN3kyY0RmdW45OU50bjUwdE1pMnFkMVFQd0xqTWUzYmpWbzlNMUFPUl82cEhjc1RSX3Z5Vm5HZzd5Z25WMU0xbjAtUXpnaDE5V05KVFRYT1BMdzBWeTVXa2tPRWRWWGJNQlVpTFFXT2dRczJLbENfd1dBVFltMDBCVGVnSTBXUmx0Z0ozOE1YNzN0V0M5c0RiVXJCb094N3JfOVBnaS1GRzVEWWhueGhoTWVTSFAyOWNxLTdmOENULUozcnFRSnhyNERPTEVyMktocFFtTFA2VGJFNTRBSndoZmc3RmxkMlBleWtkUHFLemk0bmtnbXg4TVgtWWdTM0V4WGo3NGJxVm92SGJ5MEtJbXMtR0J3?oc=5",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "article_count": 1,
+          "article_titles": [
+            "Apple’s acclaimed sci-fi hit “Dark Matter” returns for season two on August 28"
+          ],
+          "articles": [
+            {
+              "title": "Apple’s acclaimed sci-fi hit “Dark Matter” returns for season two on August 28",
+              "summary": "AAPL: Apple’s acclaimed sci-fi hit “Dark Matter” returns for season two on August 28 Apple",
+              "snippet": "Apple’s acclaimed sci-fi hit “Dark Matter” returns for season two on August 28 Apple",
+              "source_name": "Apple",
+              "source_url": "https://news.google.com/rss/articles/CBMiswJBVV95cUxNVTVzUnJDX1ZLTnhGSi1YVnF4VVdELXBxSHkwcERtN3kyY0RmdW45OU50bjUwdE1pMnFkMVFQd0xqTWUzYmpWbzlNMUFPUl82cEhjc1RSX3Z5Vm5HZzd5Z25WMU0xbjAtUXpnaDE5V05KVFRYT1BMdzBWeTVXa2tPRWRWWGJNQlVpTFFXT2dRczJLbENfd1dBVFltMDBCVGVnSTBXUmx0Z0ozOE1YNzN0V0M5c0RiVXJCb094N3JfOVBnaS1GRzVEWWhueGhoTWVTSFAyOWNxLTdmOENULUozcnFRSnhyNERPTEVyMktocFFtTFA2VGJFNTRBSndoZmc3RmxkMlBleWtkUHFLemk0bmtnbXg4TVgtWWdTM0V4WGo3NGJxVm92SGJ5MEtJbXMtR0J3?oc=5",
+              "published_at": "2026-04-07T14:37:13+00:00",
+              "published_date": "2026-04-07",
+              "ticker": "AAPL"
+            }
+          ],
+          "key_points": [
+            "苹果科幻剧《暗物质》第二季确认于2026年8月28日上线Apple TV+",
+            "该剧第一季口碑优异，是Apple TV+的标杆原创内容",
+            "新一季内容有望带动Apple TV+订阅增长及用户粘性"
+          ],
+          "confidence": "high",
+          "officialness": "official",
+          "impact_direction": "positive",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\n  \"title\": \"《暗物质》第二季定档8月28日\",\n  \"summary\": \"苹果旗下流媒体平台Apple TV+宣布，备受好评的科幻剧集《暗物质》第二季将于2026年8月28日正式回归。该剧是Apple TV+的重要原创内容之一，第一季播出后获得广泛认可。第二季的定档有助于巩固Apple TV+在流媒体市场的竞争地位，吸引和留存订阅用户。\",\n  \"key_points\": [\n    \"苹果科幻剧《暗物质》第二季确认于2026年8月28日上线Apple TV+\",\n    \"该剧第一季口碑优异，是Apple TV+的标杆原创内容\",\n    \"新一季内容有望带动Apple TV+订阅增长及用户粘性\"\n  ],\n  \"event_type\": \"product_launch\",\n  \"officialness\": \"official\",\n  \"impact_direction\": \"positive\",\n  \"impact_level\": \"low\",\n  \"price_sensitive\": false,\n  \"confidence\": \"high\",\n  \"entities\": {\n    \"core\": {\n      \"companies\": [\"Apple\", \"Apple TV+\"],\n      \"people\": [],\n      \"products\": [\"Dark Matter Season 2\", \"Apple TV+\"],\n      \"locations\": [],\n      \"regulators\": []\n    }\n  },\n  \"relations\": [\n    {\n      \"type\": \"owns\",\n      \"source\": \"Apple\",\n      \"target\": \"Apple TV+\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"type\": \"produces\",\n      \"source\": \"Apple TV+\",\n      \"target\": \"Dark Matter Season 2\",\n      \"confidence\": \"high\"\n    }\n  ]\n}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Apple",
+              "role": "",
+              "ticker": "AAPL"
+            },
+            {
+              "entity_type": "Company",
+              "name": "Apple TV+",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Dark Matter Season 2",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Apple TV+",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:10",
+        "label": "Dark Matter Season 2",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Dark Matter Season 2",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Dark Matter Season 2 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "source:6",
+        "label": "Apple",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMiswJBVV95cUxNVTVzUnJDX1ZLTnhGSi1YVnF4VVdELXBxSHkwcERtN3kyY0RmdW45OU50bjUwdE1pMnFkMVFQd0xqTWUzYmpWbzlNMUFPUl82cEhjc1RSX3Z5Vm5HZzd5Z25WMU0xbjAtUXpnaDE5V05KVFRYT1BMdzBWeTVXa2tPRWRWWGJNQlVpTFFXT2dRczJLbENfd1dBVFltMDBCVGVnSTBXUmx0Z0ozOE1YNzN0V0M5c0RiVXJCb094N3JfOVBnaS1GRzVEWWhueGhoTWVTSFAyOWNxLTdmOENULUozcnFRSnhyNERPTEVyMktocFFtTFA2VGJFNTRBSndoZmc3RmxkMlBleWtkUHFLemk0bmtnbXg4TVgtWWdTM0V4WGo3NGJxVm92SGJ5MEtJbXMtR0J3?oc=5",
+          "published_at": "2026-04-07T14:37:13+00:00",
+          "published_date": "2026-04-07",
+          "title": "Apple’s acclaimed sci-fi hit “Dark Matter” returns for season two on August 28",
+          "article_title": "Apple’s acclaimed sci-fi hit “Dark Matter” returns for season two on August 28",
+          "article_snippet": "Apple’s acclaimed sci-fi hit “Dark Matter” returns for season two on August 28 Apple",
+          "summary": "AAPL: Apple’s acclaimed sci-fi hit “Dark Matter” returns for season two on August 28 Apple",
+          "source_name": "Apple",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:4",
+        "label": "Apple Arcade上线Nick Jr. Replay!家庭游戏",
+        "type": "Event",
+        "data": {
+          "event_type": "product_launch",
+          "event_label": "General Update",
+          "date": "2026-04-07",
+          "published_at": "2026-04-07T14:09:34+00:00",
+          "summary": "苹果公司旗下游戏订阅服务Apple Arcade将于2026年5月7日推出Nick Jr. Replay!，该游戏面向家庭用户，主打无尽趣味玩法，以尼克频道热门儿童IP为核心内容。此次上线进一步丰富了Apple Arcade的家庭娱乐内容库，有助于提升订阅用户黏性与服务竞争力。",
+          "title": "Apple Arcade上线Nick Jr. Replay!家庭游戏",
+          "article_title": "Apple Arcade brings endless family fun with Nick Jr. Replay! on May 7",
+          "article_snippet": "Apple Arcade brings endless family fun with Nick Jr. Replay! on May 7 Apple",
+          "source_name": "Apple",
+          "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPSWZuTHFWS2JUaFg0QVFldTNfVDl2NlhTWlFQOGZTZkd4ZTNHN0ZNdmxWSjBTMVdpU0ltNE5NcFlBOUExT1V4ZjJaM1p4emRYd21VTENKWnZUdVhCc01OTE83Q3BNd0Q0cGNWdGdWUS0xVUREOHFXT0V5Ti05eUVXSVA1eTBMWVFkbHg4bDdqeFlOcHQ3WjRHTDJpWnNpTHRJMUI2WGdYaXRQb2s?oc=5",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "article_count": 1,
+          "article_titles": [
+            "Apple Arcade brings endless family fun with Nick Jr. Replay! on May 7"
+          ],
+          "articles": [
+            {
+              "title": "Apple Arcade brings endless family fun with Nick Jr. Replay! on May 7",
+              "summary": "AAPL: Apple Arcade brings endless family fun with Nick Jr. Replay! on May 7 Apple",
+              "snippet": "Apple Arcade brings endless family fun with Nick Jr. Replay! on May 7 Apple",
+              "source_name": "Apple",
+              "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPSWZuTHFWS2JUaFg0QVFldTNfVDl2NlhTWlFQOGZTZkd4ZTNHN0ZNdmxWSjBTMVdpU0ltNE5NcFlBOUExT1V4ZjJaM1p4emRYd21VTENKWnZUdVhCc01OTE83Q3BNd0Q0cGNWdGdWUS0xVUREOHFXT0V5Ti05eUVXSVA1eTBMWVFkbHg4bDdqeFlOcHQ3WjRHTDJpWnNpTHRJMUI2WGdYaXRQb2s?oc=5",
+              "published_at": "2026-04-07T14:09:34+00:00",
+              "published_date": "2026-04-07",
+              "ticker": "AAPL"
+            }
+          ],
+          "key_points": [
+            "Apple Arcade将于5月7日正式上线儿童游戏Nick Jr. Replay!",
+            "游戏以Nick Jr.热门IP为基础，主打家庭互动娱乐体验",
+            "此举有助于苹果扩大Apple Arcade家庭用户群体与订阅规模"
+          ],
+          "confidence": "high",
+          "officialness": "official",
+          "impact_direction": "positive",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"Apple Arcade上线Nick Jr. Replay!家庭游戏\",\"summary\":\"苹果公司旗下游戏订阅服务Apple Arcade将于2026年5月7日推出Nick Jr. Replay!，该游戏面向家庭用户，主打无尽趣味玩法，以尼克频道热门儿童IP为核心内容。此次上线进一步丰富了Apple Arcade的家庭娱乐内容库，有助于提升订阅用户黏性与服务竞争力。\",\"key_points\":[\"Apple Arcade将于5月7日正式上线儿童游戏Nick Jr. Replay!\",\"游戏以Nick Jr.热门IP为基础，主打家庭互动娱乐体验\",\"此举有助于苹果扩大Apple Arcade家庭用户群体与订阅规模\"],\"event_type\":\"product_launch\",\"officialness\":\"official\",\"impact_direction\":\"positive\",\"impact_level\":\"low\",\"price_sensitive\":false,\"confidence\":\"high\",\"entities\":{\"core\":{\"companies\":[\"Apple\",\"Nickelodeon/Nick Jr.\"],\"people\":[],\"products\":[\"Apple Arcade\",\"Nick Jr. Replay!\"],\"locations\":[],\"regulators\":[]}},\"relations\":[{\"type\":\"partnership\",\"source\":\"Apple\",\"target\":\"Nick Jr.\",\"confidence\":\"high\"},{\"type\":\"product_feature\",\"source\":\"Apple Arcade\",\"target\":\"Nick Jr. Replay!\",\"confidence\":\"high\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Apple",
+              "role": "",
+              "ticker": "AAPL"
+            },
+            {
+              "entity_type": "Company",
+              "name": "Nickelodeon/Nick Jr.",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Apple Arcade",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Nick Jr. Replay!",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:11",
+        "label": "Nickelodeon/Nick Jr.",
+        "type": "Company",
+        "data": {
+          "canonical_name": "Nickelodeon/Nick Jr.",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Company",
+          "description": "Nickelodeon/Nick Jr. 是当前事件涉及的公司实体，建议结合相关新闻与官方披露进一步查看其业务背景。"
+        }
+      },
+      {
+        "id": "entity:12",
+        "label": "Apple Arcade",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Apple Arcade",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Apple Arcade 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "entity:13",
+        "label": "Nick Jr. Replay!",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Nick Jr. Replay!",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Nick Jr. Replay! 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "source:7",
+        "label": "Apple",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPSWZuTHFWS2JUaFg0QVFldTNfVDl2NlhTWlFQOGZTZkd4ZTNHN0ZNdmxWSjBTMVdpU0ltNE5NcFlBOUExT1V4ZjJaM1p4emRYd21VTENKWnZUdVhCc01OTE83Q3BNd0Q0cGNWdGdWUS0xVUREOHFXT0V5Ti05eUVXSVA1eTBMWVFkbHg4bDdqeFlOcHQ3WjRHTDJpWnNpTHRJMUI2WGdYaXRQb2s?oc=5",
+          "published_at": "2026-04-07T14:09:34+00:00",
+          "published_date": "2026-04-07",
+          "title": "Apple Arcade brings endless family fun with Nick Jr. Replay! on May 7",
+          "article_title": "Apple Arcade brings endless family fun with Nick Jr. Replay! on May 7",
+          "article_snippet": "Apple Arcade brings endless family fun with Nick Jr. Replay! on May 7 Apple",
+          "summary": "AAPL: Apple Arcade brings endless family fun with Nick Jr. Replay! on May 7 Apple",
+          "source_name": "Apple",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:5",
+        "label": "苹果公司庆祝成立50周年",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "General Update",
+          "date": "2026-04-01",
+          "published_at": "2026-04-01T07:00:00+00:00",
+          "summary": "2026年4月1日，苹果公司迎来成立50周年纪念日。苹果在全球多地举办庆典活动，加利福尼亚州政府亦发文祝贺这一里程碑时刻。作为全球市值最高的科技企业之一，苹果半世纪的发展历程深刻影响了消费电子、软件及互联网行业的格局。",
+          "title": "苹果公司庆祝成立50周年",
+          "article_title": "California celebrates Apple’s 50th Anniversary",
+          "article_snippet": "California celebrates Apple’s 50th Anniversary California State Portal | CA.gov",
+          "source_name": "California State Portal | CA.gov",
+          "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQUldrUFJRVG1odU0yYTY5UHdEanhlczE1ZTZMVzRwV3JWOTlhM1AyZmZQR3NLOGktVjlfWjRNY2VNS0E0aG02Y1I0b1VjSklpQUdhVGhHa1E0T19sOXZ5NXJmejdlNHBzMnI3NElEcDZybVN4T2dzeTZwbFM1X2RiSnRPN1lXWlk?oc=5",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "article_count": 2,
+          "article_titles": [
+            "California celebrates Apple’s 50th Anniversary",
+            "Apple hosts 50th anniversary celebrations around the world"
+          ],
+          "articles": [
+            {
+              "title": "California celebrates Apple’s 50th Anniversary",
+              "summary": "AAPL: California celebrates Apple’s 50th Anniversary California State Portal | CA.gov",
+              "snippet": "California celebrates Apple’s 50th Anniversary California State Portal | CA.gov",
+              "source_name": "California State Portal | CA.gov",
+              "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQUldrUFJRVG1odU0yYTY5UHdEanhlczE1ZTZMVzRwV3JWOTlhM1AyZmZQR3NLOGktVjlfWjRNY2VNS0E0aG02Y1I0b1VjSklpQUdhVGhHa1E0T19sOXZ5NXJmejdlNHBzMnI3NElEcDZybVN4T2dzeTZwbFM1X2RiSnRPN1lXWlk?oc=5",
+              "published_at": "2026-04-01T07:00:00+00:00",
+              "published_date": "2026-04-01",
+              "ticker": "AAPL"
+            },
+            {
+              "title": "Apple hosts 50th anniversary celebrations around the world",
+              "summary": "AAPL: Apple hosts 50th anniversary celebrations around the world Apple",
+              "snippet": "Apple hosts 50th anniversary celebrations around the world Apple",
+              "source_name": "Apple",
+              "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPNG84Mm5VcHpDTkdEaEUzcmg0anBCUjdYYkVITUNaSXFialhIMWFpM1BXVl9hZHhaMjNwRXVtc0haZHprOWE1R1BtbWJZaTEzYWt2WXpBM0w2bGltRGNOMEp2eWlQYVRQLTZDWXBKeGtSQUxRZGZNYXJBbV9kZDFIdlFRRzVGcVo1VGExaUxDNlhsM1pTdWxOVldlUTVJcDg?oc=5",
+              "published_at": "2026-04-01T07:00:00+00:00",
+              "published_date": "2026-04-01",
+              "ticker": "AAPL"
+            }
+          ],
+          "key_points": [
+            "苹果公司于2026年4月1日正式迎来成立50周年纪念日",
+            "苹果在全球范围内举办50周年庆典活动",
+            "加利福尼亚州政府官方发文祝贺苹果50周年"
+          ],
+          "confidence": "high",
+          "officialness": "official",
+          "impact_direction": "neutral",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\n  \"title\": \"苹果公司庆祝成立50周年\",\n  \"summary\": \"2026年4月1日，苹果公司迎来成立50周年纪念日。苹果在全球多地举办庆典活动，加利福尼亚州政府亦发文祝贺这一里程碑时刻。作为全球市值最高的科技企业之一，苹果半世纪的发展历程深刻影响了消费电子、软件及互联网行业的格局。\",\n  \"key_points\": [\n    \"苹果公司于2026年4月1日正式迎来成立50周年纪念日\",\n    \"苹果在全球范围内举办50周年庆典活动\",\n    \"加利福尼亚州政府官方发文祝贺苹果50周年\"\n  ],\n  \"event_type\": \"news\",\n  \"officialness\": \"official\",\n  \"impact_direction\": \"neutral\",\n  \"impact_level\": \"low\",\n  \"price_sensitive\": false,\n  \"confidence\": \"high\",\n  \"entities\": {\n    \"core\": {\n      \"companies\": [\"Apple Inc.\", \"AAPL\"],\n      \"people\": [],\n      \"products\": [],\n      \"locations\": [\"加利福尼亚州\", \"全球\"],\n      \"regulators\": [\"California State Portal\"]\n    }\n  },\n  \"relations\": [\n    {\n      \"type\": \"celebrates\",\n      \"source\": \"Apple Inc.\",\n      \"target\": \"50周年纪念日\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"type\": \"endorses\",\n      \"source\": \"California State Portal\",\n      \"target\": \"Apple Inc.\",\n      \"confidence\": \"high\"\n    }\n  ]\n}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Apple",
+              "role": "",
+              "ticker": "AAPL"
+            },
+            {
+              "entity_type": "Location",
+              "name": "加利福尼亚州",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Regulator",
+              "name": "California State Portal",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:14",
+        "label": "California State Portal",
+        "type": "Regulator",
+        "data": {
+          "canonical_name": "California State Portal",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Regulator",
+          "description": ""
+        }
+      },
+      {
+        "id": "source:8",
+        "label": "California State Portal | CA.gov",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQUldrUFJRVG1odU0yYTY5UHdEanhlczE1ZTZMVzRwV3JWOTlhM1AyZmZQR3NLOGktVjlfWjRNY2VNS0E0aG02Y1I0b1VjSklpQUdhVGhHa1E0T19sOXZ5NXJmejdlNHBzMnI3NElEcDZybVN4T2dzeTZwbFM1X2RiSnRPN1lXWlk?oc=5",
+          "published_at": "2026-04-01T07:00:00+00:00",
+          "published_date": "2026-04-01",
+          "title": "California celebrates Apple’s 50th Anniversary",
+          "article_title": "California celebrates Apple’s 50th Anniversary",
+          "article_snippet": "California celebrates Apple’s 50th Anniversary California State Portal | CA.gov",
+          "summary": "AAPL: California celebrates Apple’s 50th Anniversary California State Portal | CA.gov",
+          "source_name": "California State Portal | CA.gov",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "source:9",
+        "label": "Apple",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPNG84Mm5VcHpDTkdEaEUzcmg0anBCUjdYYkVITUNaSXFialhIMWFpM1BXVl9hZHhaMjNwRXVtc0haZHprOWE1R1BtbWJZaTEzYWt2WXpBM0w2bGltRGNOMEp2eWlQYVRQLTZDWXBKeGtSQUxRZGZNYXJBbV9kZDFIdlFRRzVGcVo1VGExaUxDNlhsM1pTdWxOVldlUTVJcDg?oc=5",
+          "published_at": "2026-04-01T07:00:00+00:00",
+          "published_date": "2026-04-01",
+          "title": "Apple hosts 50th anniversary celebrations around the world",
+          "article_title": "Apple hosts 50th anniversary celebrations around the world",
+          "article_snippet": "Apple hosts 50th anniversary celebrations around the world Apple",
+          "summary": "AAPL: Apple hosts 50th anniversary celebrations around the world Apple",
+          "source_name": "Apple",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:6",
+        "label": "苹果公司成立50周年回顾与展望",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "General Update",
+          "date": "2026-04-01",
+          "published_at": "2026-04-01T07:00:00+00:00",
+          "summary": "多家媒体围绕苹果公司成立50周年发表深度分析文章。CNET展望苹果未来50年发展方向，Stratechery创始人Ben Thompson则从战略视角解读苹果半世纪以来的垂直整合路径。两篇文章均聚焦于苹果独特的软硬件一体化商业模式，以及该模式在人工智能时代的持续竞争优势与潜在挑战。",
+          "title": "苹果公司成立50周年回顾与展望",
+          "article_title": "Apple: The Next 50 Years",
+          "article_snippet": "Apple: The Next 50 Years CNET",
+          "source_name": "CNET",
+          "source_url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBQemNVN3hnbkw5LTJvRXgtVjhNS192VWxNTkhqVEhxelNiRE45UHp2OWZZcWczNUxjeXRDQndrLWh5dUNueUpTbnE1VGJrOFk4TkYwdGJBT0FwLVN5QkRKcDRIcE0tNk9BMG8zdA?oc=5",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "article_count": 2,
+          "article_titles": [
+            "Apple: The Next 50 Years",
+            "Apple’s 50 Years of Integration"
+          ],
+          "articles": [
+            {
+              "title": "Apple: The Next 50 Years",
+              "summary": "AAPL: Apple: The Next 50 Years CNET",
+              "snippet": "Apple: The Next 50 Years CNET",
+              "source_name": "CNET",
+              "source_url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBQemNVN3hnbkw5LTJvRXgtVjhNS192VWxNTkhqVEhxelNiRE45UHp2OWZZcWczNUxjeXRDQndrLWh5dUNueUpTbnE1VGJrOFk4TkYwdGJBT0FwLVN5QkRKcDRIcE0tNk9BMG8zdA?oc=5",
+              "published_at": "2026-04-01T07:00:00+00:00",
+              "published_date": "2026-04-01",
+              "ticker": "AAPL"
+            },
+            {
+              "title": "Apple’s 50 Years of Integration",
+              "summary": "AAPL: Apple’s 50 Years of Integration Stratechery by Ben Thompson",
+              "snippet": "Apple’s 50 Years of Integration Stratechery by Ben Thompson",
+              "source_name": "Stratechery by Ben Thompson",
+              "source_url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9XMXVrd2Z0Rk1tU09lVmU5T1p1UWwySzNELXJRMTUwTkdfcDRFd29rem03TEZZUWhUcDA1WXM1WUFSd2FvTXZnQ2JOYUsyWTNiNkxWWjJUYnlEanQwUmp0ZUdxdVM1NDhfRWxjSg?oc=5",
+              "published_at": "2026-03-31T07:00:00+00:00",
+              "published_date": "2026-03-31",
+              "ticker": "AAPL"
+            }
+          ],
+          "key_points": [
+            "苹果公司迎来成立50周年，多家权威媒体发表周年专题分析",
+            "Stratechery深度解读苹果垂直整合战略的历史逻辑与未来走向",
+            "分析人士关注苹果在AI时代能否延续其生态系统护城河",
+            "相关报道属媒体评论性质，不涉及公司官方声明或财务数据"
+          ],
+          "confidence": "high",
+          "officialness": "media",
+          "impact_direction": "neutral",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"苹果公司成立50周年回顾与展望\",\"summary\":\"多家媒体围绕苹果公司成立50周年发表深度分析文章。CNET展望苹果未来50年发展方向，Stratechery创始人Ben Thompson则从战略视角解读苹果半世纪以来的垂直整合路径。两篇文章均聚焦于苹果独特的软硬件一体化商业模式，以及该模式在人工智能时代的持续竞争优势与潜在挑战。\",\"key_points\":[\"苹果公司迎来成立50周年，多家权威媒体发表周年专题分析\",\"Stratechery深度解读苹果垂直整合战略的历史逻辑与未来走向\",\"分析人士关注苹果在AI时代能否延续其生态系统护城河\",\"相关报道属媒体评论性质，不涉及公司官方声明或财务数据\"],\"event_type\":\"news\",\"officialness\":\"media\",\"impact_direction\":\"neutral\",\"impact_level\":\"low\",\"price_sensitive\":false,\"confidence\":\"high\",\"entities\":{\"core\":{\"companies\":[\"Apple Inc.\",\"CNET\",\"Stratechery\"],\"people\":[\"Ben Thompson\"],\"products\":[\"Apple生态系统\"],\"locations\":[\"美国\"],\"regulators\":[]}},\"relations\":[{\"type\":\"coverage\",\"source\":\"CNET\",\"target\":\"Apple Inc.\",\"confidence\":\"high\"},{\"type\":\"coverage\",\"source\":\"Stratechery\",\"target\":\"Apple Inc.\",\"confidence\":\"high\"},{\"type\":\"authored_by\",\"source\":\"Apple's 50 Years of Integration\",\"target\":\"Ben Thompson\",\"confidence\":\"high\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Apple",
+              "role": "",
+              "ticker": "AAPL"
+            },
+            {
+              "entity_type": "Company",
+              "name": "CNET",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Company",
+              "name": "Stratechery",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Person",
+              "name": "Ben Thompson",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Apple生态系统",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Location",
+              "name": "美国",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:15",
+        "label": "CNET",
+        "type": "Company",
+        "data": {
+          "canonical_name": "CNET",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Company",
+          "description": "CNET 是当前事件涉及的公司实体，建议结合相关新闻与官方披露进一步查看其业务背景。"
+        }
+      },
+      {
+        "id": "entity:16",
+        "label": "Stratechery",
+        "type": "Company",
+        "data": {
+          "canonical_name": "Stratechery",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Company",
+          "description": "Stratechery 是当前事件涉及的公司实体，建议结合相关新闻与官方披露进一步查看其业务背景。"
+        }
+      },
+      {
+        "id": "entity:17",
+        "label": "Ben Thompson",
+        "type": "Person",
+        "data": {
+          "canonical_name": "Ben Thompson",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Person",
+          "description": ""
+        }
+      },
+      {
+        "id": "entity:18",
+        "label": "Apple生态系统",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Apple生态系统",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Apple生态系统 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "source:10",
+        "label": "CNET",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBQemNVN3hnbkw5LTJvRXgtVjhNS192VWxNTkhqVEhxelNiRE45UHp2OWZZcWczNUxjeXRDQndrLWh5dUNueUpTbnE1VGJrOFk4TkYwdGJBT0FwLVN5QkRKcDRIcE0tNk9BMG8zdA?oc=5",
+          "published_at": "2026-04-01T07:00:00+00:00",
+          "published_date": "2026-04-01",
+          "title": "Apple: The Next 50 Years",
+          "article_title": "Apple: The Next 50 Years",
+          "article_snippet": "Apple: The Next 50 Years CNET",
+          "summary": "AAPL: Apple: The Next 50 Years CNET",
+          "source_name": "CNET",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "source:11",
+        "label": "Stratechery by Ben Thompson",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9XMXVrd2Z0Rk1tU09lVmU5T1p1UWwySzNELXJRMTUwTkdfcDRFd29rem03TEZZUWhUcDA1WXM1WUFSd2FvTXZnQ2JOYUsyWTNiNkxWWjJUYnlEanQwUmp0ZUdxdVM1NDhfRWxjSg?oc=5",
+          "published_at": "2026-03-31T07:00:00+00:00",
+          "published_date": "2026-03-31",
+          "title": "Apple’s 50 Years of Integration",
+          "article_title": "Apple’s 50 Years of Integration",
+          "article_snippet": "Apple’s 50 Years of Integration Stratechery by Ben Thompson",
+          "summary": "AAPL: Apple’s 50 Years of Integration Stratechery by Ben Thompson",
+          "source_name": "Stratechery by Ben Thompson",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:7",
+        "label": "Apple TV+发布心理惊悚剧《海角惊魂》预告",
+        "type": "Event",
+        "data": {
+          "event_type": "product_launch",
+          "event_label": "Product Launch",
+          "date": "2026-03-31",
+          "published_at": "2026-03-31T07:00:00+00:00",
+          "summary": "苹果公司旗下流媒体平台Apple TV+正式发布心理惊悚剧《海角惊魂》（Cape Fear）的预告片。该剧为苹果原创内容的最新力作，延续Apple TV+在原创剧集领域的持续投入策略。此次预告片发布标志着该项目进入正式宣传阶段，预计将为Apple TV+平台吸引更多订阅用户，进一步巩固苹果在流媒体市场的竞争地位。",
+          "title": "Apple TV+发布心理惊悚剧《海角惊魂》预告",
+          "article_title": "Apple TV’s “Cape Fear” unveils teaser for new psychological horror thriller",
+          "article_snippet": "Apple TV’s “Cape Fear” unveils teaser for new psychological horror thriller Apple",
+          "source_name": "Apple",
+          "source_url": "https://news.google.com/rss/articles/CBMikwJBVV95cUxNOUpqaFo3eFJINGJuQUlTUXZwSU9iOVdYV3V1cFZSTV9IXzg3R2NRS0w2LWFXTktIT01XX3owcjZSeW9vM1ZjU3VLdFhEOVFEaWN5b1c4VVo3R1ZSZlZMQ3dFdUlvTnV0OHhLc2hocDI3dkZZTC0tMlhWLW53ejFiWFItMkQ0Q2JhTHJ4eVVrWDN3Y1Y1RkZjTTBiRGlMWjVBU0NCWU5VNk9MdVdMMUhsd1VJQm9VWDVQaDdtUE0ybzMwZHV5UWI3c18tSkxLMXZ5aVJyLWtZaVZYeTJLS1BRVk1RdklteXgwd1JqRU5rS3doNjAyLWYzcjdGMjNUTERsZ2dpbEFRSmdqRFJlVEQ1MG9jVQ?oc=5",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "article_count": 1,
+          "article_titles": [
+            "Apple TV’s “Cape Fear” unveils teaser for new psychological horror thriller"
+          ],
+          "articles": [
+            {
+              "title": "Apple TV’s “Cape Fear” unveils teaser for new psychological horror thriller",
+              "summary": "AAPL: Apple TV’s “Cape Fear” unveils teaser for new psychological horror thriller Apple",
+              "snippet": "Apple TV’s “Cape Fear” unveils teaser for new psychological horror thriller Apple",
+              "source_name": "Apple",
+              "source_url": "https://news.google.com/rss/articles/CBMikwJBVV95cUxNOUpqaFo3eFJINGJuQUlTUXZwSU9iOVdYV3V1cFZSTV9IXzg3R2NRS0w2LWFXTktIT01XX3owcjZSeW9vM1ZjU3VLdFhEOVFEaWN5b1c4VVo3R1ZSZlZMQ3dFdUlvTnV0OHhLc2hocDI3dkZZTC0tMlhWLW53ejFiWFItMkQ0Q2JhTHJ4eVVrWDN3Y1Y1RkZjTTBiRGlMWjVBU0NCWU5VNk9MdVdMMUhsd1VJQm9VWDVQaDdtUE0ybzMwZHV5UWI3c18tSkxLMXZ5aVJyLWtZaVZYeTJLS1BRVk1RdklteXgwd1JqRU5rS3doNjAyLWYzcjdGMjNUTERsZ2dpbEFRSmdqRFJlVEQ1MG9jVQ?oc=5",
+              "published_at": "2026-03-31T07:00:00+00:00",
+              "published_date": "2026-03-31",
+              "ticker": "AAPL"
+            }
+          ],
+          "key_points": [
+            "Apple TV+发布心理惊悚剧《海角惊魂》官方预告片，正式启动宣传周期",
+            "该剧属于苹果原创内容战略的重要组成部分，持续丰富Apple TV+内容库",
+            "心理惊悚类型剧集有助于吸引特定受众群体，提升平台用户留存与订阅转化"
+          ],
+          "confidence": "high",
+          "officialness": "media",
+          "impact_direction": "neutral",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"Apple TV+发布心理惊悚剧《海角惊魂》预告\",\"summary\":\"苹果公司旗下流媒体平台Apple TV+正式发布心理惊悚剧《海角惊魂》（Cape Fear）的预告片。该剧为苹果原创内容的最新力作，延续Apple TV+在原创剧集领域的持续投入策略。此次预告片发布标志着该项目进入正式宣传阶段，预计将为Apple TV+平台吸引更多订阅用户，进一步巩固苹果在流媒体市场的竞争地位。\",\"key_points\":[\"Apple TV+发布心理惊悚剧《海角惊魂》官方预告片，正式启动宣传周期\",\"该剧属于苹果原创内容战略的重要组成部分，持续丰富Apple TV+内容库\",\"心理惊悚类型剧集有助于吸引特定受众群体，提升平台用户留存与订阅转化\"],\"event_type\":\"product_launch\",\"officialness\":\"media\",\"impact_direction\":\"neutral\",\"impact_level\":\"low\",\"price_sensitive\":false,\"confidence\":\"high\",\"entities\":{\"core\":{\"companies\":[\"Apple\",\"Apple TV+\"],\"people\":[],\"products\":[\"Apple TV+\",\"Cape Fear\"],\"locations\":[],\"regulators\":[]}},\"relations\":[{\"type\":\"owns\",\"source\":\"Apple\",\"target\":\"Apple TV+\",\"confidence\":\"high\"},{\"type\":\"produces\",\"source\":\"Apple TV+\",\"target\":\"Cape Fear\",\"confidence\":\"high\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Apple",
+              "role": "",
+              "ticker": "AAPL"
+            },
+            {
+              "entity_type": "Company",
+              "name": "Apple TV+",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Apple TV+",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Cape Fear",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:19",
+        "label": "Cape Fear",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Cape Fear",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Cape Fear 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "source:12",
+        "label": "Apple",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMikwJBVV95cUxNOUpqaFo3eFJINGJuQUlTUXZwSU9iOVdYV3V1cFZSTV9IXzg3R2NRS0w2LWFXTktIT01XX3owcjZSeW9vM1ZjU3VLdFhEOVFEaWN5b1c4VVo3R1ZSZlZMQ3dFdUlvTnV0OHhLc2hocDI3dkZZTC0tMlhWLW53ejFiWFItMkQ0Q2JhTHJ4eVVrWDN3Y1Y1RkZjTTBiRGlMWjVBU0NCWU5VNk9MdVdMMUhsd1VJQm9VWDVQaDdtUE0ybzMwZHV5UWI3c18tSkxLMXZ5aVJyLWtZaVZYeTJLS1BRVk1RdklteXgwd1JqRU5rS3doNjAyLWYzcjdGMjNUTERsZ2dpbEFRSmdqRFJlVEQ1MG9jVQ?oc=5",
+          "published_at": "2026-03-31T07:00:00+00:00",
+          "published_date": "2026-03-31",
+          "title": "Apple TV’s “Cape Fear” unveils teaser for new psychological horror thriller",
+          "article_title": "Apple TV’s “Cape Fear” unveils teaser for new psychological horror thriller",
+          "article_snippet": "Apple TV’s “Cape Fear” unveils teaser for new psychological horror thriller Apple",
+          "summary": "AAPL: Apple TV’s “Cape Fear” unveils teaser for new psychological horror thriller Apple",
+          "source_name": "Apple",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:8",
+        "label": "苹果发布罕见回移补丁防御黑客工具",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "General Update",
+          "date": "2026-03-31",
+          "published_at": "2026-03-31T07:00:00+00:00",
+          "summary": "苹果公司将针对iOS 18用户发布罕见的",
+          "title": "苹果发布罕见回移补丁防御黑客工具",
+          "article_title": "Apple Will Push Out Rare ‘Backported’ Patches to Protect iOS 18 Users From DarkSword Hacking Tool",
+          "article_snippet": "Apple Will Push Out Rare ‘Backported’ Patches to Protect iOS 18 Users From DarkSword Hacking Tool WIRED",
+          "source_name": "WIRED",
+          "source_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeDZhVVBUQmhGUXdlN3RJVFNZVjVhRmdiMTJLYjZTYzJaODc2NGhvNXRHZWZXV2dUc2l3RTJCVkg0aS00RGRzazY3QjN1cTdlVnFWNDRPQmlFSWRHTTVKTmJhSFF3NmMzeU1WY1hGWGdmelRBcUNpU3RXUV9JVmZjWDFiRGlKSDRjRGRNd1JCU2lWakRNTkQ5eDRTS3dYd01KbFNyM3R1QzhLR1RkdVFBWEItdTFQUkFFLTZZY3dadEs5dw?oc=5",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "article_count": 1,
+          "article_titles": [
+            "Apple Will Push Out Rare ‘Backported’ Patches to Protect iOS 18 Users From DarkSword Hacking Tool"
+          ],
+          "articles": [
+            {
+              "title": "Apple Will Push Out Rare ‘Backported’ Patches to Protect iOS 18 Users From DarkSword Hacking Tool",
+              "summary": "AAPL: Apple Will Push Out Rare ‘Backported’ Patches to Protect iOS 18 Users From DarkSword Hacking Tool WIRED",
+              "snippet": "Apple Will Push Out Rare ‘Backported’ Patches to Protect iOS 18 Users From DarkSword Hacking Tool WIRED",
+              "source_name": "WIRED",
+              "source_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeDZhVVBUQmhGUXdlN3RJVFNZVjVhRmdiMTJLYjZTYzJaODc2NGhvNXRHZWZXV2dUc2l3RTJCVkg0aS00RGRzazY3QjN1cTdlVnFWNDRPQmlFSWRHTTVKTmJhSFF3NmMzeU1WY1hGWGdmelRBcUNpU3RXUV9JVmZjWDFiRGlKSDRjRGRNd1JCU2lWakRNTkQ5eDRTS3dYd01KbFNyM3R1QzhLR1RkdVFBWEItdTFQUkFFLTZZY3dadEs5dw?oc=5",
+              "published_at": "2026-03-31T07:00:00+00:00",
+              "published_date": "2026-03-31",
+              "ticker": "AAPL"
+            }
+          ],
+          "key_points": [
+            "苹果为iOS 18推送罕见回移安全补丁，应对DarkSword黑客工具威胁",
+            "回移补丁（Backported Patches）通常仅用于旧版本系统，此次为特例",
+            "此举反映DarkSword工具威胁等级较高，苹果采取主动防御措施"
+          ],
+          "confidence": "medium",
+          "officialness": "media",
+          "impact_direction": "neutral",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated via fallback parser",
+          "raw_llm_output": "```json\n{\n  \"title\": \"苹果发布罕见回移补丁防御黑客工具\",\n  \"summary\": \"苹果公司将针对iOS 18用户发布罕见的\"回移补丁\"，以防御名为DarkSword的黑客攻击工具。此类补丁通常仅用于旧版本系统，此次破例为现行iOS 18系统提供额外安全保护，显示出该漏洞威胁的严重性。此举表明苹果将网络安全防护提升至更高优先级，以保障现有用户设备免受高级威胁。\",\n  \"key_points\": [\n    \"苹果为iOS 18推送罕见回移安全补丁，应对DarkSword黑客工具威胁\",\n    \"回移补丁（Backported Patches）通常仅用于旧版本系统，此次为特例\",\n    \"此举反映DarkSword工具威胁等级较高，苹果采取主动防御措施\"\n  ],\n  \"event_type\": \"news\",\n  \"officialness\": \"media\",\n  \"impact_direction\": \"neutral\",\n  \"impact_level\": \"low\",\n  \"price_sensitive\": false,\n  \"confidence\": \"medium\",\n  \"entities\": {\n    \"core\": {\n      \"companies\": [\"Apple\"],\n      \"people\": [],\n      \"products\": [\"iOS 18\"],\n      \"locations\": [],\n      \"regulators\": []\n    }\n  },\n  \"relations\": [\n    {\n      \"type\": \"product_security_update\",\n      \"source\": \"Apple\",\n      \"target\": \"iOS 18\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"type\": \"threat_response\",\n      \"source\": \"Apple\",\n      \"target\": \"DarkSword\",\n      \"confidence\": \"medium\"\n    }\n  ]\n}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Apple",
+              "role": "subject",
+              "ticker": "AAPL"
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "source:13",
+        "label": "WIRED",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeDZhVVBUQmhGUXdlN3RJVFNZVjVhRmdiMTJLYjZTYzJaODc2NGhvNXRHZWZXV2dUc2l3RTJCVkg0aS00RGRzazY3QjN1cTdlVnFWNDRPQmlFSWRHTTVKTmJhSFF3NmMzeU1WY1hGWGdmelRBcUNpU3RXUV9JVmZjWDFiRGlKSDRjRGRNd1JCU2lWakRNTkQ5eDRTS3dYd01KbFNyM3R1QzhLR1RkdVFBWEItdTFQUkFFLTZZY3dadEs5dw?oc=5",
+          "published_at": "2026-03-31T07:00:00+00:00",
+          "published_date": "2026-03-31",
+          "title": "Apple Will Push Out Rare ‘Backported’ Patches to Protect iOS 18 Users From DarkSword Hacking Tool",
+          "article_title": "Apple Will Push Out Rare ‘Backported’ Patches to Protect iOS 18 Users From DarkSword Hacking Tool",
+          "article_snippet": "Apple Will Push Out Rare ‘Backported’ Patches to Protect iOS 18 Users From DarkSword Hacking Tool WIRED",
+          "summary": "AAPL: Apple Will Push Out Rare ‘Backported’ Patches to Protect iOS 18 Users From DarkSword Hacking Tool WIRED",
+          "source_name": "WIRED",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:9",
+        "label": "巴菲特坦言过早卖出苹果股票",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "Acquisition",
+          "date": "2026-03-31",
+          "published_at": "2026-03-31T07:00:00+00:00",
+          "summary": "伯克希尔·哈撒韦首席执行官沃伦·巴菲特公开表示，他对过早出售苹果公司股票感到遗憾，并表示若市场条件合适，他愿意继续增持苹果股份。不过他同时指出，当前市场环境下他不会采取行动。此番表态再次凸显巴菲特对苹果长期投资价值的高度认可，也引发市场对伯克希尔未来持仓策略的广泛关注。",
+          "title": "巴菲特坦言过早卖出苹果股票",
+          "article_title": "Warren Buffett says he sold Apple too soon and would buy more of it, though not in this market",
+          "article_snippet": "Warren Buffett says he sold Apple too soon and would buy more of it, though not in this market CNBC",
+          "source_name": "CNBC",
+          "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNV3BnZGU5U2kycHVNOWE3cGk1d2NlX2FReHdlV0xzSjVwdVB5bl84QzhpRTdubTYxQ2dobjhYZTJvVUZKNUgtdnNOeGpPX292YUdYSllCWDQ1cWFQd1RzTXZ2VmZTeVJhMDZOQVRvak5FVHB0cDM5TkNOeDFzekdoX3JGSktwZzVIbGgtU1g2SnN3dzNFa2lXTHZMZmc5R1VpT2o2TTA0Z3QyankxWkhqTnBZakVtN0dhM3hPUV9rM3JpbnRySFd4MDA3b9IB0AFBVV95cUxPeVNiYzVoeHlGTTRFWmd6MlVQaVNOYmJQd2Q0SHIwdkRJNkNLZlNtYmVoQ2o1cFVHY2d4R1cwNC0xTmNlNWEzeFdrWXlUMFFKc25MQTBoVFJlRlpYWmNFYzZuUUx5YW9GRFhERFh4OHpaWXdpczJtZzBwUS1RdUdjZWpzRzcxUVE0UTRFaTlvc1VYYkdiYjllSXZzcExXQnBLQ0JNN3FUNUpuMXRJV25hOEE1UGVNbmRtX253eG9QcVk3MnBCblNyc3M4NVhuSkNV?oc=5",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "article_count": 1,
+          "article_titles": [
+            "Warren Buffett says he sold Apple too soon and would buy more of it, though not in this market"
+          ],
+          "articles": [
+            {
+              "title": "Warren Buffett says he sold Apple too soon and would buy more of it, though not in this market",
+              "summary": "AAPL: Warren Buffett says he sold Apple too soon and would buy more of it, though not in this market CNBC",
+              "snippet": "Warren Buffett says he sold Apple too soon and would buy more of it, though not in this market CNBC",
+              "source_name": "CNBC",
+              "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNV3BnZGU5U2kycHVNOWE3cGk1d2NlX2FReHdlV0xzSjVwdVB5bl84QzhpRTdubTYxQ2dobjhYZTJvVUZKNUgtdnNOeGpPX292YUdYSllCWDQ1cWFQd1RzTXZ2VmZTeVJhMDZOQVRvak5FVHB0cDM5TkNOeDFzekdoX3JGSktwZzVIbGgtU1g2SnN3dzNFa2lXTHZMZmc5R1VpT2o2TTA0Z3QyankxWkhqTnBZakVtN0dhM3hPUV9rM3JpbnRySFd4MDA3b9IB0AFBVV95cUxPeVNiYzVoeHlGTTRFWmd6MlVQaVNOYmJQd2Q0SHIwdkRJNkNLZlNtYmVoQ2o1cFVHY2d4R1cwNC0xTmNlNWEzeFdrWXlUMFFKc25MQTBoVFJlRlpYWmNFYzZuUUx5YW9GRFhERFh4OHpaWXdpczJtZzBwUS1RdUdjZWpzRzcxUVE0UTRFaTlvc1VYYkdiYjllSXZzcExXQnBLQ0JNN3FUNUpuMXRJV25hOEE1UGVNbmRtX253eG9QcVk3MnBCblNyc3M4NVhuSkNV?oc=5",
+              "published_at": "2026-03-31T07:00:00+00:00",
+              "published_date": "2026-03-31",
+              "ticker": "AAPL"
+            }
+          ],
+          "key_points": [
+            "巴菲特公开承认过早卖出苹果股票是一个失误",
+            "巴菲特表示在合适市场条件下愿意增持苹果",
+            "当前市场环境下巴菲特暂不会买入苹果股票"
+          ],
+          "confidence": "high",
+          "officialness": "media",
+          "impact_direction": "positive",
+          "impact_level": "medium",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\n  \"title\": \"巴菲特坦言过早卖出苹果股票\",\n  \"summary\": \"伯克希尔·哈撒韦首席执行官沃伦·巴菲特公开表示，他对过早出售苹果公司股票感到遗憾，并表示若市场条件合适，他愿意继续增持苹果股份。不过他同时指出，当前市场环境下他不会采取行动。此番表态再次凸显巴菲特对苹果长期投资价值的高度认可，也引发市场对伯克希尔未来持仓策略的广泛关注。\",\n  \"key_points\": [\n    \"巴菲特公开承认过早卖出苹果股票是一个失误\",\n    \"巴菲特表示在合适市场条件下愿意增持苹果\",\n    \"当前市场环境下巴菲特暂不会买入苹果股票\"\n  ],\n  \"event_type\": \"news\",\n  \"officialness\": \"media\",\n  \"impact_direction\": \"positive\",\n  \"impact_level\": \"medium\",\n  \"price_sensitive\": false,\n  \"confidence\": \"high\",\n  \"entities\": {\n    \"core\": {\n      \"companies\": [\"Apple Inc.\", \"Berkshire Hathaway\"],\n      \"people\": [\"Warren Buffett\"],\n      \"products\": [],\n      \"locations\": [],\n      \"regulators\": []\n    }\n  },\n  \"relations\": [\n    {\n      \"type\": \"investor_of\",\n      \"source\": \"Warren Buffett\",\n      \"target\": \"Apple Inc.\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"type\": \"ceo_of\",\n      \"source\": \"Warren Buffett\",\n      \"target\": \"Berkshire Hathaway\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"type\": \"shareholder_of\",\n      \"source\": \"Berkshire Hathaway\",\n      \"target\": \"Apple Inc.\",\n      \"confidence\": \"high\"\n    }\n  ]\n}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Apple",
+              "role": "",
+              "ticker": "AAPL"
+            },
+            {
+              "entity_type": "Company",
+              "name": "Berkshire Hathaway",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Person",
+              "name": "Warren Buffett",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:20",
+        "label": "Berkshire Hathaway",
+        "type": "Company",
+        "data": {
+          "canonical_name": "Berkshire Hathaway",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Company",
+          "description": "Berkshire Hathaway 是当前事件涉及的公司实体，建议结合相关新闻与官方披露进一步查看其业务背景。"
+        }
+      },
+      {
+        "id": "entity:21",
+        "label": "Warren Buffett",
+        "type": "Person",
+        "data": {
+          "canonical_name": "Warren Buffett",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Person",
+          "description": ""
+        }
+      },
+      {
+        "id": "source:14",
+        "label": "CNBC",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNV3BnZGU5U2kycHVNOWE3cGk1d2NlX2FReHdlV0xzSjVwdVB5bl84QzhpRTdubTYxQ2dobjhYZTJvVUZKNUgtdnNOeGpPX292YUdYSllCWDQ1cWFQd1RzTXZ2VmZTeVJhMDZOQVRvak5FVHB0cDM5TkNOeDFzekdoX3JGSktwZzVIbGgtU1g2SnN3dzNFa2lXTHZMZmc5R1VpT2o2TTA0Z3QyankxWkhqTnBZakVtN0dhM3hPUV9rM3JpbnRySFd4MDA3b9IB0AFBVV95cUxPeVNiYzVoeHlGTTRFWmd6MlVQaVNOYmJQd2Q0SHIwdkRJNkNLZlNtYmVoQ2o1cFVHY2d4R1cwNC0xTmNlNWEzeFdrWXlUMFFKc25MQTBoVFJlRlpYWmNFYzZuUUx5YW9GRFhERFh4OHpaWXdpczJtZzBwUS1RdUdjZWpzRzcxUVE0UTRFaTlvc1VYYkdiYjllSXZzcExXQnBLQ0JNN3FUNUpuMXRJV25hOEE1UGVNbmRtX253eG9QcVk3MnBCblNyc3M4NVhuSkNV?oc=5",
+          "published_at": "2026-03-31T07:00:00+00:00",
+          "published_date": "2026-03-31",
+          "title": "Warren Buffett says he sold Apple too soon and would buy more of it, though not in this market",
+          "article_title": "Warren Buffett says he sold Apple too soon and would buy more of it, though not in this market",
+          "article_snippet": "Warren Buffett says he sold Apple too soon and would buy more of it, though not in this market CNBC",
+          "summary": "AAPL: Warren Buffett says he sold Apple too soon and would buy more of it, though not in this market CNBC",
+          "source_name": "CNBC",
+          "company_name": "AAPL",
+          "ticker": "AAPL",
+          "officialness": "media"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge:1:company",
+        "source": "company:target",
+        "target": "event:1",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:1:entity:entity:1",
+        "source": "entity:1",
+        "target": "event:1",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:1:entity:entity:2",
+        "source": "entity:2",
+        "target": "event:1",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:1:entity:entity:3",
+        "source": "entity:3",
+        "target": "event:1",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:1:entity:entity:4",
+        "source": "entity:4",
+        "target": "event:1",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:1:entity:entity:5",
+        "source": "entity:5",
+        "target": "event:1",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:1:entity:entity:6",
+        "source": "entity:6",
+        "target": "event:1",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:1:entity:entity:7",
+        "source": "entity:7",
+        "target": "event:1",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:1:entity:entity:8",
+        "source": "entity:8",
+        "target": "event:1",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:1:source:1",
+        "source": "event:1",
+        "target": "source:1",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:1:source:2",
+        "source": "event:1",
+        "target": "source:2",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:1:source:3",
+        "source": "event:1",
+        "target": "source:3",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:1:source:4",
+        "source": "event:1",
+        "target": "source:4",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:2:company",
+        "source": "company:target",
+        "target": "event:2",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:2:entity:entity:9",
+        "source": "entity:9",
+        "target": "event:2",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:2:source:5",
+        "source": "event:2",
+        "target": "source:5",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:3:company",
+        "source": "company:target",
+        "target": "event:3",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:3:entity:entity:1",
+        "source": "entity:1",
+        "target": "event:3",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:3:entity:entity:10",
+        "source": "entity:10",
+        "target": "event:3",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:3:entity:entity:6",
+        "source": "entity:6",
+        "target": "event:3",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:3:source:6",
+        "source": "event:3",
+        "target": "source:6",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:4:company",
+        "source": "company:target",
+        "target": "event:4",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:4:entity:entity:11",
+        "source": "entity:11",
+        "target": "event:4",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:4:entity:entity:12",
+        "source": "entity:12",
+        "target": "event:4",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:4:entity:entity:13",
+        "source": "entity:13",
+        "target": "event:4",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:4:source:7",
+        "source": "event:4",
+        "target": "source:7",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:5:company",
+        "source": "company:target",
+        "target": "event:5",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:5:entity:entity:14",
+        "source": "entity:14",
+        "target": "event:5",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:5:source:8",
+        "source": "event:5",
+        "target": "source:8",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:5:source:9",
+        "source": "event:5",
+        "target": "source:9",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:6:company",
+        "source": "company:target",
+        "target": "event:6",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:6:entity:entity:15",
+        "source": "entity:15",
+        "target": "event:6",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:6:entity:entity:16",
+        "source": "entity:16",
+        "target": "event:6",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:6:entity:entity:17",
+        "source": "entity:17",
+        "target": "event:6",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:6:entity:entity:18",
+        "source": "entity:18",
+        "target": "event:6",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:6:source:10",
+        "source": "event:6",
+        "target": "source:10",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:6:source:11",
+        "source": "event:6",
+        "target": "source:11",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:7:company",
+        "source": "company:target",
+        "target": "event:7",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:7:entity:entity:1",
+        "source": "entity:1",
+        "target": "event:7",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:7:entity:entity:6",
+        "source": "entity:6",
+        "target": "event:7",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:7:entity:entity:19",
+        "source": "entity:19",
+        "target": "event:7",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:7:source:12",
+        "source": "event:7",
+        "target": "source:12",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:8:company",
+        "source": "company:target",
+        "target": "event:8",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:8:source:13",
+        "source": "event:8",
+        "target": "source:13",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:9:company",
+        "source": "company:target",
+        "target": "event:9",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:9:entity:entity:20",
+        "source": "entity:20",
+        "target": "event:9",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:9:entity:entity:21",
+        "source": "entity:21",
+        "target": "event:9",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:9:source:14",
+        "source": "event:9",
+        "target": "source:14",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      }
+    ],
+    "summary": {
+      "event_count": 9,
+      "source_count": 14,
+      "top_event_types": [
+        "acquisition",
+        "news",
+        "product_launch"
+      ]
+    }
+  }
+}

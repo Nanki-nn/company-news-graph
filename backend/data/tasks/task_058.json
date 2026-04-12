@@ -1,0 +1,1659 @@
+{
+  "task": {
+    "task_id": "task_058",
+    "status": "completed",
+    "stage": "completed",
+    "progress": 100,
+    "company_name": "ORCL",
+    "ticker": "ORCL",
+    "report_mode": "ai",
+    "start_date": "2026-04-05",
+    "end_date": "2026-04-12",
+    "created_at": "2026-04-12T07:29:09.892542Z"
+  },
+  "graph": {
+    "nodes": [
+      {
+        "id": "company:target",
+        "label": "Oracle",
+        "type": "Company",
+        "data": {
+          "canonical_name": "Oracle",
+          "ticker": "ORCL",
+          "description": "甲骨文是一家美国企业软件与云服务公司，核心业务包括数据库、企业应用软件、云基础设施与行业解决方案。"
+        }
+      },
+      {
+        "id": "event:1",
+        "label": "甲骨文AI合规升级并任命新CFO",
+        "type": "Event",
+        "data": {
+          "event_type": "leadership_change",
+          "event_label": "General Update",
+          "date": "2026-04-09",
+          "published_at": "2026-04-09T19:41:15+00:00",
+          "summary": "甲骨文近期宣布两项重要动态：一是在金融犯罪与合规产品组合中引入AI智能体驱动的新功能，强化其行业领先地位；二是任命Hilary Maxson担任首席财务官。两项举措分别展示了公司在AI产品创新与高管团队建设方面的最新进展，有望提升市场对甲骨文长期战略执行能力的信心。",
+          "title": "甲骨文AI合规升级并任命新CFO",
+          "article_title": "Oracle Brings New AI Agent-Driven Capabilities to its Industry-Leading Financial Crime and Compliance Portfolio",
+          "article_snippet": "Oracle Brings New AI Agent-Driven Capabilities to its Industry-Leading Financial Crime and Compliance Portfolio Oracle",
+          "source_name": "Oracle",
+          "source_url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQdnI0cE9rNWpycUFfbnA5T0tCeHk4dFFzLVNwbGl2RFBaWkhaOG5pTGlTWnVtTVU1VHYyUkl6djFOVlJNYl9ObS1jbzJ0NmlwQ0VUcndtOTU2ckVCbGZMbnZQQ29EWlJkWS1mSGlOQ2xaUXdXNDNad2dMSWdVYUtGMFRsRlpKdjUzQlEyRUdHM0JzUmszcXpaakdrNjdnelhEa2xPVWNDMGtwSlhEQ3VSOVFyOFctaHJYNTlDdUFzSkRwU1FjTzdGaVBNOUMwcy1DeWc3QkdIVkVnd0QzMkI4QllaQ2w?oc=5",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "article_count": 2,
+          "article_titles": [
+            "Oracle Brings New AI Agent-Driven Capabilities to its Industry-Leading Financial Crime and Compliance Portfolio",
+            "Oracle Names Hilary Maxson Chief Financial Officer"
+          ],
+          "articles": [
+            {
+              "title": "Oracle Brings New AI Agent-Driven Capabilities to its Industry-Leading Financial Crime and Compliance Portfolio",
+              "summary": "ORCL: Oracle Brings New AI Agent-Driven Capabilities to its Industry-Leading Financial Crime and Compliance Portfolio Oracle",
+              "snippet": "Oracle Brings New AI Agent-Driven Capabilities to its Industry-Leading Financial Crime and Compliance Portfolio Oracle",
+              "source_name": "Oracle",
+              "source_url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQdnI0cE9rNWpycUFfbnA5T0tCeHk4dFFzLVNwbGl2RFBaWkhaOG5pTGlTWnVtTVU1VHYyUkl6djFOVlJNYl9ObS1jbzJ0NmlwQ0VUcndtOTU2ckVCbGZMbnZQQ29EWlJkWS1mSGlOQ2xaUXdXNDNad2dMSWdVYUtGMFRsRlpKdjUzQlEyRUdHM0JzUmszcXpaakdrNjdnelhEa2xPVWNDMGtwSlhEQ3VSOVFyOFctaHJYNTlDdUFzSkRwU1FjTzdGaVBNOUMwcy1DeWc3QkdIVkVnd0QzMkI4QllaQ2w?oc=5",
+              "published_at": "2026-04-09T19:41:15+00:00",
+              "published_date": "2026-04-09",
+              "ticker": "ORCL"
+            },
+            {
+              "title": "Oracle Names Hilary Maxson Chief Financial Officer",
+              "summary": "ORCL: Oracle Names Hilary Maxson Chief Financial Officer WSJ",
+              "snippet": "Oracle Names Hilary Maxson Chief Financial Officer WSJ",
+              "source_name": "WSJ",
+              "source_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPN2FQYVIxcVVrM2ZYckFZZk14TDNtMHFHZXBsQ2haekJHQ1IzUEJBcUhJcEt3V0NZTEM1UHo0NGtzUmtTV1ZUN3AwRVE0MC1pMGJCVmJDazhoRFRCSnpMWEUwOXptV0NuaVNJbzk3aEE0RkFkVXhkTU9oN0RYajlxYWthSFFRSEItNnNIN3AwdU84ajVVS1E?oc=5",
+              "published_at": "2026-04-06T12:48:00+00:00",
+              "published_date": "2026-04-06",
+              "ticker": "ORCL"
+            }
+          ],
+          "key_points": [
+            "甲骨文在金融犯罪与合规产品组合中推出AI智能体驱动新功能，进一步巩固行业领先地位",
+            "任命Hilary Maxson为首席财务官，完善高管团队架构",
+            "两项举措显示甲骨文同步推进AI产品落地与组织管理优化"
+          ],
+          "confidence": "high",
+          "officialness": "mixed",
+          "impact_direction": "positive",
+          "impact_level": "medium",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\n  \"title\": \"甲骨文AI合规升级并任命新CFO\",\n  \"summary\": \"甲骨文近期宣布两项重要动态：一是在金融犯罪与合规产品组合中引入AI智能体驱动的新功能，强化其行业领先地位；二是任命Hilary Maxson担任首席财务官。两项举措分别展示了公司在AI产品创新与高管团队建设方面的最新进展，有望提升市场对甲骨文长期战略执行能力的信心。\",\n  \"key_points\": [\n    \"甲骨文在金融犯罪与合规产品组合中推出AI智能体驱动新功能，进一步巩固行业领先地位\",\n    \"任命Hilary Maxson为首席财务官，完善高管团队架构\",\n    \"两项举措显示甲骨文同步推进AI产品落地与组织管理优化\"\n  ],\n  \"event_type\": \"leadership_change\",\n  \"officialness\": \"mixed\",\n  \"impact_direction\": \"positive\",\n  \"impact_level\": \"medium\",\n  \"price_sensitive\": false,\n  \"confidence\": \"high\",\n  \"entities\": {\n    \"core\": {\n      \"companies\": [\"Oracle\", \"ORCL\"],\n      \"people\": [\"Hilary Maxson\"],\n      \"products\": [\"Oracle Financial Crime and Compliance Portfolio\"],\n      \"locations\": [],\n      \"regulators\": []\n    }\n  },\n  \"relations\": [\n    {\n      \"type\": \"appointed_as\",\n      \"source\": \"Hilary Maxson\",\n      \"target\": \"Oracle CFO\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"type\": \"launched\",\n      \"source\": \"Oracle\",\n      \"target\": \"AI Agent-Driven Financial Crime and Compliance Capabilities\",\n      \"confidence\": \"high\"\n    }\n  ]\n}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Oracle",
+              "role": "",
+              "ticker": "ORCL"
+            },
+            {
+              "entity_type": "Person",
+              "name": "Hilary Maxson",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Oracle Financial Crime and Compliance Portfolio",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": [
+            {
+              "type": "LAUNCHED",
+              "source": "Oracle",
+              "target": "AI Agent-Driven Financial Crime and Compliance Capabilities",
+              "confidence": "high"
+            }
+          ]
+        }
+      },
+      {
+        "id": "entity:1",
+        "label": "Hilary Maxson",
+        "type": "Person",
+        "data": {
+          "canonical_name": "Hilary Maxson",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Person",
+          "description": ""
+        }
+      },
+      {
+        "id": "entity:2",
+        "label": "Oracle Financial Crime and Compliance Portfolio",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Oracle Financial Crime and Compliance Portfolio",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Decentralized finance provides financial instruments and services through smart contracts on a programmable, permissionless blockchain. This approach reduces the need for。"
+        }
+      },
+      {
+        "id": "source:1",
+        "label": "Oracle",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQdnI0cE9rNWpycUFfbnA5T0tCeHk4dFFzLVNwbGl2RFBaWkhaOG5pTGlTWnVtTVU1VHYyUkl6djFOVlJNYl9ObS1jbzJ0NmlwQ0VUcndtOTU2ckVCbGZMbnZQQ29EWlJkWS1mSGlOQ2xaUXdXNDNad2dMSWdVYUtGMFRsRlpKdjUzQlEyRUdHM0JzUmszcXpaakdrNjdnelhEa2xPVWNDMGtwSlhEQ3VSOVFyOFctaHJYNTlDdUFzSkRwU1FjTzdGaVBNOUMwcy1DeWc3QkdIVkVnd0QzMkI4QllaQ2w?oc=5",
+          "published_at": "2026-04-09T19:41:15+00:00",
+          "published_date": "2026-04-09",
+          "title": "Oracle Brings New AI Agent-Driven Capabilities to its Industry-Leading Financial Crime and Compliance Portfolio",
+          "article_title": "Oracle Brings New AI Agent-Driven Capabilities to its Industry-Leading Financial Crime and Compliance Portfolio",
+          "article_snippet": "Oracle Brings New AI Agent-Driven Capabilities to its Industry-Leading Financial Crime and Compliance Portfolio Oracle",
+          "summary": "ORCL: Oracle Brings New AI Agent-Driven Capabilities to its Industry-Leading Financial Crime and Compliance Portfolio Oracle",
+          "source_name": "Oracle",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "source:2",
+        "label": "WSJ",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPN2FQYVIxcVVrM2ZYckFZZk14TDNtMHFHZXBsQ2haekJHQ1IzUEJBcUhJcEt3V0NZTEM1UHo0NGtzUmtTV1ZUN3AwRVE0MC1pMGJCVmJDazhoRFRCSnpMWEUwOXptV0NuaVNJbzk3aEE0RkFkVXhkTU9oN0RYajlxYWthSFFRSEItNnNIN3AwdU84ajVVS1E?oc=5",
+          "published_at": "2026-04-06T12:48:00+00:00",
+          "published_date": "2026-04-06",
+          "title": "Oracle Names Hilary Maxson Chief Financial Officer",
+          "article_title": "Oracle Names Hilary Maxson Chief Financial Officer",
+          "article_snippet": "Oracle Names Hilary Maxson Chief Financial Officer WSJ",
+          "summary": "ORCL: Oracle Names Hilary Maxson Chief Financial Officer WSJ",
+          "source_name": "WSJ",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:2",
+        "label": "甲骨文财报后股价下跌11.9%",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "General Update",
+          "date": "2026-04-09",
+          "published_at": "2026-04-09T15:30:04+00:00",
+          "summary": "自上次财报发布以来，甲骨文（ORCL）股价累计下跌约11.9%。市场对其业绩表现及未来增长前景存在疑虑，投资者情绪趋于谨慎。云业务竞争加剧及宏观经济不确定性可能是主要压力来源。分析师持续关注其云基础设施业务的增长节奏与利润率变化，以判断股价后续走势。",
+          "title": "甲骨文财报后股价下跌11.9%",
+          "article_title": "Why Is Oracle (ORCL) Down 11.9% Since Last Earnings Report?",
+          "article_snippet": "Why Is Oracle (ORCL) Down 11.9% Since Last Earnings Report? Yahoo Finance",
+          "source_name": "Yahoo Finance",
+          "source_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQLVpHQkRnaGVNNDNibHVFTl9fUEhyNGZoLWlOZUd5QnVzTnBUZF9UMUt5TGF3UVhmbWx5U0lNYnVJdEltd2lVdVliZzhYZ0VjOGlnV3JNYjl1MzRaV2txOUtvX016Mi1KWFpCN3A0VWphemx1WlhZaUVfOFRXcG04R3V6VkMyTUpzX0lyVUlXZFBudw?oc=5",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "article_count": 1,
+          "article_titles": [
+            "Why Is Oracle (ORCL) Down 11.9% Since Last Earnings Report?"
+          ],
+          "articles": [
+            {
+              "title": "Why Is Oracle (ORCL) Down 11.9% Since Last Earnings Report?",
+              "summary": "Why Is Oracle (ORCL) Down 11.9% Since Last Earnings Report? Yahoo Finance",
+              "snippet": "Why Is Oracle (ORCL) Down 11.9% Since Last Earnings Report? Yahoo Finance",
+              "source_name": "Yahoo Finance",
+              "source_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQLVpHQkRnaGVNNDNibHVFTl9fUEhyNGZoLWlOZUd5QnVzTnBUZF9UMUt5TGF3UVhmbWx5U0lNYnVJdEltd2lVdVliZzhYZ0VjOGlnV3JNYjl1MzRaV2txOUtvX016Mi1KWFpCN3A0VWphemx1WlhZaUVfOFRXcG04R3V6VkMyTUpzX0lyVUlXZFBudw?oc=5",
+              "published_at": "2026-04-09T15:30:04+00:00",
+              "published_date": "2026-04-09",
+              "ticker": "ORCL"
+            }
+          ],
+          "key_points": [
+            "自上次财报发布后，甲骨文股价累计下跌11.9%",
+            "市场对公司业绩增长前景存在疑虑，投资者情绪偏谨慎",
+            "云业务竞争加剧与宏观不确定性构成主要压力",
+            "分析师持续追踪云基础设施增长与利润率变化"
+          ],
+          "confidence": "medium",
+          "officialness": "media",
+          "impact_direction": "negative",
+          "impact_level": "medium",
+          "price_sensitive": true,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"甲骨文财报后股价下跌11.9%\",\"summary\":\"自上次财报发布以来，甲骨文（ORCL）股价累计下跌约11.9%。市场对其业绩表现及未来增长前景存在疑虑，投资者情绪趋于谨慎。云业务竞争加剧及宏观经济不确定性可能是主要压力来源。分析师持续关注其云基础设施业务的增长节奏与利润率变化，以判断股价后续走势。\",\"key_points\":[\"自上次财报发布后，甲骨文股价累计下跌11.9%\",\"市场对公司业绩增长前景存在疑虑，投资者情绪偏谨慎\",\"云业务竞争加剧与宏观不确定性构成主要压力\",\"分析师持续追踪云基础设施增长与利润率变化\"],\"event_type\":\"news\",\"officialness\":\"media\",\"impact_direction\":\"negative\",\"impact_level\":\"medium\",\"price_sensitive\":true,\"confidence\":\"medium\",\"entities\":{\"core\":{\"companies\":[\"Oracle\",\"ORCL\"],\"people\":[],\"products\":[],\"locations\":[],\"regulators\":[]}},\"relations\":[{\"type\":\"stock_performance\",\"source\":\"ORCL\",\"target\":\"earnings_report\",\"confidence\":\"high\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Oracle",
+              "role": "",
+              "ticker": "ORCL"
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "source:3",
+        "label": "Yahoo Finance",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQLVpHQkRnaGVNNDNibHVFTl9fUEhyNGZoLWlOZUd5QnVzTnBUZF9UMUt5TGF3UVhmbWx5U0lNYnVJdEltd2lVdVliZzhYZ0VjOGlnV3JNYjl1MzRaV2txOUtvX016Mi1KWFpCN3A0VWphemx1WlhZaUVfOFRXcG04R3V6VkMyTUpzX0lyVUlXZFBudw?oc=5",
+          "published_at": "2026-04-09T15:30:04+00:00",
+          "published_date": "2026-04-09",
+          "title": "Why Is Oracle (ORCL) Down 11.9% Since Last Earnings Report?",
+          "article_title": "Why Is Oracle (ORCL) Down 11.9% Since Last Earnings Report?",
+          "article_snippet": "Why Is Oracle (ORCL) Down 11.9% Since Last Earnings Report? Yahoo Finance",
+          "summary": "Why Is Oracle (ORCL) Down 11.9% Since Last Earnings Report? Yahoo Finance",
+          "source_name": "Yahoo Finance",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:3",
+        "label": "Oracle AI数据库提升可用性与安全性",
+        "type": "Event",
+        "data": {
+          "event_type": "product_launch",
+          "event_label": "Earnings Result",
+          "date": "2026-04-09",
+          "published_at": "2026-04-09T15:14:54+00:00",
+          "summary": "Oracle发布最新AI数据库产品，大幅提升关键任务工作负载的可用性与安全性标准。此次升级针对企业级使用场景，强化了数据库在高可用架构与安全防护方面的能力，进一步巩固Oracle在企业AI基础设施领域的竞争地位，有望推动云数据库业务增长。",
+          "title": "Oracle AI数据库提升可用性与安全性",
+          "article_title": "Oracle AI Database Raises the Bar for Availability and Security Across Mission-Critical Workloads",
+          "article_snippet": "Oracle AI Database Raises the Bar for Availability and Security Across Mission-Critical Workloads Oracle",
+          "source_name": "Oracle",
+          "source_url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOVlh6ZGk4R2pkOUxCT3VHdzVmTDQxSXJESHFMSzRIWDluRzBlRnB4SXVFcXFJcklFMEdnLVZvNFIweUxXSER6M0VXdkhFekhCTjZrWHNRU3FpNmtfMm5CVTBIT2FCZTZ3RnVmellQQjNFV1V0Tkw3eVBmQzF6TzdUUlhQRWN0UU1tQ09NOFFoV2FCS3k0cXljOVJNUzZRc1lvdTNqemUtWEkzOFpSMV9Lc0hCcmRKTE9TV1FHeUc2Zy1jSFJORG5NX292MUdrNlZ1Ynl6emVUTWJaM09PY3pnVkFlLTg?oc=5",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "article_count": 1,
+          "article_titles": [
+            "Oracle AI Database Raises the Bar for Availability and Security Across Mission-Critical Workloads"
+          ],
+          "articles": [
+            {
+              "title": "Oracle AI Database Raises the Bar for Availability and Security Across Mission-Critical Workloads",
+              "summary": "ORCL: Oracle AI Database Raises the Bar for Availability and Security Across Mission-Critical Workloads Oracle",
+              "snippet": "Oracle AI Database Raises the Bar for Availability and Security Across Mission-Critical Workloads Oracle",
+              "source_name": "Oracle",
+              "source_url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOVlh6ZGk4R2pkOUxCT3VHdzVmTDQxSXJESHFMSzRIWDluRzBlRnB4SXVFcXFJcklFMEdnLVZvNFIweUxXSER6M0VXdkhFekhCTjZrWHNRU3FpNmtfMm5CVTBIT2FCZTZ3RnVmellQQjNFV1V0Tkw3eVBmQzF6TzdUUlhQRWN0UU1tQ09NOFFoV2FCS3k0cXljOVJNUzZRc1lvdTNqemUtWEkzOFpSMV9Lc0hCcmRKTE9TV1FHeUc2Zy1jSFJORG5NX292MUdrNlZ1Ynl6emVUTWJaM09PY3pnVkFlLTg?oc=5",
+              "published_at": "2026-04-09T15:14:54+00:00",
+              "published_date": "2026-04-09",
+              "ticker": "ORCL"
+            }
+          ],
+          "key_points": [
+            "Oracle AI数据库针对关键任务工作负载提升可用性与安全性标准",
+            "产品升级聚焦企业级AI基础设施，增强高可用与安全防护能力",
+            "此举有助于巩固Oracle在企业数据库市场的竞争优势"
+          ],
+          "confidence": "medium",
+          "officialness": "official",
+          "impact_direction": "positive",
+          "impact_level": "medium",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\n  \"title\": \"Oracle AI数据库提升可用性与安全性\",\n  \"summary\": \"Oracle发布最新AI数据库产品，大幅提升关键任务工作负载的可用性与安全性标准。此次升级针对企业级使用场景，强化了数据库在高可用架构与安全防护方面的能力，进一步巩固Oracle在企业AI基础设施领域的竞争地位，有望推动云数据库业务增长。\",\n  \"key_points\": [\n    \"Oracle AI数据库针对关键任务工作负载提升可用性与安全性标准\",\n    \"产品升级聚焦企业级AI基础设施，增强高可用与安全防护能力\",\n    \"此举有助于巩固Oracle在企业数据库市场的竞争优势\"\n  ],\n  \"event_type\": \"product_launch\",\n  \"officialness\": \"official\",\n  \"impact_direction\": \"positive\",\n  \"impact_level\": \"medium\",\n  \"price_sensitive\": false,\n  \"confidence\": \"medium\",\n  \"entities\": {\n    \"core\": {\n      \"companies\": [\"Oracle\"],\n      \"people\": [],\n      \"products\": [\"Oracle AI Database\"],\n      \"locations\": [],\n      \"regulators\": []\n    }\n  },\n  \"relations\": [\n    {\n      \"type\": \"develops\",\n      \"source\": \"Oracle\",\n      \"target\": \"Oracle AI Database\",\n      \"confidence\": \"high\"\n    }\n  ]\n}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Oracle",
+              "role": "",
+              "ticker": "ORCL"
+            },
+            {
+              "entity_type": "Product",
+              "name": "Oracle AI Database",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:3",
+        "label": "Oracle AI Database",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Oracle AI Database",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Oracle Database is a proprietary multi-model database management system produced and marketed by Oracle Corporation."
+        }
+      },
+      {
+        "id": "source:4",
+        "label": "Oracle",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOVlh6ZGk4R2pkOUxCT3VHdzVmTDQxSXJESHFMSzRIWDluRzBlRnB4SXVFcXFJcklFMEdnLVZvNFIweUxXSER6M0VXdkhFekhCTjZrWHNRU3FpNmtfMm5CVTBIT2FCZTZ3RnVmellQQjNFV1V0Tkw3eVBmQzF6TzdUUlhQRWN0UU1tQ09NOFFoV2FCS3k0cXljOVJNUzZRc1lvdTNqemUtWEkzOFpSMV9Lc0hCcmRKTE9TV1FHeUc2Zy1jSFJORG5NX292MUdrNlZ1Ynl6emVUTWJaM09PY3pnVkFlLTg?oc=5",
+          "published_at": "2026-04-09T15:14:54+00:00",
+          "published_date": "2026-04-09",
+          "title": "Oracle AI Database Raises the Bar for Availability and Security Across Mission-Critical Workloads",
+          "article_title": "Oracle AI Database Raises the Bar for Availability and Security Across Mission-Critical Workloads",
+          "article_snippet": "Oracle AI Database Raises the Bar for Availability and Security Across Mission-Critical Workloads Oracle",
+          "summary": "ORCL: Oracle AI Database Raises the Bar for Availability and Security Across Mission-Critical Workloads Oracle",
+          "source_name": "Oracle",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:4",
+        "label": "甲骨文裁员方案引发遣散费基准审视",
+        "type": "Event",
+        "data": {
+          "event_type": "layoffs",
+          "event_label": "Layoffs",
+          "date": "2026-04-09",
+          "published_at": "2026-04-09T10:30:40+00:00",
+          "summary": "甲骨文公司近期实施裁员计划，其遣散费方案引发人力资源行业对遣散费标准的广泛讨论与审视。此次裁员使业界开始重新评估企业遣散费基准，专业人士对甲骨文所提供的补偿方案与行业惯例进行比较分析，折射出科技行业持续裁员潮中员工权益保障问题。",
+          "title": "甲骨文裁员方案引发遣散费基准审视",
+          "article_title": "Oracle’s layoff package puts severance benchmarking under the microscope",
+          "article_snippet": "Oracle’s layoff package puts severance benchmarking under the microscope HR Executive",
+          "source_name": "HR Executive",
+          "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQZjhoZXRKZ091TjRfVm5HRU9jOVZYamVyRW1pYURCVjBudHFmRWozaGtseG9QN1U2TDZ4aU9NQkhuWXNBei1qQ2c3WkFJQmE2TFVVYS1qN1p6eWZTQ05rdk1OSmtUWFphQXgtaUtfczVJUjQ2MzdYSUtfVXdoQlRVZXJFbFA2XzI3ZVRDRmhOZTRTY2NJZEYwbDlLR04?oc=5",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "article_count": 1,
+          "article_titles": [
+            "Oracle’s layoff package puts severance benchmarking under the microscope"
+          ],
+          "articles": [
+            {
+              "title": "Oracle’s layoff package puts severance benchmarking under the microscope",
+              "summary": "ORCL: Oracle’s layoff package puts severance benchmarking under the microscope HR Executive",
+              "snippet": "Oracle’s layoff package puts severance benchmarking under the microscope HR Executive",
+              "source_name": "HR Executive",
+              "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQZjhoZXRKZ091TjRfVm5HRU9jOVZYamVyRW1pYURCVjBudHFmRWozaGtseG9QN1U2TDZ4aU9NQkhuWXNBei1qQ2c3WkFJQmE2TFVVYS1qN1p6eWZTQ05rdk1OSmtUWFphQXgtaUtfczVJUjQ2MzdYSUtfVXdoQlRVZXJFbFA2XzI3ZVRDRmhOZTRTY2NJZEYwbDlLR04?oc=5",
+              "published_at": "2026-04-09T10:30:40+00:00",
+              "published_date": "2026-04-09",
+              "ticker": "ORCL"
+            }
+          ],
+          "key_points": [
+            "甲骨文启动新一轮裁员，遣散费方案成为行业讨论焦点",
+            "此次裁员引发人力资源专业人士对遣散费基准标准的重新审视",
+            "反映科技行业持续裁员背景下员工补偿待遇的普遍关注"
+          ],
+          "confidence": "low",
+          "officialness": "media",
+          "impact_direction": "negative",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"甲骨文裁员方案引发遣散费基准审视\",\"summary\":\"甲骨文公司近期实施裁员计划，其遣散费方案引发人力资源行业对遣散费标准的广泛讨论与审视。此次裁员使业界开始重新评估企业遣散费基准，专业人士对甲骨文所提供的补偿方案与行业惯例进行比较分析，折射出科技行业持续裁员潮中员工权益保障问题。\",\"key_points\":[\"甲骨文启动新一轮裁员，遣散费方案成为行业讨论焦点\",\"此次裁员引发人力资源专业人士对遣散费基准标准的重新审视\",\"反映科技行业持续裁员背景下员工补偿待遇的普遍关注\"],\"event_type\":\"layoffs\",\"officialness\":\"media\",\"impact_direction\":\"negative\",\"impact_level\":\"low\",\"price_sensitive\":false,\"confidence\":\"low\",\"entities\":{\"core\":{\"companies\":[\"Oracle\",\"ORCL\"],\"people\":[],\"products\":[],\"locations\":[],\"regulators\":[]}},\"relations\":[{\"type\":\"involved_in\",\"source\":\"Oracle\",\"target\":\"layoffs\",\"confidence\":\"medium\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Oracle",
+              "role": "",
+              "ticker": "ORCL"
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "source:5",
+        "label": "HR Executive",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQZjhoZXRKZ091TjRfVm5HRU9jOVZYamVyRW1pYURCVjBudHFmRWozaGtseG9QN1U2TDZ4aU9NQkhuWXNBei1qQ2c3WkFJQmE2TFVVYS1qN1p6eWZTQ05rdk1OSmtUWFphQXgtaUtfczVJUjQ2MzdYSUtfVXdoQlRVZXJFbFA2XzI3ZVRDRmhOZTRTY2NJZEYwbDlLR04?oc=5",
+          "published_at": "2026-04-09T10:30:40+00:00",
+          "published_date": "2026-04-09",
+          "title": "Oracle’s layoff package puts severance benchmarking under the microscope",
+          "article_title": "Oracle’s layoff package puts severance benchmarking under the microscope",
+          "article_snippet": "Oracle’s layoff package puts severance benchmarking under the microscope HR Executive",
+          "summary": "ORCL: Oracle’s layoff package puts severance benchmarking under the microscope HR Executive",
+          "source_name": "HR Executive",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:5",
+        "label": "甲骨文加州裁员信息披露",
+        "type": "Event",
+        "data": {
+          "event_type": "layoffs",
+          "event_label": "Layoffs",
+          "date": "2026-04-09",
+          "published_at": "2026-04-09T10:00:00+00:00",
+          "summary": "甲骨文（Oracle）与Meta、高通一同向加利福尼亚州提交了裁员细节披露文件。此次裁员波及加州多处办公地点，为科技行业持续结构调整的一部分。根据加州《WARN法案》要求，企业须提前通知员工及政府机构，甲骨文此举表明公司正在推进人员优化计划，涉及员工规模及具体部门信息已向州政府备案。",
+          "title": "甲骨文加州裁员信息披露",
+          "article_title": "Meta, Oracle and Qualcomm share details on layoffs across California",
+          "article_snippet": "Meta, Oracle and Qualcomm share details on layoffs across California Los Angeles Times",
+          "source_name": "Los Angeles Times",
+          "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNNmdXVFZmS3hQcWZRVG5RYlVNQjlfUERNbUdmOVZCNGN3LUFFdUxvcm9ZSkNQc0FDenlQbEdkQ0hKbzdSWXg1TmFpSnV4ck90UFlNbm1oQVpUbUdQc2VicFNDQ1pubkVMbXIzTG5ZVjNWZTlTQnNZRVR5Z1JrRzNBMjZMdGVvMmtzTHhBbUpfWWxvVEN0XzdnVjhFdU9nYl95QXg1WnhWZjgxNjl1NDBVTV95NA?oc=5",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "article_count": 1,
+          "article_titles": [
+            "Meta, Oracle and Qualcomm share details on layoffs across California"
+          ],
+          "articles": [
+            {
+              "title": "Meta, Oracle and Qualcomm share details on layoffs across California",
+              "summary": "ORCL: Meta, Oracle and Qualcomm share details on layoffs across California Los Angeles Times",
+              "snippet": "Meta, Oracle and Qualcomm share details on layoffs across California Los Angeles Times",
+              "source_name": "Los Angeles Times",
+              "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNNmdXVFZmS3hQcWZRVG5RYlVNQjlfUERNbUdmOVZCNGN3LUFFdUxvcm9ZSkNQc0FDenlQbEdkQ0hKbzdSWXg1TmFpSnV4ck90UFlNbm1oQVpUbUdQc2VicFNDQ1pubkVMbXIzTG5ZVjNWZTlTQnNZRVR5Z1JrRzNBMjZMdGVvMmtzTHhBbUpfWWxvVEN0XzdnVjhFdU9nYl95QXg1WnhWZjgxNjl1NDBVTV95NA?oc=5",
+              "published_at": "2026-04-09T10:00:00+00:00",
+              "published_date": "2026-04-09",
+              "ticker": "ORCL"
+            }
+          ],
+          "key_points": [
+            "甲骨文依据加州WARN法案披露裁员详情，与Meta、高通同步进行",
+            "裁员涉及加利福尼亚州多个办公地点",
+            "此次裁员是科技行业整体降本增效趋势的缩影",
+            "具体裁员人数及受影响部门已向州政府正式备案"
+          ],
+          "confidence": "medium",
+          "officialness": "official",
+          "impact_direction": "negative",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"甲骨文加州裁员信息披露\",\"summary\":\"甲骨文（Oracle）与Meta、高通一同向加利福尼亚州提交了裁员细节披露文件。此次裁员波及加州多处办公地点，为科技行业持续结构调整的一部分。根据加州《WARN法案》要求，企业须提前通知员工及政府机构，甲骨文此举表明公司正在推进人员优化计划，涉及员工规模及具体部门信息已向州政府备案。\",\"key_points\":[\"甲骨文依据加州WARN法案披露裁员详情，与Meta、高通同步进行\",\"裁员涉及加利福尼亚州多个办公地点\",\"此次裁员是科技行业整体降本增效趋势的缩影\",\"具体裁员人数及受影响部门已向州政府正式备案\"],\"event_type\":\"layoffs\",\"officialness\":\"official\",\"impact_direction\":\"negative\",\"impact_level\":\"low\",\"price_sensitive\":false,\"confidence\":\"medium\",\"entities\":{\"core\":{\"companies\":[\"Oracle\",\"Meta\",\"Qualcomm\"],\"people\":[],\"products\":[],\"locations\":[\"California\",\"Los Angeles\"],\"regulators\":[\"California WARN Act\"]}},\"relations\":[{\"type\":\"同行业裁员\",\"source\":\"Oracle\",\"target\":\"Meta\",\"confidence\":\"high\"},{\"type\":\"同行业裁员\",\"source\":\"Oracle\",\"target\":\"Qualcomm\",\"confidence\":\"high\"},{\"type\":\"裁员发生地\",\"source\":\"Oracle\",\"target\":\"California\",\"confidence\":\"high\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Oracle",
+              "role": "",
+              "ticker": "ORCL"
+            },
+            {
+              "entity_type": "Company",
+              "name": "Meta",
+              "role": "",
+              "ticker": "META"
+            },
+            {
+              "entity_type": "Company",
+              "name": "Qualcomm",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Location",
+              "name": "California",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Location",
+              "name": "Los Angeles",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Regulator",
+              "name": "California WARN Act",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": [
+            {
+              "type": "CUT_JOBS_IN",
+              "source": "Oracle",
+              "target": "California",
+              "confidence": "medium"
+            }
+          ]
+        }
+      },
+      {
+        "id": "entity:4",
+        "label": "Meta",
+        "type": "Company",
+        "data": {
+          "canonical_name": "Meta",
+          "role": "",
+          "ticker": "META",
+          "entity_type": "Company",
+          "description": "Meta Platforms 是全球主要社交平台公司，旗下业务包括 Facebook、Instagram、WhatsApp 与 AI 基础设施投入。"
+        }
+      },
+      {
+        "id": "entity:5",
+        "label": "Qualcomm",
+        "type": "Company",
+        "data": {
+          "canonical_name": "Qualcomm",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Company",
+          "description": "Qualcomm Incorporated is an American multinational corporation headquartered in San Diego, California, and incorporated in Delaware.The company develops and designs。"
+        }
+      },
+      {
+        "id": "entity:6",
+        "label": "California",
+        "type": "Location",
+        "data": {
+          "canonical_name": "California",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Location",
+          "description": ""
+        }
+      },
+      {
+        "id": "entity:7",
+        "label": "Los Angeles",
+        "type": "Location",
+        "data": {
+          "canonical_name": "Los Angeles",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Location",
+          "description": ""
+        }
+      },
+      {
+        "id": "entity:8",
+        "label": "California WARN Act",
+        "type": "Regulator",
+        "data": {
+          "canonical_name": "California WARN Act",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Regulator",
+          "description": ""
+        }
+      },
+      {
+        "id": "source:6",
+        "label": "Los Angeles Times",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNNmdXVFZmS3hQcWZRVG5RYlVNQjlfUERNbUdmOVZCNGN3LUFFdUxvcm9ZSkNQc0FDenlQbEdkQ0hKbzdSWXg1TmFpSnV4ck90UFlNbm1oQVpUbUdQc2VicFNDQ1pubkVMbXIzTG5ZVjNWZTlTQnNZRVR5Z1JrRzNBMjZMdGVvMmtzTHhBbUpfWWxvVEN0XzdnVjhFdU9nYl95QXg1WnhWZjgxNjl1NDBVTV95NA?oc=5",
+          "published_at": "2026-04-09T10:00:00+00:00",
+          "published_date": "2026-04-09",
+          "title": "Meta, Oracle and Qualcomm share details on layoffs across California",
+          "article_title": "Meta, Oracle and Qualcomm share details on layoffs across California",
+          "article_snippet": "Meta, Oracle and Qualcomm share details on layoffs across California Los Angeles Times",
+          "summary": "ORCL: Meta, Oracle and Qualcomm share details on layoffs across California Los Angeles Times",
+          "source_name": "Los Angeles Times",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:6",
+        "label": "甲骨文营收强劲但股价下跌",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "Acquisition",
+          "date": "2026-04-09",
+          "published_at": "2026-04-09T02:27:00+00:00",
+          "summary": "甲骨文（Oracle）近期销售额大幅增长，显示其云业务扩张势头强劲，但股价却出现下跌走势。市场分析人士正在评估当前股价回调是否提供了买入机会。此次股价与基本面的背离引发投资者关注，核心问题在于短期市场情绪与公司长期增长逻辑之间的分歧。",
+          "title": "甲骨文营收强劲但股价下跌",
+          "article_title": "Oracle's Sales Are Soaring, But Its Stock Is Falling. Time to Buy?",
+          "article_snippet": "Oracle's Sales Are Soaring, But Its Stock Is Falling. Time to Buy? The Motley Fool",
+          "source_name": "The Motley Fool",
+          "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPN2RvcmVUZTQ1bXpiTUVVVjNPbnYyVFIwWHBTdndZeEpJd29jRjdremx1ZmFZek9vZzFlWTVrd3hNdWpmQVlrTEk5eWgyYXpsSFdzd1dxZks0dEtGNWw5VmhTNkZQRTI0aHRwNGl2eEVzWjlWNlo2UlE0UWhNN1JKVGtKbjNTU0xoRlV0NjdLd0tmcEFVaTNEaQ?oc=5",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "article_count": 1,
+          "article_titles": [
+            "Oracle's Sales Are Soaring, But Its Stock Is Falling. Time to Buy?"
+          ],
+          "articles": [
+            {
+              "title": "Oracle's Sales Are Soaring, But Its Stock Is Falling. Time to Buy?",
+              "summary": "ORCL: Oracle's Sales Are Soaring, But Its Stock Is Falling. Time to Buy? The Motley Fool",
+              "snippet": "Oracle's Sales Are Soaring, But Its Stock Is Falling. Time to Buy? The Motley Fool",
+              "source_name": "The Motley Fool",
+              "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPN2RvcmVUZTQ1bXpiTUVVVjNPbnYyVFIwWHBTdndZeEpJd29jRjdremx1ZmFZek9vZzFlWTVrd3hNdWpmQVlrTEk5eWgyYXpsSFdzd1dxZks0dEtGNWw5VmhTNkZQRTI0aHRwNGl2eEVzWjlWNlo2UlE0UWhNN1JKVGtKbjNTU0xoRlV0NjdLd0tmcEFVaTNEaQ?oc=5",
+              "published_at": "2026-04-09T02:27:00+00:00",
+              "published_date": "2026-04-09",
+              "ticker": "ORCL"
+            }
+          ],
+          "key_points": [
+            "甲骨文销售额持续强劲增长，云业务扩张势头明显",
+            "股价与营收表现出现背离，近期呈现下跌走势",
+            "市场分析师探讨当前估值是否已反映增长潜力",
+            "短期市场情绪与公司基本面存在明显分歧"
+          ],
+          "confidence": "medium",
+          "officialness": "media",
+          "impact_direction": "neutral",
+          "impact_level": "medium",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\n  \"title\": \"甲骨文营收强劲但股价下跌\",\n  \"summary\": \"甲骨文（Oracle）近期销售额大幅增长，显示其云业务扩张势头强劲，但股价却出现下跌走势。市场分析人士正在评估当前股价回调是否提供了买入机会。此次股价与基本面的背离引发投资者关注，核心问题在于短期市场情绪与公司长期增长逻辑之间的分歧。\",\n  \"key_points\": [\n    \"甲骨文销售额持续强劲增长，云业务扩张势头明显\",\n    \"股价与营收表现出现背离，近期呈现下跌走势\",\n    \"市场分析师探讨当前估值是否已反映增长潜力\",\n    \"短期市场情绪与公司基本面存在明显分歧\"\n  ],\n  \"event_type\": \"news\",\n  \"officialness\": \"media\",\n  \"impact_direction\": \"neutral\",\n  \"impact_level\": \"medium\",\n  \"price_sensitive\": false,\n  \"confidence\": \"medium\",\n  \"entities\": {\n    \"core\": {\n      \"companies\": [\"Oracle\", \"ORCL\"],\n      \"people\": [],\n      \"products\": [\"Oracle Cloud\"],\n      \"locations\": [],\n      \"regulators\": []\n    }\n  },\n  \"relations\": [\n    {\n      \"type\": \"financial_performance\",\n      \"source\": \"Oracle\",\n      \"target\": \"云业务营收增长\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"type\": \"market_reaction\",\n      \"source\": \"ORCL股价\",\n      \"target\": \"营收增长\",\n      \"confidence\": \"medium\"\n    }\n  ]\n}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Oracle",
+              "role": "",
+              "ticker": "ORCL"
+            },
+            {
+              "entity_type": "Product",
+              "name": "Oracle Cloud",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:9",
+        "label": "Oracle Cloud",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Oracle Cloud",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Oracle Cloud is a cloud computing service offered by Oracle Corporation providing servers, storage, network, applications and services through a global network of Oracle。"
+        }
+      },
+      {
+        "id": "source:7",
+        "label": "The Motley Fool",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPN2RvcmVUZTQ1bXpiTUVVVjNPbnYyVFIwWHBTdndZeEpJd29jRjdremx1ZmFZek9vZzFlWTVrd3hNdWpmQVlrTEk5eWgyYXpsSFdzd1dxZks0dEtGNWw5VmhTNkZQRTI0aHRwNGl2eEVzWjlWNlo2UlE0UWhNN1JKVGtKbjNTU0xoRlV0NjdLd0tmcEFVaTNEaQ?oc=5",
+          "published_at": "2026-04-09T02:27:00+00:00",
+          "published_date": "2026-04-09",
+          "title": "Oracle's Sales Are Soaring, But Its Stock Is Falling. Time to Buy?",
+          "article_title": "Oracle's Sales Are Soaring, But Its Stock Is Falling. Time to Buy?",
+          "article_snippet": "Oracle's Sales Are Soaring, But Its Stock Is Falling. Time to Buy? The Motley Fool",
+          "summary": "ORCL: Oracle's Sales Are Soaring, But Its Stock Is Falling. Time to Buy? The Motley Fool",
+          "source_name": "The Motley Fool",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:7",
+        "label": "甲骨文任命Hilary Maxson为新CFO",
+        "type": "Event",
+        "data": {
+          "event_type": "leadership_change",
+          "event_label": "Leadership Change",
+          "date": "2026-04-08",
+          "published_at": "2026-04-08T12:53:00+00:00",
+          "summary": "甲骨文（Oracle）宣布从施耐德电气（Schneider Electric）引进Hilary Maxson担任新任首席财务官。此次人事变动发生在Oracle大规模扩张AI云基础设施投资的关键时期。分析人士认为，Maxson具备丰富的资本支出管理经验，被视为",
+          "title": "甲骨文任命Hilary Maxson为新CFO",
+          "article_title": "Why Oracle’s new CFO Hilary Maxson is key to its AI ambitions",
+          "article_snippet": "Why Oracle’s new CFO Hilary Maxson is key to its AI ambitions Fortune",
+          "source_name": "Fortune",
+          "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPYVJKX2p5ZDNsZ21aN1lvOHhKd1BvZElsMk1JLUJQRXM0aHZOR0hDWkpadlBiTlZwTkNGMDFlckZnUkFmLXdxcHhjaE45Z1BjN1owdmRpcGxMdFVVeGg2djFCdDNhd2M2TUFaVTZhRFZpQmc0aHNZZE9XSjUwSXhDRkdnVnpJakky?oc=5",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "article_count": 5,
+          "article_titles": [
+            "Why Oracle’s new CFO Hilary Maxson is key to its AI ambitions",
+            "Oracle’s New CFO Is ‘Built for Capex.’ What Hilary Maxson Means for the Stock.",
+            "Oracle Names New CFO Amid Massive AI Cloud Buildout",
+            "Oracle hires Schneider Electric's Maxson as CFO amid AI spending boom",
+            "Oracle Taps Schneider Electric Executive as New CFO"
+          ],
+          "articles": [
+            {
+              "title": "Why Oracle’s new CFO Hilary Maxson is key to its AI ambitions",
+              "summary": "ORCL: Why Oracle’s new CFO Hilary Maxson is key to its AI ambitions Fortune",
+              "snippet": "Why Oracle’s new CFO Hilary Maxson is key to its AI ambitions Fortune",
+              "source_name": "Fortune",
+              "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPYVJKX2p5ZDNsZ21aN1lvOHhKd1BvZElsMk1JLUJQRXM0aHZOR0hDWkpadlBiTlZwTkNGMDFlckZnUkFmLXdxcHhjaE45Z1BjN1owdmRpcGxMdFVVeGg2djFCdDNhd2M2TUFaVTZhRFZpQmc0aHNZZE9XSjUwSXhDRkdnVnpJakky?oc=5",
+              "published_at": "2026-04-08T12:53:00+00:00",
+              "published_date": "2026-04-08",
+              "ticker": "ORCL"
+            },
+            {
+              "title": "Oracle’s New CFO Is ‘Built for Capex.’ What Hilary Maxson Means for the Stock.",
+              "summary": "ORCL: Oracle’s New CFO Is ‘Built for Capex.’ What Hilary Maxson Means for the Stock. Barron's",
+              "snippet": "Oracle’s New CFO Is ‘Built for Capex.’ What Hilary Maxson Means for the Stock. Barron's",
+              "source_name": "Barron's",
+              "source_url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQVUc5S0hVV21OYkpmalRVcTBFNnZnYmhEMk9ORTFnSXI0SFFQQm1PcGZsZUhJc3dvY3BrM0liRC02Ui0wWUhWWDBCT0J0eTZJaVo3NXJCM1pzeTRnRmxkY09XQVhQeDBiaU5YRjdKbjI5WWhGYlR3aXVSVnpCVmFWd3Joa2M?oc=5",
+              "published_at": "2026-04-07T18:42:00+00:00",
+              "published_date": "2026-04-07",
+              "ticker": "ORCL"
+            },
+            {
+              "title": "Oracle Names New CFO Amid Massive AI Cloud Buildout",
+              "summary": "ORCL: Oracle Names New CFO Amid Massive AI Cloud Buildout Investor's Business Daily",
+              "snippet": "Oracle Names New CFO Amid Massive AI Cloud Buildout Investor's Business Daily",
+              "source_name": "Investor's Business Daily",
+              "source_url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFB6RWVaZGNzVVpUN1hJbHY4X0dSMTNIbUFLQ0lIeTI3S0g5Y2NSZnlVZzU3TlNlckRZNUg5ZTE4Q2xVTU9Tc0RqODFrbHNBUjE3dFotak1ibm1KTGtvVmNTZ1lQaU5WRy1NQU1DTndBYW5xS2t5Q1d3VHRmYw?oc=5",
+              "published_at": "2026-04-06T21:29:00+00:00",
+              "published_date": "2026-04-06",
+              "ticker": "ORCL"
+            },
+            {
+              "title": "Oracle hires Schneider Electric's Maxson as CFO amid AI spending boom",
+              "summary": "ORCL: Oracle hires Schneider Electric's Maxson as CFO amid AI spending boom Reuters",
+              "snippet": "Oracle hires Schneider Electric's Maxson as CFO amid AI spending boom Reuters",
+              "source_name": "Reuters",
+              "source_url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNSkZTYXhacXhzY2ZHc1FyUW1reElickZYMHFURFY1SHNQNW1tR0Z2LTZzSTFiOWFYcmx4Z1hXRjQ2enMyYzlDWWpodVphbUdoMWE4Umxnc0VnZ1ZKdlctX1k2NGR2MHNfcmRURi1qekdfZDltMkc2bmFqSmpjUjNxYllfdWo?oc=5",
+              "published_at": "2026-04-06T16:48:08+00:00",
+              "published_date": "2026-04-06",
+              "ticker": "ORCL"
+            },
+            {
+              "title": "Oracle Taps Schneider Electric Executive as New CFO",
+              "summary": "ORCL: Oracle Taps Schneider Electric Executive as New CFO Bloomberg.com",
+              "snippet": "Oracle Taps Schneider Electric Executive as New CFO Bloomberg.com",
+              "source_name": "Bloomberg.com",
+              "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZWZ3dGU1TmFwbEZLV1RfZnVOVEgycFRlTVdnSzkwRnlxNzdFNm1DUGxlMW10WlF1VUljUFdpZ2tlNlRrbzFEUXRfWktnUnZCTUo3YkZLQWNvNExFU0dzSjdvS2VkZkx1ZHJoSXZGU2Z2c0pZckZKUnBoX2RXV1pKbTdQRmpvZnhzZG44YnhsRzBUQzNTSmdudlhOLUtMZ1Q4OG11dg?oc=5",
+              "published_at": "2026-04-06T14:06:30+00:00",
+              "published_date": "2026-04-06",
+              "ticker": "ORCL"
+            }
+          ],
+          "key_points": [
+            "Oracle宣布任命来自施耐德电气的Hilary Maxson为新任CFO",
+            "Maxson以资本支出管理专长著称，契合Oracle当前AI云大规模扩张需求",
+            "此次任命被市场解读为Oracle强化AI基础设施投资执行能力的关键举措",
+            "多家主流财经媒体对此次高管变动给予高度关注，认为其对股价具有积极影响"
+          ],
+          "confidence": "high",
+          "officialness": "official",
+          "impact_direction": "positive",
+          "impact_level": "medium",
+          "price_sensitive": true,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated via fallback parser",
+          "raw_llm_output": "```json\n{\"title\":\"甲骨文任命Hilary Maxson为新CFO\",\"summary\":\"甲骨文（Oracle）宣布从施耐德电气（Schneider Electric）引进Hilary Maxson担任新任首席财务官。此次人事变动发生在Oracle大规模扩张AI云基础设施投资的关键时期。分析人士认为，Maxson具备丰富的资本支出管理经验，被视为\"专为资本开支而生\"，有望支撑Oracle雄心勃勃的AI数据中心建设计划，对公司股价及长期战略执行具有重要意义。\",\"key_points\":[\"Oracle宣布任命来自施耐德电气的Hilary Maxson为新任CFO\",\"Maxson以资本支出管理专长著称，契合Oracle当前AI云大规模扩张需求\",\"此次任命被市场解读为Oracle强化AI基础设施投资执行能力的关键举措\",\"多家主流财经媒体对此次高管变动给予高度关注，认为其对股价具有积极影响\"],\"event_type\":\"leadership_change\",\"officialness\":\"official\",\"impact_direction\":\"positive\",\"impact_level\":\"medium\",\"price_sensitive\":true,\"confidence\":\"high\",\"entities\":{\"core\":{\"companies\":[\"Oracle\",\"Schneider Electric\"],\"people\":[\"Hilary Maxson\"],\"products\":[\"Oracle Cloud\",\"AI Cloud\"],\"locations\":[],\"regulators\":[]}},\"relations\":[{\"type\":\"appointed_as\",\"source\":\"Hilary Maxson\",\"target\":\"Oracle CFO\",\"confidence\":\"high\"},{\"type\":\"previously_employed_by\",\"source\":\"Hilary Maxson\",\"target\":\"Schneider Electric\",\"confidence\":\"high\"},{\"type\":\"strategic_focus\",\"source\":\"Oracle\",\"target\":\"AI Cloud Infrastructure\",\"confidence\":\"high\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Oracle",
+              "role": "subject",
+              "ticker": "ORCL"
+            },
+            {
+              "entity_type": "Person",
+              "name": "Hilary Maxson",
+              "role": "executive",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Person",
+              "name": "Amid Massive",
+              "role": "executive",
+              "ticker": ""
+            }
+          ],
+          "relations": [
+            {
+              "type": "APPOINTED",
+              "source": "Oracle",
+              "target": "Hilary Maxson",
+              "confidence": "medium"
+            },
+            {
+              "type": "APPOINTED",
+              "source": "Oracle",
+              "target": "Amid Massive",
+              "confidence": "medium"
+            }
+          ]
+        }
+      },
+      {
+        "id": "entity:10",
+        "label": "Amid Massive",
+        "type": "Person",
+        "data": {
+          "canonical_name": "Amid Massive",
+          "role": "executive",
+          "ticker": "",
+          "entity_type": "Person",
+          "description": ""
+        }
+      },
+      {
+        "id": "source:8",
+        "label": "Fortune",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPYVJKX2p5ZDNsZ21aN1lvOHhKd1BvZElsMk1JLUJQRXM0aHZOR0hDWkpadlBiTlZwTkNGMDFlckZnUkFmLXdxcHhjaE45Z1BjN1owdmRpcGxMdFVVeGg2djFCdDNhd2M2TUFaVTZhRFZpQmc0aHNZZE9XSjUwSXhDRkdnVnpJakky?oc=5",
+          "published_at": "2026-04-08T12:53:00+00:00",
+          "published_date": "2026-04-08",
+          "title": "Why Oracle’s new CFO Hilary Maxson is key to its AI ambitions",
+          "article_title": "Why Oracle’s new CFO Hilary Maxson is key to its AI ambitions",
+          "article_snippet": "Why Oracle’s new CFO Hilary Maxson is key to its AI ambitions Fortune",
+          "summary": "ORCL: Why Oracle’s new CFO Hilary Maxson is key to its AI ambitions Fortune",
+          "source_name": "Fortune",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "source:9",
+        "label": "Barron's",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQVUc5S0hVV21OYkpmalRVcTBFNnZnYmhEMk9ORTFnSXI0SFFQQm1PcGZsZUhJc3dvY3BrM0liRC02Ui0wWUhWWDBCT0J0eTZJaVo3NXJCM1pzeTRnRmxkY09XQVhQeDBiaU5YRjdKbjI5WWhGYlR3aXVSVnpCVmFWd3Joa2M?oc=5",
+          "published_at": "2026-04-07T18:42:00+00:00",
+          "published_date": "2026-04-07",
+          "title": "Oracle’s New CFO Is ‘Built for Capex.’ What Hilary Maxson Means for the Stock.",
+          "article_title": "Oracle’s New CFO Is ‘Built for Capex.’ What Hilary Maxson Means for the Stock.",
+          "article_snippet": "Oracle’s New CFO Is ‘Built for Capex.’ What Hilary Maxson Means for the Stock. Barron's",
+          "summary": "ORCL: Oracle’s New CFO Is ‘Built for Capex.’ What Hilary Maxson Means for the Stock. Barron's",
+          "source_name": "Barron's",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "source:10",
+        "label": "Investor's Business Daily",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFB6RWVaZGNzVVpUN1hJbHY4X0dSMTNIbUFLQ0lIeTI3S0g5Y2NSZnlVZzU3TlNlckRZNUg5ZTE4Q2xVTU9Tc0RqODFrbHNBUjE3dFotak1ibm1KTGtvVmNTZ1lQaU5WRy1NQU1DTndBYW5xS2t5Q1d3VHRmYw?oc=5",
+          "published_at": "2026-04-06T21:29:00+00:00",
+          "published_date": "2026-04-06",
+          "title": "Oracle Names New CFO Amid Massive AI Cloud Buildout",
+          "article_title": "Oracle Names New CFO Amid Massive AI Cloud Buildout",
+          "article_snippet": "Oracle Names New CFO Amid Massive AI Cloud Buildout Investor's Business Daily",
+          "summary": "ORCL: Oracle Names New CFO Amid Massive AI Cloud Buildout Investor's Business Daily",
+          "source_name": "Investor's Business Daily",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "source:11",
+        "label": "Reuters",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNSkZTYXhacXhzY2ZHc1FyUW1reElickZYMHFURFY1SHNQNW1tR0Z2LTZzSTFiOWFYcmx4Z1hXRjQ2enMyYzlDWWpodVphbUdoMWE4Umxnc0VnZ1ZKdlctX1k2NGR2MHNfcmRURi1qekdfZDltMkc2bmFqSmpjUjNxYllfdWo?oc=5",
+          "published_at": "2026-04-06T16:48:08+00:00",
+          "published_date": "2026-04-06",
+          "title": "Oracle hires Schneider Electric's Maxson as CFO amid AI spending boom",
+          "article_title": "Oracle hires Schneider Electric's Maxson as CFO amid AI spending boom",
+          "article_snippet": "Oracle hires Schneider Electric's Maxson as CFO amid AI spending boom Reuters",
+          "summary": "ORCL: Oracle hires Schneider Electric's Maxson as CFO amid AI spending boom Reuters",
+          "source_name": "Reuters",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "source:12",
+        "label": "Bloomberg.com",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZWZ3dGU1TmFwbEZLV1RfZnVOVEgycFRlTVdnSzkwRnlxNzdFNm1DUGxlMW10WlF1VUljUFdpZ2tlNlRrbzFEUXRfWktnUnZCTUo3YkZLQWNvNExFU0dzSjdvS2VkZkx1ZHJoSXZGU2Z2c0pZckZKUnBoX2RXV1pKbTdQRmpvZnhzZG44YnhsRzBUQzNTSmdudlhOLUtMZ1Q4OG11dg?oc=5",
+          "published_at": "2026-04-06T14:06:30+00:00",
+          "published_date": "2026-04-06",
+          "title": "Oracle Taps Schneider Electric Executive as New CFO",
+          "article_title": "Oracle Taps Schneider Electric Executive as New CFO",
+          "article_snippet": "Oracle Taps Schneider Electric Executive as New CFO Bloomberg.com",
+          "summary": "ORCL: Oracle Taps Schneider Electric Executive as New CFO Bloomberg.com",
+          "source_name": "Bloomberg.com",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:8",
+        "label": "甲骨文裁员逾500名硅谷员工",
+        "type": "Event",
+        "data": {
+          "event_type": "layoffs",
+          "event_label": "General Update",
+          "date": "2026-04-08",
+          "published_at": "2026-04-08T09:11:00+00:00",
+          "summary": "2026年4月，甲骨文公司在硅谷裁员超过500人，此次裁员波及加利福尼亚州，成为该州规模最大的裁员行动之一。一名在甲骨文工作近10年的员工表示对此次裁员感到震惊，但表示已有备选计划。此举被视为甲骨文持续推进业务重组和成本削减战略的一部分，与其云计算转型和AI基础设施投入加大的背景相关。",
+          "title": "甲骨文裁员逾500名硅谷员工",
+          "article_title": "I was shocked to be laid off from Oracle after nearly 10 years. Luckily, I have a backup plan.",
+          "article_snippet": "I was shocked to be laid off from Oracle after nearly 10 years. Luckily, I have a backup plan. Business Insider",
+          "source_name": "Business Insider",
+          "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNRThjczd5N1dZZ0RGWlpfeDB5WENBYmhjSy03azBsX0hRbmsyUEZFdkhJb0x4YmxOZ3NsaWNzeVpQZndRRTI5OTY3bnd3N3Q4VU1oTzc3STdPdXBkUWtGUl9ZTVI5QlBjc3U5U0tHMGg0amFmXzJsZGlCVEI2NEU4NEFnZ2F3X1ZtZjAta3ZyT2lSOGFZUmFFanptSkd1dUVFZFpr?oc=5",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "article_count": 2,
+          "article_titles": [
+            "I was shocked to be laid off from Oracle after nearly 10 years. Luckily, I have a backup plan.",
+            "Oracle lays off over 500 Silicon Valley workers as California cuts top 700"
+          ],
+          "articles": [
+            {
+              "title": "I was shocked to be laid off from Oracle after nearly 10 years. Luckily, I have a backup plan.",
+              "summary": "ORCL: I was shocked to be laid off from Oracle after nearly 10 years. Luckily, I have a backup plan. Business Insider",
+              "snippet": "I was shocked to be laid off from Oracle after nearly 10 years. Luckily, I have a backup plan. Business Insider",
+              "source_name": "Business Insider",
+              "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNRThjczd5N1dZZ0RGWlpfeDB5WENBYmhjSy03azBsX0hRbmsyUEZFdkhJb0x4YmxOZ3NsaWNzeVpQZndRRTI5OTY3bnd3N3Q4VU1oTzc3STdPdXBkUWtGUl9ZTVI5QlBjc3U5U0tHMGg0amFmXzJsZGlCVEI2NEU4NEFnZ2F3X1ZtZjAta3ZyT2lSOGFZUmFFanptSkd1dUVFZFpr?oc=5",
+              "published_at": "2026-04-08T09:11:00+00:00",
+              "published_date": "2026-04-08",
+              "ticker": "ORCL"
+            },
+            {
+              "title": "Oracle lays off over 500 Silicon Valley workers as California cuts top 700",
+              "summary": "ORCL: Oracle lays off over 500 Silicon Valley workers as California cuts top 700 San Francisco Chronicle",
+              "snippet": "Oracle lays off over 500 Silicon Valley workers as California cuts top 700 San Francisco Chronicle",
+              "source_name": "San Francisco Chronicle",
+              "source_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxObWgySkRBdldkdVh3Wm56YXIybklyZkFwbmxvTU9ITmd0bmNvNVBMOG9QQzZmSGh6T0dHX2VGY2FMQW4tdzM2S0hYRWlyUXRtX1hpckNqTmtCNGpkeDRGSHRFeUVwTURJT0EzVFB4YVRwVy1GS2pQUDdBTkpERk9mWGh3cHFUemVqRjdGbEhqeEJtUQ?oc=5",
+              "published_at": "2026-04-07T17:32:59+00:00",
+              "published_date": "2026-04-07",
+              "ticker": "ORCL"
+            }
+          ],
+          "key_points": [
+            "甲骨文在硅谷裁员超过500人，为加州规模最大裁员事件之一",
+            "裁员涉及长期资深员工，部分员工任职年限接近10年",
+            "裁员背景与公司云计算转型及业务结构调整密切相关",
+            "此举可能加速甲骨文将人力资源重新配置至AI及云业务方向"
+          ],
+          "confidence": "high",
+          "officialness": "media",
+          "impact_direction": "negative",
+          "impact_level": "medium",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"甲骨文裁员逾500名硅谷员工\",\"summary\":\"2026年4月，甲骨文公司在硅谷裁员超过500人，此次裁员波及加利福尼亚州，成为该州规模最大的裁员行动之一。一名在甲骨文工作近10年的员工表示对此次裁员感到震惊，但表示已有备选计划。此举被视为甲骨文持续推进业务重组和成本削减战略的一部分，与其云计算转型和AI基础设施投入加大的背景相关。\",\"key_points\":[\"甲骨文在硅谷裁员超过500人，为加州规模最大裁员事件之一\",\"裁员涉及长期资深员工，部分员工任职年限接近10年\",\"裁员背景与公司云计算转型及业务结构调整密切相关\",\"此举可能加速甲骨文将人力资源重新配置至AI及云业务方向\"],\"event_type\":\"layoffs\",\"officialness\":\"media\",\"impact_direction\":\"negative\",\"impact_level\":\"medium\",\"price_sensitive\":false,\"confidence\":\"high\",\"entities\":{\"core\":{\"companies\":[\"Oracle\",\"甲骨文\"],\"people\":[],\"products\":[],\"locations\":[\"硅谷\",\"加利福尼亚州\"],\"regulators\":[]}},\"relations\":[{\"type\":\"裁员发生地\",\"source\":\"Oracle\",\"target\":\"硅谷\",\"confidence\":\"high\"},{\"type\":\"裁员发生地\",\"source\":\"Oracle\",\"target\":\"加利福尼亚州\",\"confidence\":\"high\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Oracle",
+              "role": "",
+              "ticker": "ORCL"
+            },
+            {
+              "entity_type": "Company",
+              "name": "甲骨文",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Location",
+              "name": "硅谷",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "source:13",
+        "label": "Business Insider",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNRThjczd5N1dZZ0RGWlpfeDB5WENBYmhjSy03azBsX0hRbmsyUEZFdkhJb0x4YmxOZ3NsaWNzeVpQZndRRTI5OTY3bnd3N3Q4VU1oTzc3STdPdXBkUWtGUl9ZTVI5QlBjc3U5U0tHMGg0amFmXzJsZGlCVEI2NEU4NEFnZ2F3X1ZtZjAta3ZyT2lSOGFZUmFFanptSkd1dUVFZFpr?oc=5",
+          "published_at": "2026-04-08T09:11:00+00:00",
+          "published_date": "2026-04-08",
+          "title": "I was shocked to be laid off from Oracle after nearly 10 years. Luckily, I have a backup plan.",
+          "article_title": "I was shocked to be laid off from Oracle after nearly 10 years. Luckily, I have a backup plan.",
+          "article_snippet": "I was shocked to be laid off from Oracle after nearly 10 years. Luckily, I have a backup plan. Business Insider",
+          "summary": "ORCL: I was shocked to be laid off from Oracle after nearly 10 years. Luckily, I have a backup plan. Business Insider",
+          "source_name": "Business Insider",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "source:14",
+        "label": "San Francisco Chronicle",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxObWgySkRBdldkdVh3Wm56YXIybklyZkFwbmxvTU9ITmd0bmNvNVBMOG9QQzZmSGh6T0dHX2VGY2FMQW4tdzM2S0hYRWlyUXRtX1hpckNqTmtCNGpkeDRGSHRFeUVwTURJT0EzVFB4YVRwVy1GS2pQUDdBTkpERk9mWGh3cHFUemVqRjdGbEhqeEJtUQ?oc=5",
+          "published_at": "2026-04-07T17:32:59+00:00",
+          "published_date": "2026-04-07",
+          "title": "Oracle lays off over 500 Silicon Valley workers as California cuts top 700",
+          "article_title": "Oracle lays off over 500 Silicon Valley workers as California cuts top 700",
+          "article_snippet": "Oracle lays off over 500 Silicon Valley workers as California cuts top 700 San Francisco Chronicle",
+          "summary": "ORCL: Oracle lays off over 500 Silicon Valley workers as California cuts top 700 San Francisco Chronicle",
+          "source_name": "San Francisco Chronicle",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:9",
+        "label": "甲骨文股票投资者重大消息",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "General Update",
+          "date": "2026-04-07",
+          "published_at": "2026-04-07T21:31:00+00:00",
+          "summary": "据The Motley Fool报道，甲骨文（ORCL）近期出现对投资者具有重要意义的重大消息。作为全球领先的企业软件和云计算服务提供商，甲骨文在云基础设施及数据库业务方面持续发展，相关动态引发市场关注。投资者需密切关注公司战略方向及业务进展对股价的潜在影响。",
+          "title": "甲骨文股票投资者重大消息",
+          "article_title": "Huge News for Oracle Stock Investors",
+          "article_snippet": "Huge News for Oracle Stock Investors The Motley Fool",
+          "source_name": "The Motley Fool",
+          "source_url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPZTRFMlY2LUkxOW5IcEFtUURVaDg0bDJ2eWhodVByRTFqNUNvaHZDUWNzc2gxcWp5dmJ6NkJoa3JGTUNMVG5DcGdfQk5LaTFIQWVNVWtWRkJWYVdraVNLdnpBQTFrRlpkT1JqZW1ZNDdmeUhYOHBzQmR5cEVVRXAyVkRFZHVVdw?oc=5",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "article_count": 1,
+          "article_titles": [
+            "Huge News for Oracle Stock Investors"
+          ],
+          "articles": [
+            {
+              "title": "Huge News for Oracle Stock Investors",
+              "summary": "ORCL: Huge News for Oracle Stock Investors The Motley Fool",
+              "snippet": "Huge News for Oracle Stock Investors The Motley Fool",
+              "source_name": "The Motley Fool",
+              "source_url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPZTRFMlY2LUkxOW5IcEFtUURVaDg0bDJ2eWhodVByRTFqNUNvaHZDUWNzc2gxcWp5dmJ6NkJoa3JGTUNMVG5DcGdfQk5LaTFIQWVNVWtWRkJWYVdraVNLdnpBQTFrRlpkT1JqZW1ZNDdmeUhYOHBzQmR5cEVVRXAyVkRFZHVVdw?oc=5",
+              "published_at": "2026-04-07T21:31:00+00:00",
+              "published_date": "2026-04-07",
+              "ticker": "ORCL"
+            }
+          ],
+          "key_points": [
+            "The Motley Fool发布针对甲骨文股票投资者的重大消息报道",
+            "消息内容涉及对ORCL股票投资者具有重要参考价值的关键动态",
+            "市场对甲骨文最新进展保持高度关注"
+          ],
+          "confidence": "low",
+          "officialness": "media",
+          "impact_direction": "positive",
+          "impact_level": "medium",
+          "price_sensitive": true,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"甲骨文股票投资者重大消息\",\"summary\":\"据The Motley Fool报道，甲骨文（ORCL）近期出现对投资者具有重要意义的重大消息。作为全球领先的企业软件和云计算服务提供商，甲骨文在云基础设施及数据库业务方面持续发展，相关动态引发市场关注。投资者需密切关注公司战略方向及业务进展对股价的潜在影响。\",\"key_points\":[\"The Motley Fool发布针对甲骨文股票投资者的重大消息报道\",\"消息内容涉及对ORCL股票投资者具有重要参考价值的关键动态\",\"市场对甲骨文最新进展保持高度关注\"],\"event_type\":\"news\",\"officialness\":\"media\",\"impact_direction\":\"positive\",\"impact_level\":\"medium\",\"price_sensitive\":true,\"confidence\":\"low\",\"entities\":{\"core\":{\"companies\":[\"Oracle Corporation\",\"The Motley Fool\"],\"people\":[],\"products\":[\"ORCL\"],\"locations\":[],\"regulators\":[]}},\"relations\":[{\"type\":\"covered_by\",\"source\":\"Oracle Corporation\",\"target\":\"The Motley Fool\",\"confidence\":\"high\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Oracle",
+              "role": "",
+              "ticker": "ORCL"
+            },
+            {
+              "entity_type": "Company",
+              "name": "The Motley Fool",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "ORCL",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:11",
+        "label": "The Motley Fool",
+        "type": "Company",
+        "data": {
+          "canonical_name": "The Motley Fool",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Company",
+          "description": "The Motley Fool is a private financial and investing advice company based in Alexandria, Virginia. It was founded in July 1993 by co-chairmen and brothers David Gardner and Tom。"
+        }
+      },
+      {
+        "id": "entity:12",
+        "label": "ORCL",
+        "type": "Product",
+        "data": {
+          "canonical_name": "ORCL",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Oracle Corporation is an American multinational technology company headquartered in Austin, Texas. Co-founded in Santa Clara, California by Bob Miner, Ed Oates, and current。"
+        }
+      },
+      {
+        "id": "source:15",
+        "label": "The Motley Fool",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPZTRFMlY2LUkxOW5IcEFtUURVaDg0bDJ2eWhodVByRTFqNUNvaHZDUWNzc2gxcWp5dmJ6NkJoa3JGTUNMVG5DcGdfQk5LaTFIQWVNVWtWRkJWYVdraVNLdnpBQTFrRlpkT1JqZW1ZNDdmeUhYOHBzQmR5cEVVRXAyVkRFZHVVdw?oc=5",
+          "published_at": "2026-04-07T21:31:00+00:00",
+          "published_date": "2026-04-07",
+          "title": "Huge News for Oracle Stock Investors",
+          "article_title": "Huge News for Oracle Stock Investors",
+          "article_snippet": "Huge News for Oracle Stock Investors The Motley Fool",
+          "summary": "ORCL: Huge News for Oracle Stock Investors The Motley Fool",
+          "source_name": "The Motley Fool",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:10",
+        "label": "甲骨文提交8-K监管文件",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "General Update",
+          "date": "2026-04-06",
+          "published_at": "2026-04-06T00:00:00+00:00",
+          "summary": "甲骨文公司（ORCL）于2026年4月6日向美国证券交易委员会（SEC）提交了8-K表格文件。8-K为重大事件报告，通常涉及公司重要业务变动、财务信息或其他需向投资者披露的事项。目前文件具体内容尚未披露，投资者需查阅完整申报文件以了解详情。",
+          "title": "甲骨文提交8-K监管文件",
+          "article_title": "ORACLE CORP filed 8-K",
+          "article_snippet": "ORACLE CORP filed 8-K with the SEC. Open the filing for full details.",
+          "source_name": "SEC EDGAR",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526142939/d132760d8k.htm",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "article_count": 1,
+          "article_titles": [
+            "ORACLE CORP filed 8-K"
+          ],
+          "articles": [
+            {
+              "title": "ORACLE CORP filed 8-K",
+              "summary": "ORCL: ORACLE CORP filed 8-K with the SEC. Open the filing for full details.",
+              "snippet": "ORACLE CORP filed 8-K with the SEC. Open the filing for full details.",
+              "source_name": "SEC EDGAR",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526142939/d132760d8k.htm",
+              "published_at": "2026-04-06T00:00:00+00:00",
+              "published_date": "2026-04-06",
+              "ticker": "ORCL"
+            }
+          ],
+          "key_points": [
+            "甲骨文于2026年4月6日向SEC提交8-K监管文件",
+            "8-K文件通常用于披露重大公司事件或信息",
+            "具体披露内容需查阅SEC EDGAR完整文件",
+            "事件性质及影响方向有待文件内容确认"
+          ],
+          "confidence": "low",
+          "officialness": "official",
+          "impact_direction": "neutral",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"甲骨文提交8-K监管文件\",\"summary\":\"甲骨文公司（ORCL）于2026年4月6日向美国证券交易委员会（SEC）提交了8-K表格文件。8-K为重大事件报告，通常涉及公司重要业务变动、财务信息或其他需向投资者披露的事项。目前文件具体内容尚未披露，投资者需查阅完整申报文件以了解详情。\",\"key_points\":[\"甲骨文于2026年4月6日向SEC提交8-K监管文件\",\"8-K文件通常用于披露重大公司事件或信息\",\"具体披露内容需查阅SEC EDGAR完整文件\",\"事件性质及影响方向有待文件内容确认\"],\"event_type\":\"news\",\"officialness\":\"official\",\"impact_direction\":\"neutral\",\"impact_level\":\"low\",\"price_sensitive\":false,\"confidence\":\"low\",\"entities\":{\"core\":{\"companies\":[\"Oracle Corp\",\"ORCL\"],\"people\":[],\"products\":[],\"locations\":[],\"regulators\":[\"SEC\",\"SEC EDGAR\"]}},\"relations\":[{\"type\":\"filed_with\",\"source\":\"Oracle Corp\",\"target\":\"SEC\",\"confidence\":\"high\"},{\"type\":\"submitted\",\"source\":\"Oracle Corp\",\"target\":\"8-K\",\"confidence\":\"high\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Oracle",
+              "role": "",
+              "ticker": "ORCL"
+            },
+            {
+              "entity_type": "Regulator",
+              "name": "SEC",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Regulator",
+              "name": "SEC EDGAR",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:13",
+        "label": "SEC",
+        "type": "Regulator",
+        "data": {
+          "canonical_name": "SEC",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Regulator",
+          "description": ""
+        }
+      },
+      {
+        "id": "entity:14",
+        "label": "SEC EDGAR",
+        "type": "Regulator",
+        "data": {
+          "canonical_name": "SEC EDGAR",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Regulator",
+          "description": ""
+        }
+      },
+      {
+        "id": "source:16",
+        "label": "SEC EDGAR",
+        "type": "Source",
+        "data": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526142939/d132760d8k.htm",
+          "published_at": "2026-04-06T00:00:00+00:00",
+          "published_date": "2026-04-06",
+          "title": "ORACLE CORP filed 8-K",
+          "article_title": "ORACLE CORP filed 8-K",
+          "article_snippet": "ORACLE CORP filed 8-K with the SEC. Open the filing for full details.",
+          "summary": "ORCL: ORACLE CORP filed 8-K with the SEC. Open the filing for full details.",
+          "source_name": "SEC EDGAR",
+          "company_name": "ORCL",
+          "ticker": "ORCL",
+          "officialness": "official"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge:1:company",
+        "source": "company:target",
+        "target": "event:1",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:1:entity:entity:1",
+        "source": "entity:1",
+        "target": "event:1",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:1:entity:entity:2",
+        "source": "entity:2",
+        "target": "event:1",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:1:source:1",
+        "source": "event:1",
+        "target": "source:1",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:1:source:2",
+        "source": "event:1",
+        "target": "source:2",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:2:company",
+        "source": "company:target",
+        "target": "event:2",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:2:source:3",
+        "source": "event:2",
+        "target": "source:3",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:3:company",
+        "source": "company:target",
+        "target": "event:3",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:3:entity:entity:3",
+        "source": "entity:3",
+        "target": "event:3",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:3:source:4",
+        "source": "event:3",
+        "target": "source:4",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:4:company",
+        "source": "company:target",
+        "target": "event:4",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:4:source:5",
+        "source": "event:4",
+        "target": "source:5",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:5:company",
+        "source": "company:target",
+        "target": "event:5",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:5:entity:entity:4",
+        "source": "entity:4",
+        "target": "event:5",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:5:entity:entity:5",
+        "source": "entity:5",
+        "target": "event:5",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:5:entity:entity:6",
+        "source": "entity:6",
+        "target": "event:5",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:5:entity:entity:7",
+        "source": "entity:7",
+        "target": "event:5",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:5:entity:entity:8",
+        "source": "entity:8",
+        "target": "event:5",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:relation:1",
+        "source": "company:target",
+        "target": "entity:6",
+        "label": "CUT_JOBS_IN",
+        "type": "CUT_JOBS_IN",
+        "data": {
+          "confidence": "medium",
+          "event_id": "event:5"
+        }
+      },
+      {
+        "id": "edge:5:source:6",
+        "source": "event:5",
+        "target": "source:6",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:6:company",
+        "source": "company:target",
+        "target": "event:6",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:6:entity:entity:9",
+        "source": "entity:9",
+        "target": "event:6",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:6:source:7",
+        "source": "event:6",
+        "target": "source:7",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:7:company",
+        "source": "company:target",
+        "target": "event:7",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:7:entity:entity:1",
+        "source": "entity:1",
+        "target": "event:7",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": "executive"
+        }
+      },
+      {
+        "id": "edge:7:entity:entity:10",
+        "source": "entity:10",
+        "target": "event:7",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": "executive"
+        }
+      },
+      {
+        "id": "edge:relation:2",
+        "source": "company:target",
+        "target": "entity:1",
+        "label": "APPOINTED",
+        "type": "APPOINTED",
+        "data": {
+          "confidence": "medium",
+          "event_id": "event:7"
+        }
+      },
+      {
+        "id": "edge:relation:3",
+        "source": "company:target",
+        "target": "entity:10",
+        "label": "APPOINTED",
+        "type": "APPOINTED",
+        "data": {
+          "confidence": "medium",
+          "event_id": "event:7"
+        }
+      },
+      {
+        "id": "edge:7:source:8",
+        "source": "event:7",
+        "target": "source:8",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:7:source:9",
+        "source": "event:7",
+        "target": "source:9",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:7:source:10",
+        "source": "event:7",
+        "target": "source:10",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:7:source:11",
+        "source": "event:7",
+        "target": "source:11",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:7:source:12",
+        "source": "event:7",
+        "target": "source:12",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:8:company",
+        "source": "company:target",
+        "target": "event:8",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:8:source:13",
+        "source": "event:8",
+        "target": "source:13",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:8:source:14",
+        "source": "event:8",
+        "target": "source:14",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:9:company",
+        "source": "company:target",
+        "target": "event:9",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:9:entity:entity:11",
+        "source": "entity:11",
+        "target": "event:9",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:9:entity:entity:12",
+        "source": "entity:12",
+        "target": "event:9",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:9:source:15",
+        "source": "event:9",
+        "target": "source:15",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:10:company",
+        "source": "company:target",
+        "target": "event:10",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:10:entity:entity:13",
+        "source": "entity:13",
+        "target": "event:10",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:10:entity:entity:14",
+        "source": "entity:14",
+        "target": "event:10",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:10:source:16",
+        "source": "event:10",
+        "target": "source:16",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      }
+    ],
+    "summary": {
+      "event_count": 10,
+      "source_count": 16,
+      "top_event_types": [
+        "acquisition",
+        "earnings_result",
+        "layoffs",
+        "leadership_change",
+        "news"
+      ]
+    }
+  }
+}

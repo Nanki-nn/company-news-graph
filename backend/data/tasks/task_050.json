@@ -1,0 +1,1919 @@
+{
+  "task": {
+    "task_id": "task_050",
+    "status": "completed",
+    "stage": "completed",
+    "progress": 100,
+    "company_name": "MSFT",
+    "ticker": "MSFT",
+    "report_mode": "ai",
+    "start_date": "2026-03-01",
+    "end_date": "2026-04-11",
+    "created_at": "2026-04-12T06:17:45.325997Z"
+  },
+  "graph": {
+    "nodes": [
+      {
+        "id": "company:target",
+        "label": "Microsoft",
+        "type": "Company",
+        "data": {
+          "canonical_name": "Microsoft",
+          "ticker": "MSFT",
+          "description": "微软是一家全球软件与云计算公司，核心业务包括 Windows、Office、Azure、企业软件与 AI 平台。"
+        }
+      },
+      {
+        "id": "event:1",
+        "label": "微软公布季度财报发布日期",
+        "type": "Event",
+        "data": {
+          "event_type": "earnings_schedule",
+          "event_label": "Product Launch",
+          "date": "2026-04-08",
+          "published_at": "2026-04-08T20:24:05+00:00",
+          "summary": "微软公司宣布其季度财报的具体发布日期，此举为投资者和市场分析人士提供了重要的时间节点参考。财报发布日期的官方公告通常预示着公司将披露其最新的财务业绩，市场将密切关注微软在云计算、人工智能及其他核心业务板块的表现与增长态势。",
+          "title": "微软公布季度财报发布日期",
+          "article_title": "Microsoft announces quarterly earnings release date",
+          "article_snippet": "Microsoft announces quarterly earnings release date Microsoft Source",
+          "source_name": "Microsoft Source",
+          "source_url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQVDI0TGdSYzktdTE1cjdNRHVxaHhreFk0ODhLRWtKX045Y0xHWkQ5b2xqZFJqTGlpRTZiSXd6N0ZVa05ZQWxJU2Y1NDVqWUdVeHpKWDBqMGRyZThMZWFrSmFFYllmaGVkY2dkc25nN2VCc1ctSGpuQm5MbHh2bWpabEtiaURHRzNOVzdJN2lxVGd2OHAySU1rMjhSMTFhTWVGOWc?oc=5",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "article_count": 1,
+          "article_titles": [
+            "Microsoft announces quarterly earnings release date"
+          ],
+          "articles": [
+            {
+              "title": "Microsoft announces quarterly earnings release date",
+              "summary": "MSFT: Microsoft announces quarterly earnings release date Microsoft Source",
+              "snippet": "Microsoft announces quarterly earnings release date Microsoft Source",
+              "source_name": "Microsoft Source",
+              "source_url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQVDI0TGdSYzktdTE1cjdNRHVxaHhreFk0ODhLRWtKX045Y0xHWkQ5b2xqZFJqTGlpRTZiSXd6N0ZVa05ZQWxJU2Y1NDVqWUdVeHpKWDBqMGRyZThMZWFrSmFFYllmaGVkY2dkc25nN2VCc1ctSGpuQm5MbHh2bWpabEtiaURHRzNOVzdJN2lxVGd2OHAySU1rMjhSMTFhTWVGOWc?oc=5",
+              "published_at": "2026-04-08T20:24:05+00:00",
+              "published_date": "2026-04-08",
+              "ticker": "MSFT"
+            }
+          ],
+          "key_points": [
+            "微软官方宣布季度财报发布日期",
+            "投资者可据此安排关注财报披露的时间节点",
+            "市场预期微软将公布云计算与AI业务最新进展"
+          ],
+          "confidence": "high",
+          "officialness": "official",
+          "impact_direction": "neutral",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"微软公布季度财报发布日期\",\"summary\":\"微软公司宣布其季度财报的具体发布日期，此举为投资者和市场分析人士提供了重要的时间节点参考。财报发布日期的官方公告通常预示着公司将披露其最新的财务业绩，市场将密切关注微软在云计算、人工智能及其他核心业务板块的表现与增长态势。\",\"key_points\":[\"微软官方宣布季度财报发布日期\",\"投资者可据此安排关注财报披露的时间节点\",\"市场预期微软将公布云计算与AI业务最新进展\"],\"event_type\":\"earnings_schedule\",\"officialness\":\"official\",\"impact_direction\":\"neutral\",\"impact_level\":\"low\",\"price_sensitive\":false,\"confidence\":\"high\",\"entities\":{\"core\":{\"companies\":[\"Microsoft\",\"MSFT\"],\"people\":[],\"products\":[],\"locations\":[],\"regulators\":[]}},\"relations\":[{\"type\":\"announces\",\"source\":\"Microsoft\",\"target\":\"季度财报发布日期\",\"confidence\":\"high\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Microsoft",
+              "role": "",
+              "ticker": "MSFT"
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "source:1",
+        "label": "Microsoft Source",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQVDI0TGdSYzktdTE1cjdNRHVxaHhreFk0ODhLRWtKX045Y0xHWkQ5b2xqZFJqTGlpRTZiSXd6N0ZVa05ZQWxJU2Y1NDVqWUdVeHpKWDBqMGRyZThMZWFrSmFFYllmaGVkY2dkc25nN2VCc1ctSGpuQm5MbHh2bWpabEtiaURHRzNOVzdJN2lxVGd2OHAySU1rMjhSMTFhTWVGOWc?oc=5",
+          "published_at": "2026-04-08T20:24:05+00:00",
+          "published_date": "2026-04-08",
+          "title": "Microsoft announces quarterly earnings release date",
+          "article_title": "Microsoft announces quarterly earnings release date",
+          "article_snippet": "Microsoft announces quarterly earnings release date Microsoft Source",
+          "summary": "MSFT: Microsoft announces quarterly earnings release date Microsoft Source",
+          "source_name": "Microsoft Source",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:2",
+        "label": "微软披露SOHO路由器遭攻击事件",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "General Update",
+          "date": "2026-04-07",
+          "published_at": "2026-04-07T14:00:00+00:00",
+          "summary": "微软安全团队披露了一起针对SOHO（小型办公/家庭办公）路由器的网络攻击事件。攻击者通过入侵SOHO路由器，实施DNS劫持并发动中间人攻击，从而拦截和篡改网络流量。此类攻击手法隐蔽性强，可能对企业及个人用户的网络安全造成重大威胁，提示用户需及时更新路由器固件并加强网络防护措施。",
+          "title": "微软披露SOHO路由器遭攻击事件",
+          "article_title": "SOHO router compromise leads to DNS hijacking and adversary-in-the-middle attacks",
+          "article_snippet": "SOHO router compromise leads to DNS hijacking and adversary-in-the-middle attacks Microsoft",
+          "source_name": "Microsoft",
+          "source_url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOMEJCdV9JSU5mQWtZQlhQU2oycGU5cU9VblFrMERhRjNwMDA1SFF3VS1sUFo1WFJkaFI1eVRNX1VxcEUwdmJKb0Q1Y2JUWU90b0hXRDVXUUowM3IyNFpiV1hXQm85OG4tMFRUSlNWOHRlMTVkY2dFRS1xbFdOR1dJOFExQU5CYWwwY2s0WTlpSjRTMEVXdVV1WDZTb0ZqVVVCanVHb1RKOTRWZTdtOUVDWHg3ZDlUbTJoWGpFR19EM0d5OFVxMXdYdzdhUDkyR1pqcUxmU3hB?oc=5",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "article_count": 1,
+          "article_titles": [
+            "SOHO router compromise leads to DNS hijacking and adversary-in-the-middle attacks"
+          ],
+          "articles": [
+            {
+              "title": "SOHO router compromise leads to DNS hijacking and adversary-in-the-middle attacks",
+              "summary": "MSFT: SOHO router compromise leads to DNS hijacking and adversary-in-the-middle attacks Microsoft",
+              "snippet": "SOHO router compromise leads to DNS hijacking and adversary-in-the-middle attacks Microsoft",
+              "source_name": "Microsoft",
+              "source_url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOMEJCdV9JSU5mQWtZQlhQU2oycGU5cU9VblFrMERhRjNwMDA1SFF3VS1sUFo1WFJkaFI1eVRNX1VxcEUwdmJKb0Q1Y2JUWU90b0hXRDVXUUowM3IyNFpiV1hXQm85OG4tMFRUSlNWOHRlMTVkY2dFRS1xbFdOR1dJOFExQU5CYWwwY2s0WTlpSjRTMEVXdVV1WDZTb0ZqVVVCanVHb1RKOTRWZTdtOUVDWHg3ZDlUbTJoWGpFR19EM0d5OFVxMXdYdzdhUDkyR1pqcUxmU3hB?oc=5",
+              "published_at": "2026-04-07T14:00:00+00:00",
+              "published_date": "2026-04-07",
+              "ticker": "MSFT"
+            }
+          ],
+          "key_points": [
+            "攻击者通过入侵SOHO路由器实施DNS劫持攻击",
+            "攻击手法为中间人攻击（AiTM），可拦截并篡改用户网络流量",
+            "微软发布安全预警，建议用户加强路由器安全配置",
+            "此事件对企业级和家庭用户网络安全均构成潜在威胁"
+          ],
+          "confidence": "high",
+          "officialness": "official",
+          "impact_direction": "negative",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"微软披露SOHO路由器遭攻击事件\",\"summary\":\"微软安全团队披露了一起针对SOHO（小型办公/家庭办公）路由器的网络攻击事件。攻击者通过入侵SOHO路由器，实施DNS劫持并发动中间人攻击，从而拦截和篡改网络流量。此类攻击手法隐蔽性强，可能对企业及个人用户的网络安全造成重大威胁，提示用户需及时更新路由器固件并加强网络防护措施。\",\"key_points\":[\"攻击者通过入侵SOHO路由器实施DNS劫持攻击\",\"攻击手法为中间人攻击（AiTM），可拦截并篡改用户网络流量\",\"微软发布安全预警，建议用户加强路由器安全配置\",\"此事件对企业级和家庭用户网络安全均构成潜在威胁\"],\"event_type\":\"news\",\"officialness\":\"official\",\"impact_direction\":\"negative\",\"impact_level\":\"low\",\"price_sensitive\":false,\"confidence\":\"high\",\"entities\":{\"core\":{\"companies\":[\"Microsoft\"],\"people\":[],\"products\":[\"SOHO路由器\"],\"locations\":[],\"regulators\":[]}},\"relations\":[{\"type\":\"披露\",\"source\":\"Microsoft\",\"target\":\"SOHO路由器攻击事件\",\"confidence\":\"high\"},{\"type\":\"攻击手法\",\"source\":\"DNS劫持\",\"target\":\"中间人攻击\",\"confidence\":\"high\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Microsoft",
+              "role": "",
+              "ticker": "MSFT"
+            },
+            {
+              "entity_type": "Product",
+              "name": "SOHO路由器",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:1",
+        "label": "SOHO路由器",
+        "type": "Product",
+        "data": {
+          "canonical_name": "SOHO路由器",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "SOHO路由器 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "source:2",
+        "label": "Microsoft",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOMEJCdV9JSU5mQWtZQlhQU2oycGU5cU9VblFrMERhRjNwMDA1SFF3VS1sUFo1WFJkaFI1eVRNX1VxcEUwdmJKb0Q1Y2JUWU90b0hXRDVXUUowM3IyNFpiV1hXQm85OG4tMFRUSlNWOHRlMTVkY2dFRS1xbFdOR1dJOFExQU5CYWwwY2s0WTlpSjRTMEVXdVV1WDZTb0ZqVVVCanVHb1RKOTRWZTdtOUVDWHg3ZDlUbTJoWGpFR19EM0d5OFVxMXdYdzdhUDkyR1pqcUxmU3hB?oc=5",
+          "published_at": "2026-04-07T14:00:00+00:00",
+          "published_date": "2026-04-07",
+          "title": "SOHO router compromise leads to DNS hijacking and adversary-in-the-middle attacks",
+          "article_title": "SOHO router compromise leads to DNS hijacking and adversary-in-the-middle attacks",
+          "article_snippet": "SOHO router compromise leads to DNS hijacking and adversary-in-the-middle attacks Microsoft",
+          "summary": "MSFT: SOHO router compromise leads to DNS hijacking and adversary-in-the-middle attacks Microsoft",
+          "source_name": "Microsoft",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:3",
+        "label": "Storm-1175推动Medusa勒索软件攻击",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "General Update",
+          "date": "2026-04-06",
+          "published_at": "2026-04-06T16:00:00+00:00",
+          "summary": "威胁行为者Storm-1175正聚焦于互联网暴露资产，以高频次方式发动Medusa勒索软件攻击行动。微软对此威胁进行了追踪和披露，警示企业关注面向公网的脆弱资产安全防护。此次攻击活动针对性强、节奏快，对未及时修复漏洞的组织构成重大威胁，各行业需加强网络边界防御和漏洞管理。",
+          "title": "Storm-1175推动Medusa勒索软件攻击",
+          "article_title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+          "article_snippet": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations Microsoft",
+          "source_name": "Microsoft",
+          "source_url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNVlRVTzZDbVAySDI3XzFLNWlWRkE0bUE4a0xuOTFlSm1WVG4yMUZXWnZNOEtZUWJZRHpKTVZMRmhHVUoxZGl5YmJlTXpPU3ViaVZDQ1p5dHl3bC1WVVNqaXVtbDNOSnZwWDAyeTFnNjNKZ1pJaXQ1ZGdpcFNXRFVwVlpsTDJWS1NTRGFKU1NYb0Z4Z1RuUmxTa1dSSHZYajFCUFZhcnowVlpGSlhwM3VQVTlFTWJPVldXVXJ1eFZhcFVack0yTWVnUG9GS1c3LWNlczcxWVoxZjN5TFpUdWdnOGowSVZnRndxX2JkQg?oc=5",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "article_count": 1,
+          "article_titles": [
+            "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations"
+          ],
+          "articles": [
+            {
+              "title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+              "summary": "MSFT: Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations Microsoft",
+              "snippet": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations Microsoft",
+              "source_name": "Microsoft",
+              "source_url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNVlRVTzZDbVAySDI3XzFLNWlWRkE0bUE4a0xuOTFlSm1WVG4yMUZXWnZNOEtZUWJZRHpKTVZMRmhHVUoxZGl5YmJlTXpPU3ViaVZDQ1p5dHl3bC1WVVNqaXVtbDNOSnZwWDAyeTFnNjNKZ1pJaXQ1ZGdpcFNXRFVwVlpsTDJWS1NTRGFKU1NYb0Z4Z1RuUmxTa1dSSHZYajFCUFZhcnowVlpGSlhwM3VQVTlFTWJPVldXVXJ1eFZhcFVack0yTWVnUG9GS1c3LWNlczcxWVoxZjN5TFpUdWdnOGowSVZnRndxX2JkQg?oc=5",
+              "published_at": "2026-04-06T16:00:00+00:00",
+              "published_date": "2026-04-06",
+              "ticker": "MSFT"
+            }
+          ],
+          "key_points": [
+            "Storm-1175威胁组织专门针对互联网暴露的脆弱资产发动攻击",
+            "Medusa勒索软件操作呈现高频次、高强度特征",
+            "微软主动追踪并披露该威胁情报，提醒企业加强防护",
+            "组织需优先修复面向公网资产的安全漏洞以降低风险"
+          ],
+          "confidence": "high",
+          "officialness": "official",
+          "impact_direction": "negative",
+          "impact_level": "medium",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\n  \"title\": \"Storm-1175推动Medusa勒索软件攻击\",\n  \"summary\": \"威胁行为者Storm-1175正聚焦于互联网暴露资产，以高频次方式发动Medusa勒索软件攻击行动。微软对此威胁进行了追踪和披露，警示企业关注面向公网的脆弱资产安全防护。此次攻击活动针对性强、节奏快，对未及时修复漏洞的组织构成重大威胁，各行业需加强网络边界防御和漏洞管理。\",\n  \"key_points\": [\n    \"Storm-1175威胁组织专门针对互联网暴露的脆弱资产发动攻击\",\n    \"Medusa勒索软件操作呈现高频次、高强度特征\",\n    \"微软主动追踪并披露该威胁情报，提醒企业加强防护\",\n    \"组织需优先修复面向公网资产的安全漏洞以降低风险\"\n  ],\n  \"event_type\": \"news\",\n  \"officialness\": \"official\",\n  \"impact_direction\": \"negative\",\n  \"impact_level\": \"medium\",\n  \"price_sensitive\": false,\n  \"confidence\": \"high\",\n  \"entities\": {\n    \"core\": {\n      \"companies\": [\"Microsoft\"],\n      \"people\": [],\n      \"products\": [\"Medusa\"],\n      \"locations\": [],\n      \"regulators\": []\n    }\n  },\n  \"relations\": [\n    {\n      \"type\": \"tracks\",\n      \"source\": \"Microsoft\",\n      \"target\": \"Storm-1175\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"type\": \"operates\",\n      \"source\": \"Storm-1175\",\n      \"target\": \"Medusa\",\n      \"confidence\": \"high\"\n    }\n  ]\n}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Microsoft",
+              "role": "",
+              "ticker": "MSFT"
+            },
+            {
+              "entity_type": "Product",
+              "name": "Medusa",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:2",
+        "label": "Medusa",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Medusa",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Medusa 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "source:3",
+        "label": "Microsoft",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNVlRVTzZDbVAySDI3XzFLNWlWRkE0bUE4a0xuOTFlSm1WVG4yMUZXWnZNOEtZUWJZRHpKTVZMRmhHVUoxZGl5YmJlTXpPU3ViaVZDQ1p5dHl3bC1WVVNqaXVtbDNOSnZwWDAyeTFnNjNKZ1pJaXQ1ZGdpcFNXRFVwVlpsTDJWS1NTRGFKU1NYb0Z4Z1RuUmxTa1dSSHZYajFCUFZhcnowVlpGSlhwM3VQVTlFTWJPVldXVXJ1eFZhcFVack0yTWVnUG9GS1c3LWNlczcxWVoxZjN5TFpUdWdnOGowSVZnRndxX2JkQg?oc=5",
+          "published_at": "2026-04-06T16:00:00+00:00",
+          "published_date": "2026-04-06",
+          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+          "article_title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+          "article_snippet": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations Microsoft",
+          "summary": "MSFT: Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations Microsoft",
+          "source_name": "Microsoft",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:4",
+        "label": "微软斥资百亿深化日本AI投资",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "General Update",
+          "date": "2026-04-03",
+          "published_at": "2026-04-03T07:00:00+00:00",
+          "summary": "微软宣布向日本追加100亿美元投资，重点布局人工智能基础设施、网络安全及劳动力培训。此举标志着微软进一步深化与日本的战略合作关系，强化其在亚太地区的AI生态布局。投资范围涵盖数据中心建设、网络安全能力提升及本地人才培养，彰显微软对日本数字化转型长期承诺。",
+          "title": "微软斥资百亿深化日本AI投资",
+          "article_title": "Microsoft deepens its commitment to Japan with $10 billion investment in AI infrastructure, cybersecurity, and workforce",
+          "article_snippet": "Microsoft deepens its commitment to Japan with $10 billion investment in AI infrastructure, cybersecurity, and workforce Microsoft Source",
+          "source_name": "Microsoft Source",
+          "source_url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxPSmJJc1MtaElhWjBueGJuanlHTXo1aS0wMzc4a3VlYnNpWkt6WWVzajltc0FyMl91aGRTS19teE1hM0VnS0JkdkVzN3N0ZDNXNi03SEVXN2xCTThQSEw0TlUzc1RYY0k1YVRKNGdldWFpXzFTMF9lN2FnU25sTzFkUW5sMWxKU2tEc3VmUVNQMVhVMGVNZWdmYjQ0TmJTV0FQTm1JQVJ1d3E3YW1McmtPMUM1UDh1aDJlWUNJMUltcW40ZG1WMXJyRm9TRWpaWkZpamVMU24yeG9QcnNCSF9TYnBtb2NUZTJ5UFFWR1dvSG1CTFM3OEI4?oc=5",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "article_count": 1,
+          "article_titles": [
+            "Microsoft deepens its commitment to Japan with $10 billion investment in AI infrastructure, cybersecurity, and workforce"
+          ],
+          "articles": [
+            {
+              "title": "Microsoft deepens its commitment to Japan with $10 billion investment in AI infrastructure, cybersecurity, and workforce",
+              "summary": "MSFT: Microsoft deepens its commitment to Japan with $10 billion investment in AI infrastructure, cybersecurity, and workforce Microsoft Source",
+              "snippet": "Microsoft deepens its commitment to Japan with $10 billion investment in AI infrastructure, cybersecurity, and workforce Microsoft Source",
+              "source_name": "Microsoft Source",
+              "source_url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxPSmJJc1MtaElhWjBueGJuanlHTXo1aS0wMzc4a3VlYnNpWkt6WWVzajltc0FyMl91aGRTS19teE1hM0VnS0JkdkVzN3N0ZDNXNi03SEVXN2xCTThQSEw0TlUzc1RYY0k1YVRKNGdldWFpXzFTMF9lN2FnU25sTzFkUW5sMWxKU2tEc3VmUVNQMVhVMGVNZWdmYjQ0TmJTV0FQTm1JQVJ1d3E3YW1McmtPMUM1UDh1aDJlWUNJMUltcW40ZG1WMXJyRm9TRWpaWkZpamVMU24yeG9QcnNCSF9TYnBtb2NUZTJ5UFFWR1dvSG1CTFM3OEI4?oc=5",
+              "published_at": "2026-04-03T07:00:00+00:00",
+              "published_date": "2026-04-03",
+              "ticker": "MSFT"
+            }
+          ],
+          "key_points": [
+            "微软宣布向日本投资100亿美元，用于AI基础设施建设",
+            "投资领域涵盖网络安全与本地劳动力技能培训",
+            "此举强化微软在亚太地区的AI战略布局与市场地位",
+            "投资体现微软对日本数字经济长期发展的信心与承诺"
+          ],
+          "confidence": "high",
+          "officialness": "official",
+          "impact_direction": "positive",
+          "impact_level": "medium",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\n  \"title\": \"微软斥资百亿深化日本AI投资\",\n  \"summary\": \"微软宣布向日本追加100亿美元投资，重点布局人工智能基础设施、网络安全及劳动力培训。此举标志着微软进一步深化与日本的战略合作关系，强化其在亚太地区的AI生态布局。投资范围涵盖数据中心建设、网络安全能力提升及本地人才培养，彰显微软对日本数字化转型长期承诺。\",\n  \"key_points\": [\n    \"微软宣布向日本投资100亿美元，用于AI基础设施建设\",\n    \"投资领域涵盖网络安全与本地劳动力技能培训\",\n    \"此举强化微软在亚太地区的AI战略布局与市场地位\",\n    \"投资体现微软对日本数字经济长期发展的信心与承诺\"\n  ],\n  \"event_type\": \"news\",\n  \"officialness\": \"official\",\n  \"impact_direction\": \"positive\",\n  \"impact_level\": \"medium\",\n  \"price_sensitive\": false,\n  \"confidence\": \"high\",\n  \"entities\": {\n    \"core\": {\n      \"companies\": [\"Microsoft\", \"MSFT\"],\n      \"people\": [],\n      \"products\": [\"AI基础设施\", \"网络安全解决方案\"],\n      \"locations\": [\"日本\"],\n      \"regulators\": []\n    }\n  },\n  \"relations\": [\n    {\n      \"type\": \"investment\",\n      \"source\": \"Microsoft\",\n      \"target\": \"日本\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"type\": \"deployment\",\n      \"source\": \"Microsoft\",\n      \"target\": \"AI基础设施\",\n      \"confidence\": \"high\"\n    }\n  ]\n}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Microsoft",
+              "role": "",
+              "ticker": "MSFT"
+            },
+            {
+              "entity_type": "Product",
+              "name": "AI基础设施",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "网络安全解决方案",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Location",
+              "name": "日本",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:3",
+        "label": "AI基础设施",
+        "type": "Product",
+        "data": {
+          "canonical_name": "AI基础设施",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "AI基础设施 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "source:4",
+        "label": "Microsoft Source",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxPSmJJc1MtaElhWjBueGJuanlHTXo1aS0wMzc4a3VlYnNpWkt6WWVzajltc0FyMl91aGRTS19teE1hM0VnS0JkdkVzN3N0ZDNXNi03SEVXN2xCTThQSEw0TlUzc1RYY0k1YVRKNGdldWFpXzFTMF9lN2FnU25sTzFkUW5sMWxKU2tEc3VmUVNQMVhVMGVNZWdmYjQ0TmJTV0FQTm1JQVJ1d3E3YW1McmtPMUM1UDh1aDJlWUNJMUltcW40ZG1WMXJyRm9TRWpaWkZpamVMU24yeG9QcnNCSF9TYnBtb2NUZTJ5UFFWR1dvSG1CTFM3OEI4?oc=5",
+          "published_at": "2026-04-03T07:00:00+00:00",
+          "published_date": "2026-04-03",
+          "title": "Microsoft deepens its commitment to Japan with $10 billion investment in AI infrastructure, cybersecurity, and workforce",
+          "article_title": "Microsoft deepens its commitment to Japan with $10 billion investment in AI infrastructure, cybersecurity, and workforce",
+          "article_snippet": "Microsoft deepens its commitment to Japan with $10 billion investment in AI infrastructure, cybersecurity, and workforce Microsoft Source",
+          "summary": "MSFT: Microsoft deepens its commitment to Japan with $10 billion investment in AI infrastructure, cybersecurity, and workforce Microsoft Source",
+          "source_name": "Microsoft Source",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:5",
+        "label": "微软警告WhatsApp恶意软件活动",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "General Update",
+          "date": "2026-03-31",
+          "published_at": "2026-03-31T07:00:00+00:00",
+          "summary": "微软披露一起以WhatsApp为传播载体的恶意软件活动，攻击者通过该渠道投递VBScript脚本和MSI安装包形式的后门程序。此次活动利用用户对即时通讯工具的信任，诱导受害者执行恶意载荷，从而在目标系统植入后门，可能导致数据泄露或系统被远程控制。微软已发布相关威胁情报提醒用户警惕。",
+          "title": "微软警告WhatsApp恶意软件活动",
+          "article_title": "WhatsApp malware campaign delivers VBScript and MSI backdoors",
+          "article_snippet": "WhatsApp malware campaign delivers VBScript and MSI backdoors Microsoft",
+          "source_name": "Microsoft",
+          "source_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNajZBZ2NQc0VCN3lUY0hmNzE4YlhLc1c4NHlyUUd1bDV0eTlWdmN1ZmpQZk9jWndtTXpCQnFnYVRGWG9NNGdZbVByR3JyVjVoWHFydVMtVVFfNkJoYWJxdHNkMlI3TDNFNmlzWWpoZGozdXVtNjhnbDI0VHZrS3pVLTdVUUlvX2x4N0lPNHIxN3lxcTJaX1MxcXo0ajR5amhFYVV0T0Q0U19WNlhucmpxdVhyX3o4VWxlU084?oc=5",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "article_count": 1,
+          "article_titles": [
+            "WhatsApp malware campaign delivers VBScript and MSI backdoors"
+          ],
+          "articles": [
+            {
+              "title": "WhatsApp malware campaign delivers VBScript and MSI backdoors",
+              "summary": "MSFT: WhatsApp malware campaign delivers VBScript and MSI backdoors Microsoft",
+              "snippet": "WhatsApp malware campaign delivers VBScript and MSI backdoors Microsoft",
+              "source_name": "Microsoft",
+              "source_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNajZBZ2NQc0VCN3lUY0hmNzE4YlhLc1c4NHlyUUd1bDV0eTlWdmN1ZmpQZk9jWndtTXpCQnFnYVRGWG9NNGdZbVByR3JyVjVoWHFydVMtVVFfNkJoYWJxdHNkMlI3TDNFNmlzWWpoZGozdXVtNjhnbDI0VHZrS3pVLTdVUUlvX2x4N0lPNHIxN3lxcTJaX1MxcXo0ajR5amhFYVV0T0Q0U19WNlhucmpxdVhyX3o4VWxlU084?oc=5",
+              "published_at": "2026-03-31T07:00:00+00:00",
+              "published_date": "2026-03-31",
+              "ticker": "MSFT"
+            }
+          ],
+          "key_points": [
+            "攻击者利用WhatsApp平台传播VBScript和MSI格式后门程序",
+            "微软发布威胁情报，提示该恶意活动的技术手法与攻击链",
+            "此类社会工程学攻击利用即时通讯信任机制绕过安全防护"
+          ],
+          "confidence": "medium",
+          "officialness": "official",
+          "impact_direction": "neutral",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\n  \"title\": \"微软警告WhatsApp恶意软件活动\",\n  \"summary\": \"微软披露一起以WhatsApp为传播载体的恶意软件活动，攻击者通过该渠道投递VBScript脚本和MSI安装包形式的后门程序。此次活动利用用户对即时通讯工具的信任，诱导受害者执行恶意载荷，从而在目标系统植入后门，可能导致数据泄露或系统被远程控制。微软已发布相关威胁情报提醒用户警惕。\",\n  \"key_points\": [\n    \"攻击者利用WhatsApp平台传播VBScript和MSI格式后门程序\",\n    \"微软发布威胁情报，提示该恶意活动的技术手法与攻击链\",\n    \"此类社会工程学攻击利用即时通讯信任机制绕过安全防护\"\n  ],\n  \"event_type\": \"news\",\n  \"officialness\": \"official\",\n  \"impact_direction\": \"neutral\",\n  \"impact_level\": \"low\",\n  \"price_sensitive\": false,\n  \"confidence\": \"medium\",\n  \"entities\": {\n    \"core\": {\n      \"companies\": [\"Microsoft\", \"WhatsApp\", \"Meta\"],\n      \"people\": [],\n      \"products\": [\"WhatsApp\", \"VBScript\", \"MSI\"],\n      \"locations\": [],\n      \"regulators\": []\n    }\n  },\n  \"relations\": [\n    {\n      \"type\": \"threat_disclosure\",\n      \"source\": \"Microsoft\",\n      \"target\": \"WhatsApp\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"type\": \"attack_vector\",\n      \"source\": \"WhatsApp\",\n      \"target\": \"VBScript\",\n      \"confidence\": \"medium\"\n    }\n  ]\n}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Microsoft",
+              "role": "",
+              "ticker": "MSFT"
+            },
+            {
+              "entity_type": "Company",
+              "name": "WhatsApp",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Company",
+              "name": "Meta",
+              "role": "",
+              "ticker": "META"
+            },
+            {
+              "entity_type": "Product",
+              "name": "WhatsApp",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "VBScript",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "MSI",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:4",
+        "label": "WhatsApp",
+        "type": "Company",
+        "data": {
+          "canonical_name": "WhatsApp",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Company",
+          "description": "WhatsApp 是当前事件涉及的公司实体，建议结合相关新闻与官方披露进一步查看其业务背景。"
+        }
+      },
+      {
+        "id": "entity:5",
+        "label": "Meta",
+        "type": "Company",
+        "data": {
+          "canonical_name": "Meta",
+          "role": "",
+          "ticker": "META",
+          "entity_type": "Company",
+          "description": "Meta Platforms 是全球主要社交平台公司，旗下业务包括 Facebook、Instagram、WhatsApp 与 AI 基础设施投入。"
+        }
+      },
+      {
+        "id": "entity:6",
+        "label": "WhatsApp",
+        "type": "Product",
+        "data": {
+          "canonical_name": "WhatsApp",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "WhatsApp 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "entity:7",
+        "label": "VBScript",
+        "type": "Product",
+        "data": {
+          "canonical_name": "VBScript",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "VBScript 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "entity:8",
+        "label": "MSI",
+        "type": "Product",
+        "data": {
+          "canonical_name": "MSI",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "MSI 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "source:5",
+        "label": "Microsoft",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNajZBZ2NQc0VCN3lUY0hmNzE4YlhLc1c4NHlyUUd1bDV0eTlWdmN1ZmpQZk9jWndtTXpCQnFnYVRGWG9NNGdZbVByR3JyVjVoWHFydVMtVVFfNkJoYWJxdHNkMlI3TDNFNmlzWWpoZGozdXVtNjhnbDI0VHZrS3pVLTdVUUlvX2x4N0lPNHIxN3lxcTJaX1MxcXo0ajR5amhFYVV0T0Q0U19WNlhucmpxdVhyX3o4VWxlU084?oc=5",
+          "published_at": "2026-03-31T07:00:00+00:00",
+          "published_date": "2026-03-31",
+          "title": "WhatsApp malware campaign delivers VBScript and MSI backdoors",
+          "article_title": "WhatsApp malware campaign delivers VBScript and MSI backdoors",
+          "article_snippet": "WhatsApp malware campaign delivers VBScript and MSI backdoors Microsoft",
+          "summary": "MSFT: WhatsApp malware campaign delivers VBScript and MSI backdoors Microsoft",
+          "source_name": "Microsoft",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:6",
+        "label": "微软Copilot Cowork登陆Frontier",
+        "type": "Event",
+        "data": {
+          "event_type": "product_launch",
+          "event_label": "General Update",
+          "date": "2026-03-30",
+          "published_at": "2026-03-30T07:00:00+00:00",
+          "summary": "微软宣布Copilot Cowork功能现已在Frontier平台正式上线。此次发布标志着微软持续推进AI协作工具的落地应用，Frontier作为微软旗下的前沿功能体验平台，将为用户提供更深度的AI辅助协作能力。此举进一步巩固了微软在企业AI生产力工具领域的布局，体现其将Copilot系列产品深度整合至工作流的战略方向。",
+          "title": "微软Copilot Cowork登陆Frontier",
+          "article_title": "Copilot Cowork: Now available in Frontier",
+          "article_snippet": "Copilot Cowork: Now available in Frontier Microsoft",
+          "source_name": "Microsoft",
+          "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMThsNE9VT2dOc0lPdmI5b2taNVc0R2R2NDJZV0E2ZXEwMzF4enNscTVsdzVDSlpjLXJvdUNoUVV3am83TG5WaGMtMnc0V3ctc3lYc2U3LVc0N0QwS0o2VUYzYUVueE5DRlJtaGx0MzBoYjQ5NkdkRU81bFN2N3RXSjhjSjNpVXRaSW9CLU9DN3V5c1lpOUhpMHFmUURvVEE0SUM2OTBR?oc=5",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "article_count": 1,
+          "article_titles": [
+            "Copilot Cowork: Now available in Frontier"
+          ],
+          "articles": [
+            {
+              "title": "Copilot Cowork: Now available in Frontier",
+              "summary": "MSFT: Copilot Cowork: Now available in Frontier Microsoft",
+              "snippet": "Copilot Cowork: Now available in Frontier Microsoft",
+              "source_name": "Microsoft",
+              "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMThsNE9VT2dOc0lPdmI5b2taNVc0R2R2NDJZV0E2ZXEwMzF4enNscTVsdzVDSlpjLXJvdUNoUVV3am83TG5WaGMtMnc0V3ctc3lYc2U3LVc0N0QwS0o2VUYzYUVueE5DRlJtaGx0MzBoYjQ5NkdkRU81bFN2N3RXSjhjSjNpVXRaSW9CLU9DN3V5c1lpOUhpMHFmUURvVEE0SUM2OTBR?oc=5",
+              "published_at": "2026-03-30T07:00:00+00:00",
+              "published_date": "2026-03-30",
+              "ticker": "MSFT"
+            }
+          ],
+          "key_points": [
+            "微软Copilot Cowork功能正式在Frontier平台上线可用",
+            "Frontier为微软前沿功能早期体验平台，面向特定用户群体开放",
+            "此举延续微软将AI Copilot深度嵌入企业协作场景的产品战略"
+          ],
+          "confidence": "medium",
+          "officialness": "official",
+          "impact_direction": "positive",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"微软Copilot Cowork登陆Frontier\",\"summary\":\"微软宣布Copilot Cowork功能现已在Frontier平台正式上线。此次发布标志着微软持续推进AI协作工具的落地应用，Frontier作为微软旗下的前沿功能体验平台，将为用户提供更深度的AI辅助协作能力。此举进一步巩固了微软在企业AI生产力工具领域的布局，体现其将Copilot系列产品深度整合至工作流的战略方向。\",\"key_points\":[\"微软Copilot Cowork功能正式在Frontier平台上线可用\",\"Frontier为微软前沿功能早期体验平台，面向特定用户群体开放\",\"此举延续微软将AI Copilot深度嵌入企业协作场景的产品战略\"],\"event_type\":\"product_launch\",\"officialness\":\"official\",\"impact_direction\":\"positive\",\"impact_level\":\"low\",\"price_sensitive\":false,\"confidence\":\"medium\",\"entities\":{\"core\":{\"companies\":[\"Microsoft\"],\"people\":[],\"products\":[\"Copilot Cowork\",\"Frontier\"],\"locations\":[],\"regulators\":[]}},\"relations\":[{\"type\":\"product_launch\",\"source\":\"Microsoft\",\"target\":\"Copilot Cowork\",\"confidence\":\"medium\"},{\"type\":\"platform_release\",\"source\":\"Copilot Cowork\",\"target\":\"Frontier\",\"confidence\":\"medium\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Microsoft",
+              "role": "",
+              "ticker": "MSFT"
+            },
+            {
+              "entity_type": "Product",
+              "name": "Copilot Cowork",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Frontier",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:9",
+        "label": "Copilot Cowork",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Copilot Cowork",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Copilot Cowork 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "entity:10",
+        "label": "Frontier",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Frontier",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Frontier 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "source:6",
+        "label": "Microsoft",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMThsNE9VT2dOc0lPdmI5b2taNVc0R2R2NDJZV0E2ZXEwMzF4enNscTVsdzVDSlpjLXJvdUNoUVV3am83TG5WaGMtMnc0V3ctc3lYc2U3LVc0N0QwS0o2VUYzYUVueE5DRlJtaGx0MzBoYjQ5NkdkRU81bFN2N3RXSjhjSjNpVXRaSW9CLU9DN3V5c1lpOUhpMHFmUURvVEE0SUM2OTBR?oc=5",
+          "published_at": "2026-03-30T07:00:00+00:00",
+          "published_date": "2026-03-30",
+          "title": "Copilot Cowork: Now available in Frontier",
+          "article_title": "Copilot Cowork: Now available in Frontier",
+          "article_snippet": "Copilot Cowork: Now available in Frontier Microsoft",
+          "summary": "MSFT: Copilot Cowork: Now available in Frontier Microsoft",
+          "source_name": "Microsoft",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:7",
+        "label": "微软负责任AI与网络安全动态",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "General Update",
+          "date": "2026-03-26",
+          "published_at": "2026-03-26T07:00:00+00:00",
+          "summary": "微软近期在两个关键领域发布重要内容：一是推进负责任AI实践，介绍其内部AI项目中如何落地负责任AI原则，强调道德与安全框架建设；二是发布针对Tycoon2FA大规模AiTM网络钓鱼工具包的深度技术分析报告，揭示该工具如何绕过多因素认证实施攻击，体现微软在网络安全威胁情报领域的持续投入与公开透明态度。",
+          "title": "微软负责任AI与网络安全动态",
+          "article_title": "Responsible AI: Why it matters and how we’re infusing it into our internal AI projects at Microsoft - Inside Track Blog",
+          "article_snippet": "Responsible AI: Why it matters and how we’re infusing it into our internal AI projects at Microsoft - Inside Track Blog Microsoft",
+          "source_name": "Microsoft",
+          "source_url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQcDhEdHRkTlAyUE1CTmctS01TSlBVRDJWSEZqckpZZ0FYak9pM2swNEpkcUN2Mld6a2FISG14WkxHQ3UwdjVXd1lwazkxWkV3MC1yTGhhUHBuZklYUTY3NHBPVkdxOVpMeDdXdUhqd3BJRXZ4bnZXbkFTcFp4dGtEOS1ZUTEwM2J3SktnQU9meFVNZG9xTGhGdUZLdXVMTGNjZEZWXy1mQlF3Vl84d0tLODdKMU1XYWdiTzJESGRhcFoxOXpfVjhZWThVQ2tMaFlLSEtacmlPMm0?oc=5",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "article_count": 2,
+          "article_titles": [
+            "Responsible AI: Why it matters and how we’re infusing it into our internal AI projects at Microsoft - Inside Track Blog",
+            "Inside Tycoon2FA: How a leading AiTM phishing kit operated at scale"
+          ],
+          "articles": [
+            {
+              "title": "Responsible AI: Why it matters and how we’re infusing it into our internal AI projects at Microsoft - Inside Track Blog",
+              "summary": "MSFT: Responsible AI: Why it matters and how we’re infusing it into our internal AI projects at Microsoft - Inside Track Blog Microsoft",
+              "snippet": "Responsible AI: Why it matters and how we’re infusing it into our internal AI projects at Microsoft - Inside Track Blog Microsoft",
+              "source_name": "Microsoft",
+              "source_url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQcDhEdHRkTlAyUE1CTmctS01TSlBVRDJWSEZqckpZZ0FYak9pM2swNEpkcUN2Mld6a2FISG14WkxHQ3UwdjVXd1lwazkxWkV3MC1yTGhhUHBuZklYUTY3NHBPVkdxOVpMeDdXdUhqd3BJRXZ4bnZXbkFTcFp4dGtEOS1ZUTEwM2J3SktnQU9meFVNZG9xTGhGdUZLdXVMTGNjZEZWXy1mQlF3Vl84d0tLODdKMU1XYWdiTzJESGRhcFoxOXpfVjhZWThVQ2tMaFlLSEtacmlPMm0?oc=5",
+              "published_at": "2026-03-26T07:00:00+00:00",
+              "published_date": "2026-03-26",
+              "ticker": "MSFT"
+            },
+            {
+              "title": "Inside Tycoon2FA: How a leading AiTM phishing kit operated at scale",
+              "summary": "MSFT: Inside Tycoon2FA: How a leading AiTM phishing kit operated at scale Microsoft",
+              "snippet": "Inside Tycoon2FA: How a leading AiTM phishing kit operated at scale Microsoft",
+              "source_name": "Microsoft",
+              "source_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPSGU0YTV0Z3BPV0RvOFMweUFVMjFHODdVXzZKUnhmVXBoeEROVVNDOC13NW82aFQweDZQTC1vQV9ELXhGRURZVkUzeVBjekdZWk5HY3BWWDVuVEtBNkMzVmFQdWltZ2F4czZIdUppSXBMbkphQU9tVG5SRDFQejZBTHFfUi1UdWs5T3Jic1p5dnFCQ1RUY25UV0VVN2pJMUU4UGZLSFQ0U2tFT0lkSGtXSnZ1MGpTRjktX2h3NndZaXJiZw?oc=5",
+              "published_at": "2026-03-04T08:00:00+00:00",
+              "published_date": "2026-03-04",
+              "ticker": "MSFT"
+            }
+          ],
+          "key_points": [
+            "微软在内部AI项目中系统性融入负责任AI原则，涵盖道德、透明度与安全等核心维度",
+            "微软安全团队深度剖析Tycoon2FA钓鱼工具包，该工具包可绕过多因素认证（MFA）进行大规模攻击",
+            "两项动态均体现微软在AI治理与网络安全领域的品牌建设与技术领导力投入"
+          ],
+          "confidence": "high",
+          "officialness": "official",
+          "impact_direction": "positive",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\n  \"title\": \"微软负责任AI与网络安全动态\",\n  \"summary\": \"微软近期在两个关键领域发布重要内容：一是推进负责任AI实践，介绍其内部AI项目中如何落地负责任AI原则，强调道德与安全框架建设；二是发布针对Tycoon2FA大规模AiTM网络钓鱼工具包的深度技术分析报告，揭示该工具如何绕过多因素认证实施攻击，体现微软在网络安全威胁情报领域的持续投入与公开透明态度。\",\n  \"key_points\": [\n    \"微软在内部AI项目中系统性融入负责任AI原则，涵盖道德、透明度与安全等核心维度\",\n    \"微软安全团队深度剖析Tycoon2FA钓鱼工具包，该工具包可绕过多因素认证（MFA）进行大规模攻击\",\n    \"两项动态均体现微软在AI治理与网络安全领域的品牌建设与技术领导力投入\"\n  ],\n  \"event_type\": \"news\",\n  \"officialness\": \"official\",\n  \"impact_direction\": \"positive\",\n  \"impact_level\": \"low\",\n  \"price_sensitive\": false,\n  \"confidence\": \"high\",\n  \"entities\": {\n    \"core\": {\n      \"companies\": [\"Microsoft\"],\n      \"people\": [],\n      \"products\": [\"Tycoon2FA\", \"Microsoft AI\"],\n      \"locations\": [],\n      \"regulators\": []\n    }\n  },\n  \"relations\": [\n    {\n      \"type\": \"develops\",\n      \"source\": \"Microsoft\",\n      \"target\": \"Microsoft AI\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"type\": \"investigates\",\n      \"source\": \"Microsoft\",\n      \"target\": \"Tycoon2FA\",\n      \"confidence\": \"high\"\n    }\n  ]\n}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Microsoft",
+              "role": "",
+              "ticker": "MSFT"
+            },
+            {
+              "entity_type": "Product",
+              "name": "Tycoon2FA",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Microsoft AI",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:11",
+        "label": "Tycoon2FA",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Tycoon2FA",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Tycoon2FA 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "entity:12",
+        "label": "Microsoft AI",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Microsoft AI",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Microsoft AI 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "source:7",
+        "label": "Microsoft",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQcDhEdHRkTlAyUE1CTmctS01TSlBVRDJWSEZqckpZZ0FYak9pM2swNEpkcUN2Mld6a2FISG14WkxHQ3UwdjVXd1lwazkxWkV3MC1yTGhhUHBuZklYUTY3NHBPVkdxOVpMeDdXdUhqd3BJRXZ4bnZXbkFTcFp4dGtEOS1ZUTEwM2J3SktnQU9meFVNZG9xTGhGdUZLdXVMTGNjZEZWXy1mQlF3Vl84d0tLODdKMU1XYWdiTzJESGRhcFoxOXpfVjhZWThVQ2tMaFlLSEtacmlPMm0?oc=5",
+          "published_at": "2026-03-26T07:00:00+00:00",
+          "published_date": "2026-03-26",
+          "title": "Responsible AI: Why it matters and how we’re infusing it into our internal AI projects at Microsoft - Inside Track Blog",
+          "article_title": "Responsible AI: Why it matters and how we’re infusing it into our internal AI projects at Microsoft - Inside Track Blog",
+          "article_snippet": "Responsible AI: Why it matters and how we’re infusing it into our internal AI projects at Microsoft - Inside Track Blog Microsoft",
+          "summary": "MSFT: Responsible AI: Why it matters and how we’re infusing it into our internal AI projects at Microsoft - Inside Track Blog Microsoft",
+          "source_name": "Microsoft",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "source:8",
+        "label": "Microsoft",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPSGU0YTV0Z3BPV0RvOFMweUFVMjFHODdVXzZKUnhmVXBoeEROVVNDOC13NW82aFQweDZQTC1vQV9ELXhGRURZVkUzeVBjekdZWk5HY3BWWDVuVEtBNkMzVmFQdWltZ2F4czZIdUppSXBMbkphQU9tVG5SRDFQejZBTHFfUi1UdWs5T3Jic1p5dnFCQ1RUY25UV0VVN2pJMUU4UGZLSFQ0U2tFT0lkSGtXSnZ1MGpTRjktX2h3NndZaXJiZw?oc=5",
+          "published_at": "2026-03-04T08:00:00+00:00",
+          "published_date": "2026-03-04",
+          "title": "Inside Tycoon2FA: How a leading AiTM phishing kit operated at scale",
+          "article_title": "Inside Tycoon2FA: How a leading AiTM phishing kit operated at scale",
+          "article_snippet": "Inside Tycoon2FA: How a leading AiTM phishing kit operated at scale Microsoft",
+          "summary": "MSFT: Inside Tycoon2FA: How a leading AiTM phishing kit operated at scale Microsoft",
+          "source_name": "Microsoft",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:8",
+        "label": "微软推进AI赋能核能领域",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "General Update",
+          "date": "2026-03-24",
+          "published_at": "2026-03-24T07:00:00+00:00",
+          "summary": "微软于2026年3月24日发布文章，探讨人工智能在核能领域的应用前景，涵盖如何借助AI技术提升核电站的智能化运营与韧性管理。此举延续微软在清洁能源与AI融合方面的战略布局，旨在通过智能系统优化核能生产效率、保障能源供应稳定性，并支持其大规模数据中心对绿色电力的长期需求。",
+          "title": "微软推进AI赋能核能领域",
+          "article_title": "AI for nuclear energy: Powering an intelligent, resilient future",
+          "article_snippet": "AI for nuclear energy: Powering an intelligent, resilient future Microsoft",
+          "source_name": "Microsoft",
+          "source_url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQTTdBOFQ1Ykx2RUhTUVhsd3NjTkNtY0JLV3lhX1gzMEtja1RBLTlqXzAwY2JBODUtQWp3Y1BIblVCV0swTk1aVU56ZGtxVjJQSk5YQ3FBM2lNbHlMRldYbTVBaWFfVDN4Znp4YmlVLUxPdzdwblY4bVhFVlQtS1NlQUFxQ0pQS2hzZ0M5TjJnMnlER3Q1OHlITk5GMkdCVlZaRHB3UmRqQjUwWGdkcEtuNHJINGJTcU9MZmdIZHJBY2tXN0hGVmxIV0FabzVORFhWQ1Zsc2tZbHQ?oc=5",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "article_count": 1,
+          "article_titles": [
+            "AI for nuclear energy: Powering an intelligent, resilient future"
+          ],
+          "articles": [
+            {
+              "title": "AI for nuclear energy: Powering an intelligent, resilient future",
+              "summary": "MSFT: AI for nuclear energy: Powering an intelligent, resilient future Microsoft",
+              "snippet": "AI for nuclear energy: Powering an intelligent, resilient future Microsoft",
+              "source_name": "Microsoft",
+              "source_url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQTTdBOFQ1Ykx2RUhTUVhsd3NjTkNtY0JLV3lhX1gzMEtja1RBLTlqXzAwY2JBODUtQWp3Y1BIblVCV0swTk1aVU56ZGtxVjJQSk5YQ3FBM2lNbHlMRldYbTVBaWFfVDN4Znp4YmlVLUxPdzdwblY4bVhFVlQtS1NlQUFxQ0pQS2hzZ0M5TjJnMnlER3Q1OHlITk5GMkdCVlZaRHB3UmRqQjUwWGdkcEtuNHJINGJTcU9MZmdIZHJBY2tXN0hGVmxIV0FabzVORFhWQ1Zsc2tZbHQ?oc=5",
+              "published_at": "2026-03-24T07:00:00+00:00",
+              "published_date": "2026-03-24",
+              "ticker": "MSFT"
+            }
+          ],
+          "key_points": [
+            "微软发布报告探讨AI技术在核能领域的具体应用场景",
+            "聚焦提升核电站智能化运营能力与系统韧性",
+            "与微软长期清洁能源战略及数据中心绿电需求高度契合"
+          ],
+          "confidence": "medium",
+          "officialness": "official",
+          "impact_direction": "positive",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"微软推进AI赋能核能领域\",\"summary\":\"微软于2026年3月24日发布文章，探讨人工智能在核能领域的应用前景，涵盖如何借助AI技术提升核电站的智能化运营与韧性管理。此举延续微软在清洁能源与AI融合方面的战略布局，旨在通过智能系统优化核能生产效率、保障能源供应稳定性，并支持其大规模数据中心对绿色电力的长期需求。\",\"key_points\":[\"微软发布报告探讨AI技术在核能领域的具体应用场景\",\"聚焦提升核电站智能化运营能力与系统韧性\",\"与微软长期清洁能源战略及数据中心绿电需求高度契合\"],\"event_type\":\"news\",\"officialness\":\"official\",\"impact_direction\":\"positive\",\"impact_level\":\"low\",\"price_sensitive\":false,\"confidence\":\"medium\",\"entities\":{\"core\":{\"companies\":[\"Microsoft\"],\"people\":[],\"products\":[\"Microsoft AI\"],\"locations\":[],\"regulators\":[]}},\"relations\":[{\"type\":\"develops\",\"source\":\"Microsoft\",\"target\":\"AI for nuclear energy\",\"confidence\":\"high\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Microsoft",
+              "role": "",
+              "ticker": "MSFT"
+            },
+            {
+              "entity_type": "Product",
+              "name": "Microsoft AI",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "source:9",
+        "label": "Microsoft",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQTTdBOFQ1Ykx2RUhTUVhsd3NjTkNtY0JLV3lhX1gzMEtja1RBLTlqXzAwY2JBODUtQWp3Y1BIblVCV0swTk1aVU56ZGtxVjJQSk5YQ3FBM2lNbHlMRldYbTVBaWFfVDN4Znp4YmlVLUxPdzdwblY4bVhFVlQtS1NlQUFxQ0pQS2hzZ0M5TjJnMnlER3Q1OHlITk5GMkdCVlZaRHB3UmRqQjUwWGdkcEtuNHJINGJTcU9MZmdIZHJBY2tXN0hGVmxIV0FabzVORFhWQ1Zsc2tZbHQ?oc=5",
+          "published_at": "2026-03-24T07:00:00+00:00",
+          "published_date": "2026-03-24",
+          "title": "AI for nuclear energy: Powering an intelligent, resilient future",
+          "article_title": "AI for nuclear energy: Powering an intelligent, resilient future",
+          "article_snippet": "AI for nuclear energy: Powering an intelligent, resilient future Microsoft",
+          "summary": "MSFT: AI for nuclear energy: Powering an intelligent, resilient future Microsoft",
+          "source_name": "Microsoft",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:9",
+        "label": "微软重申Windows质量承诺",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "General Update",
+          "date": "2026-03-20",
+          "published_at": "2026-03-20T07:00:00+00:00",
+          "summary": "微软通过官方Windows博客发文，重申其对Windows系统质量的持续承诺。此举表明微软正积极回应用户对系统稳定性与可靠性的关切，强调将持续投入资源改善Windows用户体验与产品质量标准，显示公司在操作系统核心业务上的长期战略重视程度。",
+          "title": "微软重申Windows质量承诺",
+          "article_title": "Our commitment to Windows quality",
+          "article_snippet": "Our commitment to Windows quality Windows Blog",
+          "source_name": "Windows Blog",
+          "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNckJUdFdUSExSMURQVzN6QmlDN3pqbEVWZ1lVWVpGZTBvTG1QekpkV2xPMzdac3JLWFJtRUdFM3lRRFpVd2ZxRGxvYTVVeEVhdGFqbVRYNXh6TUNQYmU2cUc5YU1HdnFJWmV2dXQwamhnckFzd0NJY0QyVTlzQjBiVTFaNWdYTVRfSUZTdU5rUkw?oc=5",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "article_count": 1,
+          "article_titles": [
+            "Our commitment to Windows quality"
+          ],
+          "articles": [
+            {
+              "title": "Our commitment to Windows quality",
+              "summary": "MSFT: Our commitment to Windows quality Windows Blog",
+              "snippet": "Our commitment to Windows quality Windows Blog",
+              "source_name": "Windows Blog",
+              "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNckJUdFdUSExSMURQVzN6QmlDN3pqbEVWZ1lVWVpGZTBvTG1QekpkV2xPMzdac3JLWFJtRUdFM3lRRFpVd2ZxRGxvYTVVeEVhdGFqbVRYNXh6TUNQYmU2cUc5YU1HdnFJWmV2dXQwamhnckFzd0NJY0QyVTlzQjBiVTFaNWdYTVRfSUZTdU5rUkw?oc=5",
+              "published_at": "2026-03-20T07:00:00+00:00",
+              "published_date": "2026-03-20",
+              "ticker": "MSFT"
+            }
+          ],
+          "key_points": [
+            "微软官方博客发布声明，正式重申对Windows系统质量的承诺",
+            "此举反映微软对改善系统稳定性与用户体验的持续关注",
+            "体现微软在核心操作系统业务上的长期战略投入"
+          ],
+          "confidence": "high",
+          "officialness": "official",
+          "impact_direction": "neutral",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"微软重申Windows质量承诺\",\"summary\":\"微软通过官方Windows博客发文，重申其对Windows系统质量的持续承诺。此举表明微软正积极回应用户对系统稳定性与可靠性的关切，强调将持续投入资源改善Windows用户体验与产品质量标准，显示公司在操作系统核心业务上的长期战略重视程度。\",\"key_points\":[\"微软官方博客发布声明，正式重申对Windows系统质量的承诺\",\"此举反映微软对改善系统稳定性与用户体验的持续关注\",\"体现微软在核心操作系统业务上的长期战略投入\"],\"event_type\":\"news\",\"officialness\":\"official\",\"impact_direction\":\"neutral\",\"impact_level\":\"low\",\"price_sensitive\":false,\"confidence\":\"high\",\"entities\":{\"core\":{\"companies\":[\"Microsoft\"],\"people\":[],\"products\":[\"Windows\"],\"locations\":[],\"regulators\":[]}},\"relations\":[{\"type\":\"publishes\",\"source\":\"Microsoft\",\"target\":\"Windows Blog\",\"confidence\":\"high\"},{\"type\":\"develops\",\"source\":\"Microsoft\",\"target\":\"Windows\",\"confidence\":\"high\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Microsoft",
+              "role": "",
+              "ticker": "MSFT"
+            },
+            {
+              "entity_type": "Product",
+              "name": "Windows",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:13",
+        "label": "Windows",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Windows",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Windows 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "source:10",
+        "label": "Windows Blog",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNckJUdFdUSExSMURQVzN6QmlDN3pqbEVWZ1lVWVpGZTBvTG1QekpkV2xPMzdac3JLWFJtRUdFM3lRRFpVd2ZxRGxvYTVVeEVhdGFqbVRYNXh6TUNQYmU2cUc5YU1HdnFJWmV2dXQwamhnckFzd0NJY0QyVTlzQjBiVTFaNWdYTVRfSUZTdU5rUkw?oc=5",
+          "published_at": "2026-03-20T07:00:00+00:00",
+          "published_date": "2026-03-20",
+          "title": "Our commitment to Windows quality",
+          "article_title": "Our commitment to Windows quality",
+          "article_snippet": "Our commitment to Windows quality Windows Blog",
+          "summary": "MSFT: Our commitment to Windows quality Windows Blog",
+          "source_name": "Windows Blog",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:10",
+        "label": "微软MicroLED创新提升数据中心效率",
+        "type": "Event",
+        "data": {
+          "event_type": "product_launch",
+          "event_label": "General Update",
+          "date": "2026-03-17",
+          "published_at": "2026-03-17T07:00:00+00:00",
+          "summary": "微软于2026年3月宣布一项数据中心网络创新技术，利用低成本MicroLED实现数据中心内部高效光通信。该技术旨在降低数据中心运营成本，提升网络传输效率，体现微软在基础设施层面的持续技术投入，有望为其云计算业务提供更具竞争力的底层支撑能力。",
+          "title": "微软MicroLED创新提升数据中心效率",
+          "article_title": "Using inexpensive MicroLEDs, Microsoft networking innovation aims to make datacenters more efficient",
+          "article_snippet": "Using inexpensive MicroLEDs, Microsoft networking innovation aims to make datacenters more efficient Microsoft Source",
+          "source_name": "Microsoft Source",
+          "source_url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxONXdWbUgxNWN6N3ZxMk80RWx6UUx4bmwzME9paTkwdWN2UEg2elRlTXpZLWxPeVU3TE1FWmx4Wl91ZzNZQjlyNGxIZXVYUmhEOE0tWEh2R01jSExjcW9qSnlPWGZlMTJLUGVsdVh6RW5sR0xfWGJWXzQ1dkpmUjhJaFpxSzEydktCQUwwakJZcUt0NUpJM1BCVGs2OHNMUVR4ZVZ4NVdTeE94STk5cFJTZjFSLVlxVnNEVE93RldYUkRKMlI4QjZER2g1ZmZmT2dnTWVIa3FIeVlOeEdYUGF0am0wM3JfV01RTnc?oc=5",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "article_count": 1,
+          "article_titles": [
+            "Using inexpensive MicroLEDs, Microsoft networking innovation aims to make datacenters more efficient"
+          ],
+          "articles": [
+            {
+              "title": "Using inexpensive MicroLEDs, Microsoft networking innovation aims to make datacenters more efficient",
+              "summary": "MSFT: Using inexpensive MicroLEDs, Microsoft networking innovation aims to make datacenters more efficient Microsoft Source",
+              "snippet": "Using inexpensive MicroLEDs, Microsoft networking innovation aims to make datacenters more efficient Microsoft Source",
+              "source_name": "Microsoft Source",
+              "source_url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxONXdWbUgxNWN6N3ZxMk80RWx6UUx4bmwzME9paTkwdWN2UEg2elRlTXpZLWxPeVU3TE1FWmx4Wl91ZzNZQjlyNGxIZXVYUmhEOE0tWEh2R01jSExjcW9qSnlPWGZlMTJLUGVsdVh6RW5sR0xfWGJWXzQ1dkpmUjhJaFpxSzEydktCQUwwakJZcUt0NUpJM1BCVGs2OHNMUVR4ZVZ4NVdTeE94STk5cFJTZjFSLVlxVnNEVE93RldYUkRKMlI4QjZER2g1ZmZmT2dnTWVIa3FIeVlOeEdYUGF0am0wM3JfV01RTnc?oc=5",
+              "published_at": "2026-03-17T07:00:00+00:00",
+              "published_date": "2026-03-17",
+              "ticker": "MSFT"
+            }
+          ],
+          "key_points": [
+            "微软研发出基于低成本MicroLED的数据中心网络新技术",
+            "该创新旨在提升数据中心能效，降低基础设施运营成本",
+            "技术由微软官方媒体Microsoft Source披露，属内部研究成果发布"
+          ],
+          "confidence": "medium",
+          "officialness": "official",
+          "impact_direction": "positive",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\n  \"title\": \"微软MicroLED创新提升数据中心效率\",\n  \"summary\": \"微软于2026年3月宣布一项数据中心网络创新技术，利用低成本MicroLED实现数据中心内部高效光通信。该技术旨在降低数据中心运营成本，提升网络传输效率，体现微软在基础设施层面的持续技术投入，有望为其云计算业务提供更具竞争力的底层支撑能力。\",\n  \"key_points\": [\n    \"微软研发出基于低成本MicroLED的数据中心网络新技术\",\n    \"该创新旨在提升数据中心能效，降低基础设施运营成本\",\n    \"技术由微软官方媒体Microsoft Source披露，属内部研究成果发布\"\n  ],\n  \"event_type\": \"product_launch\",\n  \"officialness\": \"official\",\n  \"impact_direction\": \"positive\",\n  \"impact_level\": \"low\",\n  \"price_sensitive\": false,\n  \"confidence\": \"medium\",\n  \"entities\": {\n    \"core\": {\n      \"companies\": [\"Microsoft\"],\n      \"people\": [],\n      \"products\": [\"MicroLED网络技术\", \"Microsoft数据中心\"],\n      \"locations\": [],\n      \"regulators\": []\n    }\n  },\n  \"relations\": [\n    {\n      \"type\": \"develops\",\n      \"source\": \"Microsoft\",\n      \"target\": \"MicroLED网络技术\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"type\": \"improves\",\n      \"source\": \"MicroLED网络技术\",\n      \"target\": \"Microsoft数据中心\",\n      \"confidence\": \"medium\"\n    }\n  ]\n}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Microsoft",
+              "role": "",
+              "ticker": "MSFT"
+            },
+            {
+              "entity_type": "Product",
+              "name": "MicroLED网络技术",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Microsoft数据中心",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:14",
+        "label": "MicroLED网络技术",
+        "type": "Product",
+        "data": {
+          "canonical_name": "MicroLED网络技术",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "MicroLED网络技术 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "entity:15",
+        "label": "Microsoft数据中心",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Microsoft数据中心",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Microsoft数据中心 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "source:11",
+        "label": "Microsoft Source",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxONXdWbUgxNWN6N3ZxMk80RWx6UUx4bmwzME9paTkwdWN2UEg2elRlTXpZLWxPeVU3TE1FWmx4Wl91ZzNZQjlyNGxIZXVYUmhEOE0tWEh2R01jSExjcW9qSnlPWGZlMTJLUGVsdVh6RW5sR0xfWGJWXzQ1dkpmUjhJaFpxSzEydktCQUwwakJZcUt0NUpJM1BCVGs2OHNMUVR4ZVZ4NVdTeE94STk5cFJTZjFSLVlxVnNEVE93RldYUkRKMlI4QjZER2g1ZmZmT2dnTWVIa3FIeVlOeEdYUGF0am0wM3JfV01RTnc?oc=5",
+          "published_at": "2026-03-17T07:00:00+00:00",
+          "published_date": "2026-03-17",
+          "title": "Using inexpensive MicroLEDs, Microsoft networking innovation aims to make datacenters more efficient",
+          "article_title": "Using inexpensive MicroLEDs, Microsoft networking innovation aims to make datacenters more efficient",
+          "article_snippet": "Using inexpensive MicroLEDs, Microsoft networking innovation aims to make datacenters more efficient Microsoft Source",
+          "summary": "MSFT: Using inexpensive MicroLEDs, Microsoft networking innovation aims to make datacenters more efficient Microsoft Source",
+          "source_name": "Microsoft Source",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:11",
+        "label": "微软Copilot领导层调整",
+        "type": "Event",
+        "data": {
+          "event_type": "leadership_change",
+          "event_label": "General Update",
+          "date": "2026-03-17",
+          "published_at": "2026-03-17T07:00:00+00:00",
+          "summary": "微软官方宣布对Copilot产品线进行领导层更新。此次调整涉及Copilot核心管理团队，反映微软持续加大对AI助手产品的战略投入。微软Copilot是其人工智能战略的核心产品，广泛集成于Microsoft 365、Windows及Azure等平台，领导层变动将影响产品未来发展方向与市场策略。",
+          "title": "微软Copilot领导层调整",
+          "article_title": "Announcing Copilot leadership update",
+          "article_snippet": "Announcing Copilot leadership update The Official Microsoft Blog",
+          "source_name": "The Official Microsoft Blog",
+          "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPd1pKVzhNeERoXzRWMl9yUTV5MmtNU1FMME5uQ0xtTGNwU2hyY1lEX3JXMzB4NVIweVBVSmJVa1RRZWNkQjl1enVodU1vREloYzdHWjVmbkc3XzliUmNLMWN2T0VVR3dsSlpEc3JiYlhUYmV3RllKWDBhZHlmR3Z0UEJxYXNobVow?oc=5",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "article_count": 1,
+          "article_titles": [
+            "Announcing Copilot leadership update"
+          ],
+          "articles": [
+            {
+              "title": "Announcing Copilot leadership update",
+              "summary": "MSFT: Announcing Copilot leadership update The Official Microsoft Blog",
+              "snippet": "Announcing Copilot leadership update The Official Microsoft Blog",
+              "source_name": "The Official Microsoft Blog",
+              "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPd1pKVzhNeERoXzRWMl9yUTV5MmtNU1FMME5uQ0xtTGNwU2hyY1lEX3JXMzB4NVIweVBVSmJVa1RRZWNkQjl1enVodU1vREloYzdHWjVmbkc3XzliUmNLMWN2T0VVR3dsSlpEc3JiYlhUYmV3RllKWDBhZHlmR3Z0UEJxYXNobVow?oc=5",
+              "published_at": "2026-03-17T07:00:00+00:00",
+              "published_date": "2026-03-17",
+              "ticker": "MSFT"
+            }
+          ],
+          "key_points": [
+            "微软官方宣布Copilot产品线领导层更新调整",
+            "此次变动体现微软对AI助手战略的持续重视",
+            "Copilot深度集成于微软核心产品生态体系",
+            "领导层调整或影响Copilot未来产品路线图"
+          ],
+          "confidence": "medium",
+          "officialness": "official",
+          "impact_direction": "neutral",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\"title\":\"微软Copilot领导层调整\",\"summary\":\"微软官方宣布对Copilot产品线进行领导层更新。此次调整涉及Copilot核心管理团队，反映微软持续加大对AI助手产品的战略投入。微软Copilot是其人工智能战略的核心产品，广泛集成于Microsoft 365、Windows及Azure等平台，领导层变动将影响产品未来发展方向与市场策略。\",\"key_points\":[\"微软官方宣布Copilot产品线领导层更新调整\",\"此次变动体现微软对AI助手战略的持续重视\",\"Copilot深度集成于微软核心产品生态体系\",\"领导层调整或影响Copilot未来产品路线图\"],\"event_type\":\"leadership_change\",\"officialness\":\"official\",\"impact_direction\":\"neutral\",\"impact_level\":\"low\",\"price_sensitive\":false,\"confidence\":\"medium\",\"entities\":{\"core\":{\"companies\":[\"Microsoft\"],\"people\":[],\"products\":[\"Microsoft Copilot\",\"Microsoft 365\",\"Windows\",\"Azure\"],\"locations\":[],\"regulators\":[]}},\"relations\":[{\"type\":\"product_ownership\",\"source\":\"Microsoft\",\"target\":\"Microsoft Copilot\",\"confidence\":\"high\"},{\"type\":\"leadership_change\",\"source\":\"Microsoft\",\"target\":\"Microsoft Copilot\",\"confidence\":\"high\"}]}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Microsoft",
+              "role": "",
+              "ticker": "MSFT"
+            },
+            {
+              "entity_type": "Product",
+              "name": "Microsoft Copilot",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Microsoft 365",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Windows",
+              "role": "",
+              "ticker": ""
+            },
+            {
+              "entity_type": "Product",
+              "name": "Azure",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "entity:16",
+        "label": "Microsoft Copilot",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Microsoft Copilot",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Microsoft Copilot 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "entity:17",
+        "label": "Microsoft 365",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Microsoft 365",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Microsoft 365 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "entity:18",
+        "label": "Azure",
+        "type": "Product",
+        "data": {
+          "canonical_name": "Azure",
+          "role": "",
+          "ticker": "",
+          "entity_type": "Product",
+          "description": "Azure 是当前事件涉及的产品或解决方案，通常与公司发布、升级或行业应用扩展相关。"
+        }
+      },
+      {
+        "id": "source:12",
+        "label": "The Official Microsoft Blog",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPd1pKVzhNeERoXzRWMl9yUTV5MmtNU1FMME5uQ0xtTGNwU2hyY1lEX3JXMzB4NVIweVBVSmJVa1RRZWNkQjl1enVodU1vREloYzdHWjVmbkc3XzliUmNLMWN2T0VVR3dsSlpEc3JiYlhUYmV3RllKWDBhZHlmR3Z0UEJxYXNobVow?oc=5",
+          "published_at": "2026-03-17T07:00:00+00:00",
+          "published_date": "2026-03-17",
+          "title": "Announcing Copilot leadership update",
+          "article_title": "Announcing Copilot leadership update",
+          "article_snippet": "Announcing Copilot leadership update The Official Microsoft Blog",
+          "summary": "MSFT: Announcing Copilot leadership update The Official Microsoft Blog",
+          "source_name": "The Official Microsoft Blog",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:12",
+        "label": "微软发布首款Frontier Suite产品",
+        "type": "Event",
+        "data": {
+          "event_type": "product_launch",
+          "event_label": "General Update",
+          "date": "2026-03-09",
+          "published_at": "2026-03-09T07:00:00+00:00",
+          "summary": "微软官方博客于2026年3月9日宣布推出首款基于",
+          "title": "微软发布首款Frontier Suite产品",
+          "article_title": "Introducing the First Frontier Suite built on Intelligence + Trust",
+          "article_snippet": "Introducing the First Frontier Suite built on Intelligence + Trust The Official Microsoft Blog",
+          "source_name": "The Official Microsoft Blog",
+          "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPVHNOVmllSHhNSi1DU21leUdNdUhHU080ZVA3a3UwZjEwbEszQkw1b2t4OVJ0bFBmQmRaQWZCNDU0WEFzSnVQaENTZ1JOZXM3SlJMbWRrT2V4VTE4VHFBMHBvalQ5LXJIVDJTcURYSDdRQXd1amhsdTA4M3A3ZUduZWQ1T1lDNnJ5cUVMN1h1OUtwZ3dlaFRSTmYxWlVtd0ZNTm9kQUJHb1dYNllvc2c?oc=5",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "article_count": 1,
+          "article_titles": [
+            "Introducing the First Frontier Suite built on Intelligence + Trust"
+          ],
+          "articles": [
+            {
+              "title": "Introducing the First Frontier Suite built on Intelligence + Trust",
+              "summary": "MSFT: Introducing the First Frontier Suite built on Intelligence + Trust The Official Microsoft Blog",
+              "snippet": "Introducing the First Frontier Suite built on Intelligence + Trust The Official Microsoft Blog",
+              "source_name": "The Official Microsoft Blog",
+              "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPVHNOVmllSHhNSi1DU21leUdNdUhHU080ZVA3a3UwZjEwbEszQkw1b2t4OVJ0bFBmQmRaQWZCNDU0WEFzSnVQaENTZ1JOZXM3SlJMbWRrT2V4VTE4VHFBMHBvalQ5LXJIVDJTcURYSDdRQXd1amhsdTA4M3A3ZUduZWQ1T1lDNnJ5cUVMN1h1OUtwZ3dlaFRSTmYxWlVtd0ZNTm9kQUJHb1dYNllvc2c?oc=5",
+              "published_at": "2026-03-09T07:00:00+00:00",
+              "published_date": "2026-03-09",
+              "ticker": "MSFT"
+            }
+          ],
+          "key_points": [
+            "微软正式推出首款Frontier Suite产品套件，定位企业级市场",
+            "产品核心理念为",
+            "，强调AI能力与安全机制的结合",
+            "该发布由微软官方博客披露，信息来源权威可靠"
+          ],
+          "confidence": "medium",
+          "officialness": "official",
+          "impact_direction": "positive",
+          "impact_level": "medium",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated via fallback parser",
+          "raw_llm_output": "```json\n{\n  \"title\": \"微软发布首款Frontier Suite产品\",\n  \"summary\": \"微软官方博客于2026年3月9日宣布推出首款基于\"智能+信任\"理念构建的Frontier Suite产品套件。该产品代表微软在企业级AI解决方案领域的重要战略布局，强调将人工智能能力与安全信任机制深度融合，面向企业客户提供新一代智能化产品体验，是微软推进AI商业化落地的重要举措。\",\n  \"key_points\": [\n    \"微软正式推出首款Frontier Suite产品套件，定位企业级市场\",\n    \"产品核心理念为\"智能+信任\"，强调AI能力与安全机制的结合\",\n    \"该发布由微软官方博客披露，信息来源权威可靠\",\n    \"此举是微软持续推进AI商业化战略的重要组成部分\"\n  ],\n  \"event_type\": \"product_launch\",\n  \"officialness\": \"official\",\n  \"impact_direction\": \"positive\",\n  \"impact_level\": \"medium\",\n  \"price_sensitive\": false,\n  \"confidence\": \"medium\",\n  \"entities\": {\n    \"core\": {\n      \"companies\": [\"Microsoft\"],\n      \"people\": [],\n      \"products\": [\"Frontier Suite\"],\n      \"locations\": [],\n      \"regulators\": []\n    }\n  },\n  \"relations\": [\n    {\n      \"type\": \"launches\",\n      \"source\": \"Microsoft\",\n      \"target\": \"Frontier Suite\",\n      \"confidence\": \"high\"\n    }\n  ]\n}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Microsoft",
+              "role": "subject",
+              "ticker": "MSFT"
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "source:13",
+        "label": "The Official Microsoft Blog",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPVHNOVmllSHhNSi1DU21leUdNdUhHU080ZVA3a3UwZjEwbEszQkw1b2t4OVJ0bFBmQmRaQWZCNDU0WEFzSnVQaENTZ1JOZXM3SlJMbWRrT2V4VTE4VHFBMHBvalQ5LXJIVDJTcURYSDdRQXd1amhsdTA4M3A3ZUduZWQ1T1lDNnJ5cUVMN1h1OUtwZ3dlaFRSTmYxWlVtd0ZNTm9kQUJHb1dYNllvc2c?oc=5",
+          "published_at": "2026-03-09T07:00:00+00:00",
+          "published_date": "2026-03-09",
+          "title": "Introducing the First Frontier Suite built on Intelligence + Trust",
+          "article_title": "Introducing the First Frontier Suite built on Intelligence + Trust",
+          "article_snippet": "Introducing the First Frontier Suite built on Intelligence + Trust The Official Microsoft Blog",
+          "summary": "MSFT: Introducing the First Frontier Suite built on Intelligence + Trust The Official Microsoft Blog",
+          "source_name": "The Official Microsoft Blog",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:13",
+        "label": "微软Dragon Copilot亮相HIMSS 2026",
+        "type": "Event",
+        "data": {
+          "event_type": "product_launch",
+          "event_label": "General Update",
+          "date": "2026-03-05",
+          "published_at": "2026-03-05T08:00:00+00:00",
+          "summary": "微软在HIMSS 2026医疗信息与管理系统学会大会上重点展示Dragon Copilot产品，主打",
+          "title": "微软Dragon Copilot亮相HIMSS 2026",
+          "article_title": "Unify. Simplify. Scale: Microsoft Dragon Copilot meets the moment at HIMSS 2026",
+          "article_snippet": "Unify. Simplify. Scale: Microsoft Dragon Copilot meets the moment at HIMSS 2026 Microsoft",
+          "source_name": "Microsoft",
+          "source_url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQUHVCM3B1SG5qbjA1V2JYSkozeHdOR3NJRE5CeGo2RXRILTZGcGowSXNqSW5zZ1Y3R2c3b296WktUR2RqemlTNG9sR251OWFvT1RtOVl1WVFlb0RnSDVkRXE3VE8wMXpZdEctWXRhWXBidDFGTGdaTVFzUGRQVm1VbkVIWTJWTUJsVmo3dzg5cXdRTHc4VnVldm1yNy1WMGplTUJUNVNPN250ZjhVV2JCZUpqRlBlRk1lZ2V2VkFNcWNBNTRCQ1ZQWHc1VU9EYzhidXVfQVlUOVhTekRaZXc?oc=5",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "article_count": 1,
+          "article_titles": [
+            "Unify. Simplify. Scale: Microsoft Dragon Copilot meets the moment at HIMSS 2026"
+          ],
+          "articles": [
+            {
+              "title": "Unify. Simplify. Scale: Microsoft Dragon Copilot meets the moment at HIMSS 2026",
+              "summary": "MSFT: Unify. Simplify. Scale: Microsoft Dragon Copilot meets the moment at HIMSS 2026 Microsoft",
+              "snippet": "Unify. Simplify. Scale: Microsoft Dragon Copilot meets the moment at HIMSS 2026 Microsoft",
+              "source_name": "Microsoft",
+              "source_url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQUHVCM3B1SG5qbjA1V2JYSkozeHdOR3NJRE5CeGo2RXRILTZGcGowSXNqSW5zZ1Y3R2c3b296WktUR2RqemlTNG9sR251OWFvT1RtOVl1WVFlb0RnSDVkRXE3VE8wMXpZdEctWXRhWXBidDFGTGdaTVFzUGRQVm1VbkVIWTJWTUJsVmo3dzg5cXdRTHc4VnVldm1yNy1WMGplTUJUNVNPN250ZjhVV2JCZUpqRlBlRk1lZ2V2VkFNcWNBNTRCQ1ZQWHc1VU9EYzhidXVfQVlUOVhTekRaZXc?oc=5",
+              "published_at": "2026-03-05T08:00:00+00:00",
+              "published_date": "2026-03-05",
+              "ticker": "MSFT"
+            }
+          ],
+          "key_points": [
+            "微软在HIMSS 2026大会上重点展示Dragon Copilot，聚焦医疗AI场景落地",
+            "产品主打统一平台、简化工作流、规模化部署三大核心价值主张",
+            "Dragon Copilot结合语音识别与大模型能力，针对临床文档记录痛点设计",
+            "此次亮相进一步强化微软在医疗健康垂直行业的AI竞争布局"
+          ],
+          "confidence": "medium",
+          "officialness": "official",
+          "impact_direction": "positive",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated via fallback parser",
+          "raw_llm_output": "```json\n{\n  \"title\": \"微软Dragon Copilot亮相HIMSS 2026\",\n  \"summary\": \"微软在HIMSS 2026医疗信息与管理系统学会大会上重点展示Dragon Copilot产品，主打\"统一、简化、规模化\"理念，致力于将AI技术深度融入医疗工作流程。Dragon Copilot整合语音识别与生成式AI能力，旨在减轻临床医生行政负担，提升医疗效率，标志着微软在医疗健康AI领域持续加大布局力度。\",\n  \"key_points\": [\n    \"微软在HIMSS 2026大会上重点展示Dragon Copilot，聚焦医疗AI场景落地\",\n    \"产品主打统一平台、简化工作流、规模化部署三大核心价值主张\",\n    \"Dragon Copilot结合语音识别与大模型能力，针对临床文档记录痛点设计\",\n    \"此次亮相进一步强化微软在医疗健康垂直行业的AI竞争布局\"\n  ],\n  \"event_type\": \"product_launch\",\n  \"officialness\": \"official\",\n  \"impact_direction\": \"positive\",\n  \"impact_level\": \"low\",\n  \"price_sensitive\": false,\n  \"confidence\": \"medium\",\n  \"entities\": {\n    \"core\": {\n      \"companies\": [\"Microsoft\"],\n      \"people\": [],\n      \"products\": [\"Dragon Copilot\"],\n      \"locations\": [],\n      \"regulators\": []\n    }\n  },\n  \"relations\": [\n    {\n      \"type\": \"product_showcase\",\n      \"source\": \"Microsoft\",\n      \"target\": \"Dragon Copilot\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"type\": \"event_participation\",\n      \"source\": \"Microsoft\",\n      \"target\": \"HIMSS 2026\",\n      \"confidence\": \"high\"\n    }\n  ]\n}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Microsoft",
+              "role": "subject",
+              "ticker": "MSFT"
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "source:14",
+        "label": "Microsoft",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQUHVCM3B1SG5qbjA1V2JYSkozeHdOR3NJRE5CeGo2RXRILTZGcGowSXNqSW5zZ1Y3R2c3b296WktUR2RqemlTNG9sR251OWFvT1RtOVl1WVFlb0RnSDVkRXE3VE8wMXpZdEctWXRhWXBidDFGTGdaTVFzUGRQVm1VbkVIWTJWTUJsVmo3dzg5cXdRTHc4VnVldm1yNy1WMGplTUJUNVNPN250ZjhVV2JCZUpqRlBlRk1lZ2V2VkFNcWNBNTRCQ1ZQWHc1VU9EYzhidXVfQVlUOVhTekRaZXc?oc=5",
+          "published_at": "2026-03-05T08:00:00+00:00",
+          "published_date": "2026-03-05",
+          "title": "Unify. Simplify. Scale: Microsoft Dragon Copilot meets the moment at HIMSS 2026",
+          "article_title": "Unify. Simplify. Scale: Microsoft Dragon Copilot meets the moment at HIMSS 2026",
+          "article_snippet": "Unify. Simplify. Scale: Microsoft Dragon Copilot meets the moment at HIMSS 2026 Microsoft",
+          "summary": "MSFT: Unify. Simplify. Scale: Microsoft Dragon Copilot meets the moment at HIMSS 2026 Microsoft",
+          "source_name": "Microsoft",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "officialness": "media"
+        }
+      },
+      {
+        "id": "event:14",
+        "label": "微软联合全球机构打击Tycoon 2FA网络钓鱼工具",
+        "type": "Event",
+        "data": {
+          "event_type": "news",
+          "event_label": "General Update",
+          "date": "2026-03-04",
+          "published_at": "2026-03-04T08:00:00+00:00",
+          "summary": "微软联合全球安全联盟成功破坏了Tycoon 2FA网络钓鱼即服务平台。该平台是导致大规模账户初始访问入侵和在线身份仿冒的主要工具之一。此次行动体现了微软在网络安全领域的持续投入，通过跨机构协作打击有组织的网络犯罪活动，有助于保护企业和个人用户的账户安全，同时强化了微软作为网络安全领域领导者的品牌形象。",
+          "title": "微软联合全球机构打击Tycoon 2FA网络钓鱼工具",
+          "article_title": "Defending the gates: How a global coalition disrupted Tycoon 2FA, a major driver of initial access and large-scale online impersonation",
+          "article_snippet": "Defending the gates: How a global coalition disrupted Tycoon 2FA, a major driver of initial access and large-scale online impersonation The Official Microsoft Blog",
+          "source_name": "The Official Microsoft Blog",
+          "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxONW5tQ0dpX2VDOG5jd0lVY2hFMGVvVWFMTS1GUl9OMmNlY2hNSW1tOF94MVVHRWUtUmU5M1oxNnpwQUlTcTdNSTZCdXBfbDhQS0hBZjA1X25zYVh2WjZFNmZlUjFDSUF1VUFJTWluS3lmOHM3bkF6T3JJQzFEeDNuUzhOQTA3T3RhRDJQajZuc096QmdlSkxzXw?oc=5",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "article_count": 1,
+          "article_titles": [
+            "Defending the gates: How a global coalition disrupted Tycoon 2FA, a major driver of initial access and large-scale online impersonation"
+          ],
+          "articles": [
+            {
+              "title": "Defending the gates: How a global coalition disrupted Tycoon 2FA, a major driver of initial access and large-scale online impersonation",
+              "summary": "MSFT: Defending the gates: How a global coalition disrupted Tycoon 2FA, a major driver of initial access and large-scale online impersonation The Official Microsoft Blog",
+              "snippet": "Defending the gates: How a global coalition disrupted Tycoon 2FA, a major driver of initial access and large-scale online impersonation The Official Microsoft Blog",
+              "source_name": "The Official Microsoft Blog",
+              "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxONW5tQ0dpX2VDOG5jd0lVY2hFMGVvVWFMTS1GUl9OMmNlY2hNSW1tOF94MVVHRWUtUmU5M1oxNnpwQUlTcTdNSTZCdXBfbDhQS0hBZjA1X25zYVh2WjZFNmZlUjFDSUF1VUFJTWluS3lmOHM3bkF6T3JJQzFEeDNuUzhOQTA3T3RhRDJQajZuc096QmdlSkxzXw?oc=5",
+              "published_at": "2026-03-04T08:00:00+00:00",
+              "published_date": "2026-03-04",
+              "ticker": "MSFT"
+            }
+          ],
+          "key_points": [
+            "微软牵头全球安全联盟，成功打击了Tycoon 2FA网络钓鱼服务平台",
+            "Tycoon 2FA是当前最活跃的网络入侵初始访问工具之一，支持大规模在线身份仿冒攻击",
+            "此次行动展示了微软在跨机构网络安全协作方面的能力与领导力"
+          ],
+          "confidence": "high",
+          "officialness": "official",
+          "impact_direction": "positive",
+          "impact_level": "low",
+          "price_sensitive": false,
+          "generated_by": "claude-cli",
+          "ai_reason": "AI summary generated successfully",
+          "raw_llm_output": "```json\n{\n  \"title\": \"微软联合全球机构打击Tycoon 2FA网络钓鱼工具\",\n  \"summary\": \"微软联合全球安全联盟成功破坏了Tycoon 2FA网络钓鱼即服务平台。该平台是导致大规模账户初始访问入侵和在线身份仿冒的主要工具之一。此次行动体现了微软在网络安全领域的持续投入，通过跨机构协作打击有组织的网络犯罪活动，有助于保护企业和个人用户的账户安全，同时强化了微软作为网络安全领域领导者的品牌形象。\",\n  \"key_points\": [\n    \"微软牵头全球安全联盟，成功打击了Tycoon 2FA网络钓鱼服务平台\",\n    \"Tycoon 2FA是当前最活跃的网络入侵初始访问工具之一，支持大规模在线身份仿冒攻击\",\n    \"此次行动展示了微软在跨机构网络安全协作方面的能力与领导力\"\n  ],\n  \"event_type\": \"news\",\n  \"officialness\": \"official\",\n  \"impact_direction\": \"positive\",\n  \"impact_level\": \"low\",\n  \"price_sensitive\": false,\n  \"confidence\": \"high\",\n  \"entities\": {\n    \"core\": {\n      \"companies\": [\"Microsoft\"],\n      \"people\": [],\n      \"products\": [\"Tycoon 2FA\"],\n      \"locations\": [],\n      \"regulators\": []\n    }\n  },\n  \"relations\": [\n    {\n      \"type\": \"disrupted\",\n      \"source\": \"Microsoft\",\n      \"target\": \"Tycoon 2FA\",\n      \"confidence\": \"high\"\n    }\n  ]\n}\n```",
+          "core_entities": [
+            {
+              "entity_type": "Company",
+              "name": "Microsoft",
+              "role": "",
+              "ticker": "MSFT"
+            },
+            {
+              "entity_type": "Product",
+              "name": "Tycoon 2FA",
+              "role": "",
+              "ticker": ""
+            }
+          ],
+          "relations": []
+        }
+      },
+      {
+        "id": "source:15",
+        "label": "The Official Microsoft Blog",
+        "type": "Source",
+        "data": {
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxONW5tQ0dpX2VDOG5jd0lVY2hFMGVvVWFMTS1GUl9OMmNlY2hNSW1tOF94MVVHRWUtUmU5M1oxNnpwQUlTcTdNSTZCdXBfbDhQS0hBZjA1X25zYVh2WjZFNmZlUjFDSUF1VUFJTWluS3lmOHM3bkF6T3JJQzFEeDNuUzhOQTA3T3RhRDJQajZuc096QmdlSkxzXw?oc=5",
+          "published_at": "2026-03-04T08:00:00+00:00",
+          "published_date": "2026-03-04",
+          "title": "Defending the gates: How a global coalition disrupted Tycoon 2FA, a major driver of initial access and large-scale online impersonation",
+          "article_title": "Defending the gates: How a global coalition disrupted Tycoon 2FA, a major driver of initial access and large-scale online impersonation",
+          "article_snippet": "Defending the gates: How a global coalition disrupted Tycoon 2FA, a major driver of initial access and large-scale online impersonation The Official Microsoft Blog",
+          "summary": "MSFT: Defending the gates: How a global coalition disrupted Tycoon 2FA, a major driver of initial access and large-scale online impersonation The Official Microsoft Blog",
+          "source_name": "The Official Microsoft Blog",
+          "company_name": "MSFT",
+          "ticker": "MSFT",
+          "officialness": "media"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge:1:company",
+        "source": "company:target",
+        "target": "event:1",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:1:source:1",
+        "source": "event:1",
+        "target": "source:1",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:2:company",
+        "source": "company:target",
+        "target": "event:2",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:2:entity:entity:1",
+        "source": "entity:1",
+        "target": "event:2",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:2:source:2",
+        "source": "event:2",
+        "target": "source:2",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:3:company",
+        "source": "company:target",
+        "target": "event:3",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:3:entity:entity:2",
+        "source": "entity:2",
+        "target": "event:3",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:3:source:3",
+        "source": "event:3",
+        "target": "source:3",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:4:company",
+        "source": "company:target",
+        "target": "event:4",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:4:entity:entity:3",
+        "source": "entity:3",
+        "target": "event:4",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:4:source:4",
+        "source": "event:4",
+        "target": "source:4",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:5:company",
+        "source": "company:target",
+        "target": "event:5",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:5:entity:entity:4",
+        "source": "entity:4",
+        "target": "event:5",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:5:entity:entity:5",
+        "source": "entity:5",
+        "target": "event:5",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:5:entity:entity:6",
+        "source": "entity:6",
+        "target": "event:5",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:5:entity:entity:7",
+        "source": "entity:7",
+        "target": "event:5",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:5:entity:entity:8",
+        "source": "entity:8",
+        "target": "event:5",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:5:source:5",
+        "source": "event:5",
+        "target": "source:5",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:6:company",
+        "source": "company:target",
+        "target": "event:6",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:6:entity:entity:9",
+        "source": "entity:9",
+        "target": "event:6",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:6:entity:entity:10",
+        "source": "entity:10",
+        "target": "event:6",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:6:source:6",
+        "source": "event:6",
+        "target": "source:6",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:7:company",
+        "source": "company:target",
+        "target": "event:7",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:7:entity:entity:11",
+        "source": "entity:11",
+        "target": "event:7",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:7:entity:entity:12",
+        "source": "entity:12",
+        "target": "event:7",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:7:source:7",
+        "source": "event:7",
+        "target": "source:7",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:7:source:8",
+        "source": "event:7",
+        "target": "source:8",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:8:company",
+        "source": "company:target",
+        "target": "event:8",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:8:entity:entity:12",
+        "source": "entity:12",
+        "target": "event:8",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:8:source:9",
+        "source": "event:8",
+        "target": "source:9",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:9:company",
+        "source": "company:target",
+        "target": "event:9",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:9:entity:entity:13",
+        "source": "entity:13",
+        "target": "event:9",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:9:source:10",
+        "source": "event:9",
+        "target": "source:10",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:10:company",
+        "source": "company:target",
+        "target": "event:10",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:10:entity:entity:14",
+        "source": "entity:14",
+        "target": "event:10",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:10:entity:entity:15",
+        "source": "entity:15",
+        "target": "event:10",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:10:source:11",
+        "source": "event:10",
+        "target": "source:11",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:11:company",
+        "source": "company:target",
+        "target": "event:11",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:11:entity:entity:16",
+        "source": "entity:16",
+        "target": "event:11",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:11:entity:entity:17",
+        "source": "entity:17",
+        "target": "event:11",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:11:entity:entity:13",
+        "source": "entity:13",
+        "target": "event:11",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:11:entity:entity:18",
+        "source": "entity:18",
+        "target": "event:11",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:11:source:12",
+        "source": "event:11",
+        "target": "source:12",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:12:company",
+        "source": "company:target",
+        "target": "event:12",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:12:source:13",
+        "source": "event:12",
+        "target": "source:13",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:13:company",
+        "source": "company:target",
+        "target": "event:13",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:13:source:14",
+        "source": "event:13",
+        "target": "source:14",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      },
+      {
+        "id": "edge:14:company",
+        "source": "company:target",
+        "target": "event:14",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {}
+      },
+      {
+        "id": "edge:14:entity:entity:11",
+        "source": "entity:11",
+        "target": "event:14",
+        "label": "INVOLVED_IN",
+        "type": "INVOLVED_IN",
+        "data": {
+          "role": ""
+        }
+      },
+      {
+        "id": "edge:14:source:15",
+        "source": "event:14",
+        "target": "source:15",
+        "label": "REPORTED_BY",
+        "type": "REPORTED_BY",
+        "data": {}
+      }
+    ],
+    "summary": {
+      "event_count": 14,
+      "source_count": 15,
+      "top_event_types": [
+        "news",
+        "product_launch"
+      ]
+    }
+  }
+}
